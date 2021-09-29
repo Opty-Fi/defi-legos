@@ -2,7 +2,7 @@ import ATokenAbi from "./abi/AToken.json";
 import LendingPoolAbi from "./abi/LendingPool.json";
 import LendingPoolAddressesProviderAbi from "./abi/LendingPoolAddessProvider.json";
 import LendingPoolCoreAbi from "./abi/LendingPoolCore.json";
-
+import PriceOracleAbi from "./abi/PriceOracle.json";
 const contracts = {
   ATokenAbi,
   LendingPoolAddressesProvider: {
@@ -16,6 +16,10 @@ const contracts = {
   LendingPoolCore: {
     abi: LendingPoolCoreAbi,
     address: "0x3dfd23a6c5e8bbcfc9581d2e864a68feb6a076d3",
+  },
+  PriceOracle: {
+    abi: PriceOracleAbi,
+    address: "0x76B47460d7F7c5222cFb6b6A75615ab10895DDe4",
   },
   aETH: {
     address: "0x3a3a65aab0dd2a17e3f1947ba16138cd37d08c04",
