@@ -4,6 +4,7 @@ import {default as balancer} from "./balancer"
 import {default as compound} from "./compound"
 import {default as curvefi} from "./curvefi"
 import {default as dydx} from "./dydx"
+import {default as erc20} from "./erc20"
 
 export const legos = {
   aave,
@@ -11,5 +12,6 @@ export const legos = {
   balancer,
   compound,
   curvefi,
-  dydx
+  dydx,
+  erc20
 };
