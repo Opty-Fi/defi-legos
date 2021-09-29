@@ -5,6 +5,7 @@ import {default as compound} from "./compound"
 import {default as curvefi} from "./curvefi"
 import {default as dydx} from "./dydx"
 import {default as erc20} from "./erc20"
+import {default as uniswap} from "./uniswap"
 
 export const legos = {
   aave,
@@ -13,5 +14,6 @@ export const legos = {
   compound,
   curvefi,
   dydx,
-  erc20
+  erc20,
+  uniswap
 };
