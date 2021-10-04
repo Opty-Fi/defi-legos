@@ -13,7 +13,6 @@
     "build": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
     "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
     "link": "yarn build && cd dist && npm link",
-    "prepublishOnly": "echo \"Error: Don't run 'npm publish' in root. Use 'npm run dist' instead.\" && exit 1",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
     "release": "scripts/release/release.sh"
   },
