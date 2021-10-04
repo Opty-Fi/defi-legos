@@ -1,9 +1,12 @@
 {
-  "name": "@opty-fi/defi-legos",
+  "name": "@opty_fi/defi-legos",
   "version": "0.1.0",
   "main": "index.js",
   "types": "index.d.ts",
-  "repository": "git@github.com:opty-fi/defi-legos.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/opty-fi/defi-legos.git"
+  },
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
@@ -11,7 +14,8 @@
     "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
     "link": "yarn build && cd dist && npm link",
     "prepublishOnly": "echo \"Error: Don't run 'npm publish' in root. Use 'npm run dist' instead.\" && exit 1",
-    "dist": "cd dist && npm publish --ignore-scripts --access public"
+    "dist": "cd dist && npm publish --ignore-scripts --access public",
+    "release": "scripts/release/release.sh"
   },
   "devDependencies": {
     "@types/node": "^13.13.0",
@@ -27,5 +31,11 @@
   ],
   "dependencies": {
     "@openzeppelin/contracts": "3.4.0"
-  }
+  },
+  "description": "Collection of ABIs, Addresses and Solidity Interfaces that is integrated with optyfi's earn protocol",
+  "bugs": {
+    "url": "https://github.com/opty-fi/defi-legos/issues"
+  },
+  "homepage": "https://github.com/opty-fi/defi-legos#readme",
+  "author": ""
 }
