@@ -38,9 +38,6 @@ push_release_branch_and_tag() {
 publish() {
   dist_tag="$1"
 
-  # log "Publishing opty-fi-defi-legos on npm"
-  # npm publish --tag "$dist_tag" --otp "$(prompt_otp)"
-
   log "Publishing @opty_fi/defi-legos on npm"
   cd dist
   env ALREADY_COMPILED= \
@@ -49,7 +46,6 @@ publish() {
 
   if [[ "$dist_tag" == "latest" ]]; then
     otp="$(prompt_otp)"
-    # npm dist-tag rm --otp "$otp" opty-fi-defi-legos next
     npm dist-tag rm --otp "$otp" @opty-fi/defi-legos next
   fi
 }
