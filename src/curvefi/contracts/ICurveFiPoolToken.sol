@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <= 0.9.0;
 
-contract ICurveFiPoolToken {
+interface ICurveFiPoolToken {
     function set_minter(address _minter) external;
 
     function totalSupply() external returns (uint256 out);

@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <= 0.9.0;
 
-contract ICurveFiCurve {
+interface ICurveFiCurve {
     function get_virtual_price() external returns (uint256 out);
 
     function add_liquidity(uint256[2] calldata amounts, uint256 deadline) external;
