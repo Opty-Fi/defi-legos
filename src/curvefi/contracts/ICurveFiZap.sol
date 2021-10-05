@@ -1,7 +1,9 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.6.0 <= 0.9.0;
 
 
-contract ICurveFiZap {
+interface ICurveFiZap {
     function add_liquidity(
         uint256[2] calldata uamounts,
         uint256 min_mint_amount

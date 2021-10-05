@@ -1,6 +1,8 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
 
-contract ICEther {
+pragma solidity >=0.6.0 <= 0.9.0;
+
+interface ICEther {
     function mint() external payable;
     function borrow(uint borrowAmount) external returns (uint);
     function redeem(uint redeemTokens) external returns (uint);

@@ -1,4 +1,6 @@
-pragma solidity ^0.5.7;
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.6.0 <= 0.9.0;
 pragma experimental ABIEncoderV2;
 
 import { Account } from "./ISoloMargin.sol";
@@ -10,7 +12,7 @@ import { Account } from "./ISoloMargin.sol";
  *
  * Interface that Callees for Solo must implement in order to ingest data.
  */
-contract ICallee {
+interface ICallee {
 
     // ============ Public Functions ============
 
@@ -26,5 +28,5 @@ contract ICallee {
         Account.Info memory accountInfo,
         bytes memory data
     )
-        public;
+        external;
 }
