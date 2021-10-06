@@ -11,13 +11,13 @@ Collection of ABIs, Addresses and Solidity Interfaces that is integrated with op
 - Using `npm`
 
 ```console
-$ npm install @opty_fi/defi-legos
+$ npm install @optyfi/defi-legos
 ```
 
 - Using `yarn`
 
 ```console
-$ yarn add @opty_fi/defi-legos
+$ yarn add @optyfi/defi-legos
 ```
 
 ### Usage
@@ -28,8 +28,8 @@ Once installed, you can use the legos in the library by importing them:
 // SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8.0;
 
-import "@opty_fi/ethereum/curve/contracts/ICurveAddressProvider.sol";
-import "@opty_fi/ethereum/curve/contracts/CurveAddresses.sol";
+import "@optyfi/ethereum/curve/contracts/ICurveAddressProvider.sol";
+import "@optyfi/ethereum/curve/contracts/CurveAddresses.sol";
 
 contract CurveDepositAdapter {
     function getCurveRegistry() public view returns (address) {

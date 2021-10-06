@@ -10,7 +10,7 @@ about: Report a bug in opty.fi's defi-legos
 
 **💻 Environment**
 
-<!-- Tell us what version of defi-elgos you're using, and how you're using it: Truffle, Remix, Hardhat etc. -->
+<!-- Tell us what version of defi-legos you're using, and how you're using it: Truffle, Remix, Hardhat etc. -->
 
 **📝 Details**
 
