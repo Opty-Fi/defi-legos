@@ -7,6 +7,7 @@ import { default as dydx } from "./dydx"
 import { default as erc20 } from "./erc20"
 import { default as uniswap } from "./uniswap"
 import { default as uniswapv2 } from "./uniswapV2"
+import { default as tokens } from "./tokens"
 
 export const legos = {
   aave,
@@ -17,5 +18,6 @@ export const legos = {
   dydx,
   erc20,
   uniswap,
-  uniswapv2
+  uniswapv2,
+  tokens
 };
