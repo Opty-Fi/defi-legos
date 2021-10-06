@@ -48,6 +48,10 @@ The reason behind building defi legos' library is to achieve opty.fi's philosoph
 
 Opty.fi's defi legos is being developed - thanks to the open source smart contracts of various defi protocols and builder community. Check out the [contribution guide](CONTRIBUTING.md) in order to participate to this library!
 
+## Credits
+
+Inspired by the incredible [OpenZeppelin Contracts](https://github.com/OpenZeppelin/openzeppelin-contracts) and [money-legos](https://github.com/studydefi/money-legos)
+
 ## License
 
 Opty.fi's defi-legos is released under the [MIT License](LICENSE).
