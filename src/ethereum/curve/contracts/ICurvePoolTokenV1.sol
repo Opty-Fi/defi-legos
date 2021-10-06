@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-interface ICurveTokenV1 {
+interface ICurvePoolTokenV1 {
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(
         address indexed _owner,

@@ -1,13 +1,27 @@
-import curveAbi from "./abi/Curve.json";
-import poolTokenAbi from "./abi/PoolToken.json";
-import zapAbi from "./abi/Zap.json";
+import swapAbi from "./abi/CurveSwap.json";
+import metaSwapAbi from "./abi/CurveMetaSwap.json";
+import poolTokenV1Abi from "./abi/CurvePoolTokenV1.json";
+import poolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
+import poolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
+import zapAbi from "./abi/CurveZap.json";
+import metaZapAbi from "./abi/CurveMetaZap.json";
+import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json"
+import liquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json"
+import liquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json"
 
-// Reference: https://github.com/curvefi/curve-contract/
+// Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
 const contracts = {
-  poolTokenAbi,
-  curveAbi,
+  poolTokenV1Abi,
+  poolTokenV2Abi,
+  poolTokenV3Abi,
+  swapAbi,
+  metaSwapAbi,
   zapAbi,
+  metaZapAbi,
+  liquidityGaugeAbi,
+  liquidityGaugeV2Abi,
+  liquidityGaugeV3Abi,
   cDai_cUsdc: {
     nCoins: 2,
     indexes: {
