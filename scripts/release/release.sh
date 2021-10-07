@@ -40,14 +40,14 @@ publish() {
 
   log "Building npm package for publishing"
   npm run build
-  log "Publishing @opty_fi/defi-legos on npm"
+  log "Publishing @optyfi/defi-legos on npm"
   cd dist
   npm publish --tag "$dist_tag" --otp "$(prompt_otp)"
   cd ..
 
   if [[ "$dist_tag" == "latest" ]]; then
     otp="$(prompt_otp)"
-    npm dist-tag rm --otp "$otp" @opty-fi/defi-legos next
+    npm dist-tag rm --otp "$otp" @optyfi/defi-legos next
   fi
 }
 
