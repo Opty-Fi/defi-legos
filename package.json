@@ -14,11 +14,15 @@
     "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
     "link": "yarn build && cd dist && npm link",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
-    "release": "scripts/release/release.sh"
+    "release": "scripts/release/release.sh",
+    "lint": "node_modules/.bin/eslint src --ext ts"
   },
   "devDependencies": {
     "@types/node": "^13.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
     "copyfiles": "^2.2.0",
+    "eslint": "^8.1.0",
     "json2md": "^1.7.0",
     "typescript": "^3.8.3"
   },
