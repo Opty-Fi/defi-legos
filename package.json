@@ -15,7 +15,10 @@
     "link": "yarn build && cd dist && npm link",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
     "release": "scripts/release/release.sh",
-    "lint": "node_modules/.bin/eslint src --ext ts"
+    "lint": "yarn run lint:ts",
+    "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts",
+    "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{js,json,md,ts}\"",
+    "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,ts}\""
   },
   "devDependencies": {
     "@types/node": "^13.13.0",
@@ -23,7 +26,9 @@
     "@typescript-eslint/parser": "^5.1.0",
     "copyfiles": "^2.2.0",
     "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "json2md": "^1.7.0",
+    "prettier": "^2.4.1",
     "typescript": "^3.8.3"
   },
   "prettier": {
