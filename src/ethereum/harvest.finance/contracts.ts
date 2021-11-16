@@ -316,7 +316,6 @@ const contracts = {
         "tokens": ["0x34856be886A2dBa5F7c38c4df7FD86869aB08040"]
       }
     }
-    
 };
 
 export default contracts;
