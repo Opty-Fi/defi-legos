@@ -3,10 +3,12 @@ import PriceOracleAbi from "./abi/PriceOracle.json"
 import ATokenAbi from "./abi/AToken.json";
 import LendingPoolAddressProviderRegistryAbi from "./abi/LendingPoolAddressProviderRegistry.json"
 import LendingPoolAbi from "./abi/LendingPool.json"
-import ProtocolDataProviderAbi from "./abi/ProtocolDataProvider.json"
+import AaveV2ProtocolDataProviderAbi from "./abi/AaveV2ProtocolDataProvider.json"
+import AaveV2Abi from "./abi/AaveV2.json";
 
 const contracts = {
     ATokenAbi,
+    AaveV2Abi,
     LendingPoolAddressesProvider: {
         abi: LendingPoolAddressesProviderAbi,
         address: "0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5"
@@ -23,8 +25,8 @@ const contracts = {
         abi: PriceOracleAbi,
         address: "0xA50ba011c48153De246E5192C8f9258A2ba79Ca9"
     },
-    ProtocolDataProvider: {
-        abi: ProtocolDataProviderAbi,
+    AaveV2ProtocolDataProvider: {
+        abi: AaveV2ProtocolDataProviderAbi,
         address: "0x057835Ad21a177dbdd3090bB1CAE03EaCF78Fc6d"
     },
 }

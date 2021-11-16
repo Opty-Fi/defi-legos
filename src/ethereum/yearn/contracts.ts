@@ -1,15 +1,8 @@
-import IYearn from "./abi/IYearn.json";
-import IYVault from "./abi/IYVault.json";
+import IYearnAbi from "./abi/IYearn.json";
 
 const contracts = {
-    IYearn: {
-        abi: IYearn,
-        address: "",
-    },
-    IYVault: {
-        abi: IYVault,
-        address: "",
-    },
+  yearn: {abi: IYearnAbi},
+  pools: {
     "dai_dai+usdc+usdt_yearn": {
         "pool": "0x2dded6Da1BF5DBdF597C45fcFaa3194e53EcfeAF",
         "lpToken": "0x5282a4eF67D9C33135340fB3289cc1711c13638C",
@@ -34,6 +27,7 @@ const contracts = {
           "0xdAC17F958D2ee523a2206206994597C13D831ec7"
         ]
       },
+  },
 }
 
 export default contracts;
