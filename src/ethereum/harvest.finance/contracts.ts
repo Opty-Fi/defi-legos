@@ -209,7 +209,6 @@ const contracts = {
         "deprecated": true
       }
     }
-    
 };
 
 export default contracts;
