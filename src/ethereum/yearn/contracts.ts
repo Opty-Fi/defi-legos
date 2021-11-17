@@ -1,15 +1,7 @@
-import IYearn from "./abi/IYearn.json";
-import IYVault from "./abi/IYVault.json";
+import IYearnAbi from "./abi/IYearn.json";
 
 const contracts = {
-    IYearn: {
-        abi: IYearn,
-        address: "",
-    },
-    IYVault: {
-        abi: IYVault,
-        address: "",
-    },
+  yearn: {abi: IYearnAbi},
 }
 
 export default contracts;
