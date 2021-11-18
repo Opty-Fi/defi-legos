@@ -16,7 +16,7 @@ const contracts = {
   IAaveV1LendingPoolCore: { abi: IAaveV1LendingPoolCoreAbi },
   IAaveV1LendingPoolAddressesProvider : { abi: IAaveV1LendingPoolAddressesProviderAbi  },
   IAaveV1Token: { abi: IAaveV1TokenAbi },
-  IAaveV1PriceOracle: { abi: IAaveV1PriceOracleAbi },
+  IAaveV1PriceOracle: { abi: IAaveV1PriceOracleAbi },1
   pools: {
     "dai": {
       "pool": "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8",
