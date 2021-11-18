@@ -1,0 +1,38 @@
+[
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_code",
+          "type": "bytes"
+        },
+        {
+          "internalType": "string",
+          "name": "_errorMsg",
+          "type": "string"
+        }
+      ],
+      "name": "executeCode",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes[]",
+          "name": "_codes",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "string",
+          "name": "_errorMsg",
+          "type": "string"
+        }
+      ],
+      "name": "executeCodes",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]

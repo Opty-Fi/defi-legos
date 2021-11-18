@@ -15,6 +15,7 @@ import stopLimitOrdersAbi from "./abi/StopLimitOrders.json";
 import canonicalOrdersAbi from "./abi/CanonicalOrders.json";
 import signedOperationProxyAbi from "./abi/SignedOperationProxy.json";
 import refunderAbi from "./abi/Refunder.json";
+import dYdXAbi from "./abi/dYdX.json";
 
 const contracts = {
   soloMargin: {
@@ -85,6 +86,7 @@ const contracts = {
     abi: refunderAbi,
     address: "0x7454dF5d0758D4E7A538c3aCF4841FA9137F0f74",
   },
+  dYdX: {abi: dYdXAbi},
 };
 
 export default contracts;
