@@ -8,6 +8,14 @@ import metaZapAbi from "./abi/CurveMetaZap.json";
 import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json"
 import liquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json"
 import liquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json"
+import CurveAddressProviderAbi from "./abi/interfacesV0/CurveAddressProvider.json";
+import CurveDAOAbi from "./abi/interfacesV0/CurveDAO.json";
+import CurveDepositAbi from "./abi/interfacesV0/CurveDeposit.json";
+import CurveETHSwapAbi from "./abi/interfacesV0/CurveETHSwap.json";
+import CurveGaugeAbi from "./abi/interfacesV0/CurveGauge.json";
+import CurveRegistryAbi from "./abi/interfacesV0/CurveRegistry.json";
+import CurveSwapAbi from "./abi/interfacesV0/CurveSwap.json";
+import TokenMinterAbi from "./abi/interfacesV0/TokenMinter.json";
 
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
@@ -22,6 +30,14 @@ const contracts = {
   liquidityGaugeAbi,
   liquidityGaugeV2Abi,
   liquidityGaugeV3Abi,
+  CurveAddressProvider: {abi: CurveAddressProviderAbi},
+  CurveDAO: {abi: CurveDAOAbi},
+  CurveDeposit: {abi: CurveDepositAbi},
+  CurveETHSwap: {abi: CurveETHSwapAbi},
+  CurveGauge: {abi: CurveGaugeAbi},
+  CurveRegistry: {abi: CurveRegistryAbi},
+  CurveSwap: {abi: CurveSwapAbi},
+  TokenMinter: {abi: TokenMinterAbi},
   "CurveDepositPool": {
     "tusd_dai+usdc+usdt+tusd": {
       "pool": "0xbBC81d23Ea2c3ec7e56D39296F0cbB648873a5d3",

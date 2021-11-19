@@ -3,11 +3,20 @@ import LendingPoolAbi from "./abi/LendingPool.json";
 import LendingPoolAddressesProviderAbi from "./abi/LendingPoolAddessProvider.json";
 import LendingPoolCoreAbi from "./abi/LendingPoolCore.json";
 import PriceOracleAbi from "./abi/PriceOracle.json";
-import IAaveV1Abi from "./abi/IAaveV1.json";
+import IAaveV1Abi from "./abi/AaveV1.json";
+import IAaveV1LendingPoolCoreAbi from "./abi/AaveV1LendingPoolCore.json";
+import IAaveV1LendingPoolAddressesProviderAbi from "./abi/AaveV1LendigPoolAddressesProvider.json";
+import IAaveV1TokenAbi from "./abi/AaveV1Token.json";
+import IAaveV1PriceOracleAbi from "./abi/AaveV1PriceOracle.json";
 
 const contracts = {
   ATokenAbi,
   IAaveV1Abi,
+  IAaveV1: { abi: IAaveV1Abi },
+  IAaveV1LendingPoolCore: { abi: IAaveV1LendingPoolCoreAbi },
+  IAaveV1LendingPoolAddressesProvider : { abi: IAaveV1LendingPoolAddressesProviderAbi  },
+  IAaveV1Token: { abi: IAaveV1TokenAbi },
+  IAaveV1PriceOracle: { abi: IAaveV1PriceOracleAbi },1
   pools: {
     "dai": {
       "pool": "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8",

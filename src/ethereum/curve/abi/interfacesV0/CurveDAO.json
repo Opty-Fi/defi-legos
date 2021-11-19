@@ -1,0 +1,15 @@
+[
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "liquidityPoolGauge",
+          "type": "address"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
