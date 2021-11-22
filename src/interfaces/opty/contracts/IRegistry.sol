@@ -354,7 +354,15 @@ interface IRegistry {
      * @param _poolRatingRange pool rating range ([lowerLimit, upperLimit]) to update for given risk profile
      * @return A boolean value indicating whether the operation succeeded
      */
-    function updateRPPoolRatings(uint256 _riskProfileCode, DataTypes.PoolRatingsRange memory _poolRatingRange)
+    function updateRPPoolRatings(uint256 _riskProfileCode, DataTypes.PoolRatingsRange memory _poolRatingRange) external returns(bool);
+
+    /**
+     * @notice Update the pool ratings for existing risk profile
+     * @param _riskProfile Risk profile to update with pool rating range
+     * @param _poolRatingRange pool rating range ([lowerLimit, upperLimit]) to update for given risk profile
+     * @return A boolean value indicating whether the operation succeeded
+     */
+    function updateRPPoolRatings(string memory _riskProfile, DataTypes.PoolRatingsRange memory _poolRatingRange)
         external
         returns (bool);
 

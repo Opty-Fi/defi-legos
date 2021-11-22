@@ -157,7 +157,7 @@ interface IVault {
      * @return returns true on successfully setting risk profile name.
      */
     function setRiskProfileCode(uint256 _riskProfileCode) external returns (bool);
-
+     
     /**
      * @notice Assign the address of the underlying asset of the vault
      * @dev the underlying asset should be approved by the governance
@@ -188,4 +188,4 @@ interface IVault {
      * @return return queue
      */
     function getDepositQueue() external view returns (DataTypes.UserDepositOperation[] memory);
-}cd
+}
