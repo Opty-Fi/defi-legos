@@ -3,6 +3,9 @@
 pragma solidity >=0.6.0 <= 0.9.0;
 pragma experimental ABIEncoderV2;
 
+//  libraries
+import { DataTypes } from "../../../libraries/types/DataTypes.sol";
+
 /**
  * @title Interface for opty.fi's interest bearing vault
  * @author opty.fi
@@ -150,10 +153,10 @@ interface IVault {
     /**
      * @notice Assign a risk profile name
      * @dev name of the risk profile should be approved by governance
-     * @param _profile name of the risk profile
+     * @param _riskProfileCode code of the risk profile
      * @return returns true on successfully setting risk profile name.
      */
-    function setProfile(string memory _profile) external returns (bool);
+    function setRiskProfileCode(uint256 _riskProfileCode) external returns (bool);
 
     /**
      * @notice Assign the address of the underlying asset of the vault
@@ -179,4 +182,10 @@ interface IVault {
      * @return return true on successful admin call
      */
     function adminCall(bytes[] memory _codes) external returns (bool);
+
+    /**
+     * @notice A function to get queue list
+     * @return return queue
+     */
+    function getDepositQueue() external view returns (DataTypes.UserDepositOperation[] memory);
 }

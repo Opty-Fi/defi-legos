@@ -119,6 +119,8 @@ library DataTypes {
         bool canBorrow;
         PoolRatingsRange poolRatingsRange;
         bool exists;
+        string name;
+        string symbol;
     }
 
     /**
