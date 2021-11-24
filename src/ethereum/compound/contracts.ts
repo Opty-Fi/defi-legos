@@ -3,11 +3,9 @@ import CompoundPriceOracleAbi from "./abi/CompoundPriceOracle.json";
 import CTokenAbi from "./abi/CToken.json";
 import CEtherAbi from "./abi/CEther.json";
 import CompoundAbi from "./abi/Compound.json";
-import EthGatewayAbi from "./abi/ETHGateway.json";
 
 const contracts = {
   cToken: { abi: CTokenAbi },
-  EthGatewayAbi,
   CompoundAbi,
   comptroller: {
     address: "0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b",
