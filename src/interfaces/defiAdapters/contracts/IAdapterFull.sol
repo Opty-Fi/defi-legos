@@ -8,7 +8,7 @@ import { IAdapterBorrow } from "./IAdapterBorrow.sol";
 import { IAdapterHarvestReward } from "./IAdapterHarvestReward.sol";
 import { IAdapterStaking } from "./IAdapterStaking.sol";
 import { IAdapterStakingCurve } from "./IAdapterStakingCurve.sol";
-import { IAdapterInvestLimit } from "./IAdapterInvestLimit.sol";
+import "./IAdapterInvestLimit.sol";
 
 /**
  * @title Interface containing all functions from different DeFi adapter interfaces

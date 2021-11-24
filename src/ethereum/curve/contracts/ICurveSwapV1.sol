@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-interface ICurveSwap {
+interface ICurveSwapV1 {
     event TokenExchange(
         address indexed buyer,
         int128 sold_id,

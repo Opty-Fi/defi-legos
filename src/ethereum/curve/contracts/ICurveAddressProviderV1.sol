@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-interface MyInterface {
+interface ICurveAddressProviderV1 {
     event NewAddressIdentifier(
         uint256 indexed id,
         address addr,

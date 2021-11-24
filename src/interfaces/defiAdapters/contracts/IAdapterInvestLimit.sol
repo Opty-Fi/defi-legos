@@ -3,7 +3,9 @@
 pragma solidity >=0.6.0 <= 0.9.0;
 pragma experimental ABIEncoderV2;
 
-import { DataTypes } from "../../../libraries/types/DataTypes.sol";
+
+/** @notice Named Constants for defining max exposure state */
+enum MaxExposure { Number, Pct }
 
 /**
  * @title Interface for setting deposit invest limit for DeFi adapters except Curve
@@ -18,7 +20,7 @@ interface IAdapterInvestLimit {
      * @param maxDepositProtocolMode Mode of maxDeposit set (can be absolute value or percentage)
      * @param caller Address of user who has called the respective function to trigger this event
      */
-    event LogMaxDepositProtocolMode(DataTypes.MaxExposure indexed maxDepositProtocolMode, address indexed caller);
+    event LogMaxDepositProtocolMode(MaxExposure indexed maxDepositProtocolMode, address indexed caller);
 
     /**
      * @notice Notify when Max Deposit Protocol percentage is set
@@ -73,5 +75,5 @@ interface IAdapterInvestLimit {
      * @dev Types (can be number or percentage) supported for the maxDeposit value
      * @param _mode Mode of maxDeposit to be set (can be absolute value or percentage)
      */
-    function setMaxDepositProtocolMode(DataTypes.MaxExposure _mode) external;
+    function setMaxDepositProtocolMode(MaxExposure _mode) external;
 }
