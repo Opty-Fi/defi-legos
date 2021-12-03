@@ -1,0 +1,43 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pool",
+        "type": "address"
+      }
+    ],
+    "name": "get_pool_coins",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address[8]",
+            "name": "coins",
+            "type": "address[8]"
+          },
+          {
+            "internalType": "address[8]",
+            "name": "underlying_coins",
+            "type": "address[8]"
+          },
+          {
+            "internalType": "uint256[8]",
+            "name": "decimals",
+            "type": "uint256[8]"
+          },
+          {
+            "internalType": "uint256[8]",
+            "name": "underlying_decimals",
+            "type": "uint256[8]"
+          }
+        ],
+        "internalType": "struct ICurvePoolInfo.PoolCoins",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
