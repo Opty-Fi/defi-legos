@@ -1,31 +1,128 @@
 [
-    {
-      "inputs": [
-        {
-          "internalType": "address payable",
-          "name": "_vault",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_underlyingToken",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "_liquidityPool",
-          "type": "address"
-        }
-      ],
-      "name": "getAllAmountInTokenStakeWrite",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    }
-  ]
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_redeemAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculateRedeemableLPTokenAmountStakeWrite",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      }
+    ],
+    "name": "getAllAmountInTokenStakeWrite",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      }
+    ],
+    "name": "getUnclaimedRewardTokenAmountWrite",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_redeemAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "isRedeemableAmountSufficientStakeWrite",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
