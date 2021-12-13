@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
-interface ICurveRegistry {
+interface ICurveRegistryV1 {
     event PoolAdded(address indexed pool, bytes rate_method_id);
     event PoolRemoved(address indexed pool);
 
