@@ -10,7 +10,8 @@
   "license": "MIT",
   "scripts": {
     "commit": "git-cz",
-    "build": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
+    "build": "yarn build:types && yarn postbuild",
+    "build:types": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
     "clean": "rm -rf dist",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
     "link": "yarn build && cd dist && npm link",
