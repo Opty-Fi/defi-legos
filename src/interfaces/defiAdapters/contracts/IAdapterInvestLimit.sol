@@ -4,10 +4,7 @@ pragma solidity >=0.6.0 <=0.9.0;
 pragma experimental ABIEncoderV2;
 
 /** @notice Named Constants for defining max exposure state */
-enum MaxExposure {
-    Number,
-    Pct
-}
+enum MaxExposure { Number, Pct }
 
 /**
  * @title Interface for setting deposit invest limit for DeFi adapters except Curve
