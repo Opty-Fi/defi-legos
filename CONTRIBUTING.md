@@ -1,5 +1,4 @@
-Contributing to Opty.fi's defi legos
-=======
+# Contributing to Opty.fi's defi legos
 
 We really appreciate and value contributions to opty.fi's defi legos. Please take some time to review the items listed below to make sure that your contributions are merged as soon as possible.
 
@@ -13,7 +12,7 @@ As a contributor, you are expected to fork this repository, work on your own for
 
 ## A typical workflow
 
-1) Make sure your fork is up to date with the main repository:
+1. Make sure your fork is up to date with the main repository:
 
 ```
 cd defi-legos
@@ -21,15 +20,17 @@ git remote add upstream https://github.com/opty-fi/defi-legos.git
 git fetch upstream
 git pull --rebase upstream master
 ```
+
 NOTE: The directory `defi-legos` represents your fork's local copy.
 
-2) Branch out from `main` into `fix/some-bug-#123`:
-(Postfixing #123 will associate your PR with the issue #123 and make everyone's life easier =D)
+2. Branch out from `main` into `fix/some-bug-#123`:
+   (Postfixing #123 will associate your PR with the issue #123 and make everyone's life easier =D)
+
 ```
 git checkout -b fix/some-bug-#123
 ```
 
-3) Make your changes, add your files, commit, and push to your fork.
+3. Make your changes, add your files, commit, and push to your fork.
 
 ```
 git add SomeFile.js
@@ -37,22 +38,21 @@ git commit "Fix some bug #123"
 git push origin fix/some-bug-#123
 ```
 
-
-4) Run tests, linter, etc. This can be done by running local continuous integration and make sure it passes.(ToDo)
+4. Run tests, linter, etc. This can be done by running local continuous integration and make sure it passes.(ToDo)
 
 ```bash
 yarn test
 yarn lint
 ```
 
-5) Go to [github.com/opty-fi/defi-legos](https://github.com/opty-fi/defi-legos) in your web browser and issue a new pull request.
+5. Go to [github.com/opty-fi/defi-legos](https://github.com/opty-fi/defi-legos) in your web browser and issue a new pull request.
 
-*IMPORTANT* Read the PR template very carefully and make sure to follow all the instructions. These instructions
+_IMPORTANT_ Read the PR template very carefully and make sure to follow all the instructions. These instructions
 refer to some very important conditions that your PR must meet in order to be accepted, such as making sure that all tests pass, JS linting tests pass, Solidity linting tests pass, etc.
 
-6) Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of opty.fi's defi-legos.
+6. Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of opty.fi's defi-legos.
 
-*IMPORTANT* Please pay attention to the maintainer's feedback, since its a necessary step to keep up with the standards opty.fi's defi-legos attains to.
+_IMPORTANT_ Please pay attention to the maintainer's feedback, since its a necessary step to keep up with the standards opty.fi's defi-legos attains to.
 
 ## All set!
 

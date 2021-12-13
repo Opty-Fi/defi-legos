@@ -10,7 +10,6 @@ Publish a release candidate with `npm run release rc`.
 
 Publish the final release with `npm run release final`.
 
-
 ## Merging the release branch
 
 After the final release, the release branch should be merged back into `master`. This merge must not be squashed because it would lose the tagged release commit. Since the GitHub repo is set up to only allow squashed merges, the merge should be done locally and pushed.

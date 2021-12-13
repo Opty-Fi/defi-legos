@@ -86,7 +86,7 @@ const contracts = {
     abi: refunderAbi,
     address: "0x7454dF5d0758D4E7A538c3aCF4841FA9137F0f74",
   },
-  dYdX: {abi: dYdXAbi},
+  dYdX: { abi: dYdXAbi },
 };
 
 export default contracts;

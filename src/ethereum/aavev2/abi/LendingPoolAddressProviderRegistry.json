@@ -60,9 +60,7 @@
   {
     "inputs": [],
     "name": "getAddressesProvidersList",
-    "outputs": [
-      { "internalType": "address[]", "name": "", "type": "address[]" }
-    ],
+    "outputs": [{ "internalType": "address[]", "name": "", "type": "address[]" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -91,18 +89,14 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "provider", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "provider", "type": "address" }],
     "name": "unregisterAddressesProvider",
     "outputs": [],
     "stateMutability": "nonpayable",

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 import "./IFlashLoanReceiver.sol";
 
@@ -9,15 +9,12 @@ contract FlashLoanReceiverBase is IFlashLoanReceiver {
 
     address constant ETHADDRESS = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 
-    ILendingPoolAddressesProvider public addressesProvider = ILendingPoolAddressesProvider(
-        0x24a42fD28C976A61Df5D00D0599C34c4f90748c8
-    );
+    ILendingPoolAddressesProvider public addressesProvider =
+        ILendingPoolAddressesProvider(0x24a42fD28C976A61Df5D00D0599C34c4f90748c8);
 
     function() external payable {}
 
-    function transferFundsBackToPoolInternal(address _reserve, uint256 _amount)
-        internal
-    {
+    function transferFundsBackToPoolInternal(address _reserve, uint256 _amount) internal {
         address payable core = addressesProvider.getLendingPoolCore();
         transferInternal(core, _reserve, _amount);
     }
@@ -36,11 +33,7 @@ contract FlashLoanReceiverBase is IFlashLoanReceiver {
         IERC20(_reserve).transfer(_destination, _amount);
     }
 
-    function getBalanceInternal(address _target, address _reserve)
-        internal
-        view
-        returns (uint256)
-    {
+    function getBalanceInternal(address _target, address _reserve) internal view returns (uint256) {
         if (_reserve == ETHADDRESS) {
             return _target.balance;
         }

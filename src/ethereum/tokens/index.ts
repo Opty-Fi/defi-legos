@@ -5,10 +5,10 @@ import WRAPPED_TOKENS from "./wrapped_tokens";
 import MULTI_ASSET_TOKENS from "./multi_asset_tokens";
 
 const tokens = {
-    BTC_TOKENS,
-    PLAIN_TOKENS,
-    REWARD_TOKENS,
-    WRAPPED_TOKENS,
-    MULTI_ASSET_TOKENS
-}
-export default tokens
+  BTC_TOKENS,
+  PLAIN_TOKENS,
+  REWARD_TOKENS,
+  WRAPPED_TOKENS,
+  MULTI_ASSET_TOKENS,
+};
+export default tokens;
