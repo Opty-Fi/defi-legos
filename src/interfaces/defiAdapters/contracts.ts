@@ -6,12 +6,12 @@ import AdapterStakingAbi from "./abi/Adapterstaking.json";
 import AdapterStakingCurveAbi from "./abi/AdapterStakingCurve.json";
 
 const contracts = {
-    Adapter: { abi: AdapterAbi },
-    AdapterBorrow: { abi: AdapterBorrowAbi },
-    AdapterFull: { abi: AdapterFullAbi },
-    AdapterHarvestReward: { abi: AdapterHarvestRewardAbi },
-    AdapterStaking: { abi: AdapterStakingAbi },
-    AdapterStakingCurve: { abi: AdapterStakingCurveAbi }
+  Adapter: { abi: AdapterAbi },
+  AdapterBorrow: { abi: AdapterBorrowAbi },
+  AdapterFull: { abi: AdapterFullAbi },
+  AdapterHarvestReward: { abi: AdapterHarvestRewardAbi },
+  AdapterStaking: { abi: AdapterStakingAbi },
+  AdapterStakingCurve: { abi: AdapterStakingCurveAbi },
 };
 
 export default contracts;

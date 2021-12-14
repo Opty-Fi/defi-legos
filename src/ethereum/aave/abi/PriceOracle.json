@@ -66,9 +66,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "_asset", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "_asset", "type": "address" }],
     "name": "getAssetPrice",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -77,13 +75,9 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address[]", "name": "_assets", "type": "address[]" }
-    ],
+    "inputs": [{ "internalType": "address[]", "name": "_assets", "type": "address[]" }],
     "name": "getAssetsPrices",
-    "outputs": [
-      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
-    ],
+    "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -99,9 +93,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "_asset", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "_asset", "type": "address" }],
     "name": "getSourceOfAsset",
     "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "payable": false,
@@ -164,9 +156,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
     "name": "transferOwnership",
     "outputs": [],
     "payable": false,

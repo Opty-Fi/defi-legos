@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 interface ICurveStableSwap {
     /* solhint-disable func-name-mixedcase, var-name-mixedcase */

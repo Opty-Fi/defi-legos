@@ -7,10 +7,7 @@ interface ICurveRegistryV1 {
     event PoolAdded(address indexed pool, bytes rate_method_id);
     event PoolRemoved(address indexed pool);
 
-    function find_pool_for_coins(address _from, address _to)
-        external
-        view
-        returns (address);
+    function find_pool_for_coins(address _from, address _to) external view returns (address);
 
     function find_pool_for_coins(
         address _from,
@@ -18,49 +15,25 @@ interface ICurveRegistryV1 {
         uint256 i
     ) external view returns (address);
 
-    function get_n_coins(address _pool)
-        external
-        view
-        returns (uint256[2] memory);
+    function get_n_coins(address _pool) external view returns (uint256[2] memory);
 
     function get_coins(address _pool) external view returns (address[8] memory);
 
-    function get_underlying_coins(address _pool)
-        external
-        view
-        returns (address[8] memory);
+    function get_underlying_coins(address _pool) external view returns (address[8] memory);
 
-    function get_decimals(address _pool)
-        external
-        view
-        returns (uint256[8] memory);
+    function get_decimals(address _pool) external view returns (uint256[8] memory);
 
-    function get_underlying_decimals(address _pool)
-        external
-        view
-        returns (uint256[8] memory);
+    function get_underlying_decimals(address _pool) external view returns (uint256[8] memory);
 
     function get_rates(address _pool) external view returns (uint256[8] memory);
 
-    function get_gauges(address _pool)
-        external
-        view
-        returns (address[10] memory, int128[10] memory);
+    function get_gauges(address _pool) external view returns (address[10] memory, int128[10] memory);
 
-    function get_balances(address _pool)
-        external
-        view
-        returns (uint256[8] memory);
+    function get_balances(address _pool) external view returns (uint256[8] memory);
 
-    function get_underlying_balances(address _pool)
-        external
-        view
-        returns (uint256[8] memory);
+    function get_underlying_balances(address _pool) external view returns (uint256[8] memory);
 
-    function get_virtual_price_from_lp_token(address _token)
-        external
-        view
-        returns (uint256);
+    function get_virtual_price_from_lp_token(address _token) external view returns (uint256);
 
     function get_A(address _pool) external view returns (uint256);
 
@@ -82,10 +55,7 @@ interface ICurveRegistryV1 {
 
     function get_fees(address _pool) external view returns (uint256[2] memory);
 
-    function get_admin_balances(address _pool)
-        external
-        view
-        returns (uint256[8] memory);
+    function get_admin_balances(address _pool) external view returns (uint256[8] memory);
 
     function get_coin_indices(
         address _pool,
@@ -112,10 +82,7 @@ interface ICurveRegistryV1 {
 
     function get_coin_swap_count(address _coin) external view returns (uint256);
 
-    function get_coin_swap_complement(address _coin, uint256 _index)
-        external
-        view
-        returns (address);
+    function get_coin_swap_complement(address _coin, uint256 _index) external view returns (address);
 
     function get_pool_asset_type(address _pool) external view returns (uint256);
 
@@ -162,30 +129,17 @@ interface ICurveRegistryV1 {
 
     function remove_pool(address _pool) external;
 
-    function set_pool_gas_estimates(
-        address[5] memory _addr,
-        uint256[2][5] memory _amount
-    ) external;
+    function set_pool_gas_estimates(address[5] memory _addr, uint256[2][5] memory _amount) external;
 
-    function set_coin_gas_estimates(
-        address[10] memory _addr,
-        uint256[10] memory _amount
-    ) external;
+    function set_coin_gas_estimates(address[10] memory _addr, uint256[10] memory _amount) external;
 
-    function set_gas_estimate_contract(address _pool, address _estimator)
-        external;
+    function set_gas_estimate_contract(address _pool, address _estimator) external;
 
-    function set_liquidity_gauges(
-        address _pool,
-        address[10] memory _liquidity_gauges
-    ) external;
+    function set_liquidity_gauges(address _pool, address[10] memory _liquidity_gauges) external;
 
     function set_pool_asset_type(address _pool, uint256 _asset_type) external;
 
-    function batch_set_pool_asset_type(
-        address[32] memory _pools,
-        uint256[32] memory _asset_types
-    ) external;
+    function batch_set_pool_asset_type(address[32] memory _pools, uint256[32] memory _asset_types) external;
 
     function address_provider() external view returns (address);
 
@@ -199,10 +153,7 @@ interface ICurveRegistryV1 {
 
     function get_coin(uint256 arg0) external view returns (address);
 
-    function get_pool_from_lp_token(address arg0)
-        external
-        view
-        returns (address);
+    function get_pool_from_lp_token(address arg0) external view returns (address);
 
     function get_lp_token(address arg0) external view returns (address);
 

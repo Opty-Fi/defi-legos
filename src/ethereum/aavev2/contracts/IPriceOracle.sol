@@ -1,24 +1,18 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 interface IPriceOracle {
     event AssetSourceUpdated(address indexed asset, address indexed source);
     event FallbackOracleUpdated(address indexed fallbackOracle);
-    event OwnershipTransferred(
-        address indexed previousOwner,
-        address indexed newOwner
-    );
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
     event WethSet(address indexed weth);
 
     function WETH() external view returns (address);
 
     function getAssetPrice(address asset) external view returns (uint256);
 
-    function getAssetsPrices(address[] memory assets)
-        external
-        view
-        returns (uint256[] memory);
+    function getAssetsPrices(address[] memory assets) external view returns (uint256[] memory);
 
     function getFallbackOracle() external view returns (address);
 
@@ -28,8 +22,7 @@ interface IPriceOracle {
 
     function renounceOwnership() external;
 
-    function setAssetSources(address[] memory assets, address[] memory sources)
-        external;
+    function setAssetSources(address[] memory assets, address[] memory sources) external;
 
     function setFallbackOracle(address fallbackOracle) external;
 

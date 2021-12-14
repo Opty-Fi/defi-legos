@@ -337,9 +337,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "whom", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "whom", "type": "address" }],
     "name": "balanceOf",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -386,9 +384,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcInGivenOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -416,9 +412,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcOutGivenIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -446,9 +440,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcPoolInGivenSingleOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "poolAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "poolAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -468,9 +460,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcPoolOutGivenSingleIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "poolAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "poolAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -490,9 +480,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcSingleInGivenPoolOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -516,9 +504,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcSingleOutGivenPoolIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -545,9 +531,7 @@
       { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
     ],
     "name": "calcSpotPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "spotPrice", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "spotPrice", "type": "uint256" }],
     "payable": false,
     "stateMutability": "pure",
     "type": "function"
@@ -605,9 +589,7 @@
       }
     ],
     "name": "exitswapExternAmountOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "poolAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "poolAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -620,9 +602,7 @@
       { "internalType": "uint256", "name": "minAmountOut", "type": "uint256" }
     ],
     "name": "exitswapPoolAmountIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -638,9 +618,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
     "name": "getBalance",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -669,18 +647,14 @@
     "constant": true,
     "inputs": [],
     "name": "getCurrentTokens",
-    "outputs": [
-      { "internalType": "address[]", "name": "tokens", "type": "address[]" }
-    ],
+    "outputs": [{ "internalType": "address[]", "name": "tokens", "type": "address[]" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
     "name": "getDenormalizedWeight",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -691,18 +665,14 @@
     "constant": true,
     "inputs": [],
     "name": "getFinalTokens",
-    "outputs": [
-      { "internalType": "address[]", "name": "tokens", "type": "address[]" }
-    ],
+    "outputs": [{ "internalType": "address[]", "name": "tokens", "type": "address[]" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
     "name": "getNormalizedWeight",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -725,9 +695,7 @@
       { "internalType": "address", "name": "tokenOut", "type": "address" }
     ],
     "name": "getSpotPrice",
-    "outputs": [
-      { "internalType": "uint256", "name": "spotPrice", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "spotPrice", "type": "uint256" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -739,9 +707,7 @@
       { "internalType": "address", "name": "tokenOut", "type": "address" }
     ],
     "name": "getSpotPriceSansFee",
-    "outputs": [
-      { "internalType": "uint256", "name": "spotPrice", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "spotPrice", "type": "uint256" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -766,9 +732,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
     "name": "gulp",
     "outputs": [],
     "payable": false,
@@ -842,9 +806,7 @@
       }
     ],
     "name": "joinswapExternAmountIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "poolAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "poolAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -857,9 +819,7 @@
       { "internalType": "uint256", "name": "maxAmountIn", "type": "uint256" }
     ],
     "name": "joinswapPoolAmountOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "tokenAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -888,9 +848,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "manager", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "manager", "type": "address" }],
     "name": "setController",
     "outputs": [],
     "payable": false,
@@ -908,9 +866,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "swapFee", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "swapFee", "type": "uint256" }],
     "name": "setSwapFee",
     "outputs": [],
     "payable": false,
@@ -1006,9 +962,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "token", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
     "name": "unbind",
     "outputs": [],
     "payable": false,

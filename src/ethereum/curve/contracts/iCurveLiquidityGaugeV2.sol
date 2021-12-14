@@ -15,11 +15,7 @@ interface ICurveLiquidityGaugeV2 {
     event CommitOwnership(address admin);
     event ApplyOwnership(address admin);
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
-    event Approval(
-        address indexed _owner,
-        address indexed _spender,
-        uint256 _value
-    );
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
     function decimals() external view returns (uint256);
 
@@ -29,9 +25,7 @@ interface ICurveLiquidityGaugeV2 {
 
     function claimable_tokens(address addr) external returns (uint256);
 
-    function claimable_reward(address _addr, address _token)
-        external
-        returns (uint256);
+    function claimable_reward(address _addr, address _token) external returns (uint256);
 
     function claim_rewards() external;
 
@@ -39,10 +33,7 @@ interface ICurveLiquidityGaugeV2 {
 
     function claim_historic_rewards(address[8] memory _reward_tokens) external;
 
-    function claim_historic_rewards(
-        address[8] memory _reward_tokens,
-        address _addr
-    ) external;
+    function claim_historic_rewards(address[8] memory _reward_tokens, address _addr) external;
 
     function kick(address addr) external;
 
@@ -54,10 +45,7 @@ interface ICurveLiquidityGaugeV2 {
 
     function withdraw(uint256 _value) external;
 
-    function allowance(address _owner, address _spender)
-        external
-        view
-        returns (uint256);
+    function allowance(address _owner, address _spender) external view returns (uint256);
 
     function transfer(address _to, uint256 _value) external returns (bool);
 
@@ -69,13 +57,9 @@ interface ICurveLiquidityGaugeV2 {
 
     function approve(address _spender, uint256 _value) external returns (bool);
 
-    function increaseAllowance(address _spender, uint256 _added_value)
-        external
-        returns (bool);
+    function increaseAllowance(address _spender, uint256 _added_value) external returns (bool);
 
-    function decreaseAllowance(address _spender, uint256 _subtracted_value)
-        external
-        returns (bool);
+    function decreaseAllowance(address _spender, uint256 _subtracted_value) external returns (bool);
 
     function set_rewards(
         address _reward_contract,
@@ -109,10 +93,7 @@ interface ICurveLiquidityGaugeV2 {
 
     function symbol() external view returns (string memory);
 
-    function approved_to_deposit(address arg0, address arg1)
-        external
-        view
-        returns (bool);
+    function approved_to_deposit(address arg0, address arg1) external view returns (bool);
 
     function working_balances(address arg0) external view returns (uint256);
 
@@ -124,15 +105,9 @@ interface ICurveLiquidityGaugeV2 {
 
     function integrate_inv_supply(uint256 arg0) external view returns (uint256);
 
-    function integrate_inv_supply_of(address arg0)
-        external
-        view
-        returns (uint256);
+    function integrate_inv_supply_of(address arg0) external view returns (uint256);
 
-    function integrate_checkpoint_of(address arg0)
-        external
-        view
-        returns (uint256);
+    function integrate_checkpoint_of(address arg0) external view returns (uint256);
 
     function integrate_fraction(address arg0) external view returns (uint256);
 
@@ -144,10 +119,7 @@ interface ICurveLiquidityGaugeV2 {
 
     function reward_integral(address arg0) external view returns (uint256);
 
-    function reward_integral_for(address arg0, address arg1)
-        external
-        view
-        returns (uint256);
+    function reward_integral_for(address arg0, address arg1) external view returns (uint256);
 
     function admin() external view returns (address);
 

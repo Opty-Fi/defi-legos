@@ -1,8 +1,6 @@
 [
   {
-    "inputs": [
-      { "internalType": "string", "name": "marketId", "type": "string" }
-    ],
+    "inputs": [{ "internalType": "string", "name": "marketId", "type": "string" }],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
@@ -275,36 +273,28 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "emergencyAdmin", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "emergencyAdmin", "type": "address" }],
     "name": "setEmergencyAdmin",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "manager", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "manager", "type": "address" }],
     "name": "setLendingPoolCollateralManager",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "configurator", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "configurator", "type": "address" }],
     "name": "setLendingPoolConfiguratorImpl",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "pool", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "pool", "type": "address" }],
     "name": "setLendingPoolImpl",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -324,36 +314,28 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "string", "name": "marketId", "type": "string" }
-    ],
+    "inputs": [{ "internalType": "string", "name": "marketId", "type": "string" }],
     "name": "setMarketId",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "admin", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "admin", "type": "address" }],
     "name": "setPoolAdmin",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "priceOracle", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "priceOracle", "type": "address" }],
     "name": "setPriceOracle",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }],
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",

@@ -1,25 +1,19 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 /**
 @title IPriceOracle interface
 @notice provides the interface to interact with the PriceOracle
  */
 interface IPriceOracle {
-event AssetSourceUpdated(address indexed asset, address indexed source);
+    event AssetSourceUpdated(address indexed asset, address indexed source);
     event FallbackOracleUpdated(address indexed fallbackOracle);
-    event OwnershipTransferred(
-        address indexed previousOwner,
-        address indexed newOwner
-    );
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     function getAssetPrice(address _asset) external view returns (uint256);
 
-    function getAssetsPrices(address[] memory _assets)
-        external
-        view
-        returns (uint256[] memory);
+    function getAssetsPrices(address[] memory _assets) external view returns (uint256[] memory);
 
     function getFallbackOracle() external view returns (address);
 
@@ -31,10 +25,7 @@ event AssetSourceUpdated(address indexed asset, address indexed source);
 
     function renounceOwnership() external;
 
-    function setAssetSources(
-        address[] memory _assets,
-        address[] memory _sources
-    ) external;
+    function setAssetSources(address[] memory _assets, address[] memory _sources) external;
 
     function setFallbackOracle(address _fallbackOracle) external;
 

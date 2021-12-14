@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 interface IYearn {
     function deposit(uint256 _amount) external;
@@ -15,5 +15,3 @@ interface IYearn {
 
     function calcPoolValueInToken() external view returns (uint256);
 }
-
- 

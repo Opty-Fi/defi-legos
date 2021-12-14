@@ -211,9 +211,7 @@
   },
   {
     "anonymous": false,
-    "inputs": [
-      { "indexed": false, "name": "expiryRampTime", "type": "uint256" }
-    ],
+    "inputs": [{ "indexed": false, "name": "expiryRampTime", "type": "uint256" }],
     "name": "LogExpiryRampTimeSet",
     "type": "event"
   },

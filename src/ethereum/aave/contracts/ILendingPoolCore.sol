@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 /**
 @title ILendingPoolCore interface
@@ -32,10 +32,7 @@ interface ILendingPoolCore {
 
     function disableReserveStableBorrowRate(address _reserve) external;
 
-    function enableBorrowingOnReserve(
-        address _reserve,
-        bool _stableBorrowRateEnabled
-    ) external;
+    function enableBorrowingOnReserve(address _reserve, bool _stableBorrowRateEnabled) external;
 
     function enableReserveAsCollateral(
         address _reserve,
@@ -48,15 +45,9 @@ interface ILendingPoolCore {
 
     function freezeReserve(address _reserve) external;
 
-    function getReserveATokenAddress(address _reserve)
-        external
-        view
-        returns (address);
+    function getReserveATokenAddress(address _reserve) external view returns (address);
 
-    function getReserveAvailableLiquidity(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveAvailableLiquidity(address _reserve) external view returns (uint256);
 
     function getReserveConfiguration(address _reserve)
         external
@@ -68,99 +59,45 @@ interface ILendingPoolCore {
             bool
         );
 
-    function getReserveCurrentAverageStableBorrowRate(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveCurrentAverageStableBorrowRate(address _reserve) external view returns (uint256);
 
-    function getReserveCurrentLiquidityRate(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveCurrentLiquidityRate(address _reserve) external view returns (uint256);
 
-    function getReserveCurrentStableBorrowRate(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveCurrentStableBorrowRate(address _reserve) external view returns (uint256);
 
-    function getReserveCurrentVariableBorrowRate(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveCurrentVariableBorrowRate(address _reserve) external view returns (uint256);
 
-    function getReserveDecimals(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveDecimals(address _reserve) external view returns (uint256);
 
-    function getReserveInterestRateStrategyAddress(address _reserve)
-        external
-        view
-        returns (address);
+    function getReserveInterestRateStrategyAddress(address _reserve) external view returns (address);
 
     function getReserveIsActive(address _reserve) external view returns (bool);
 
     function getReserveIsFreezed(address _reserve) external view returns (bool);
 
-    function getReserveIsStableBorrowRateEnabled(address _reserve)
-        external
-        view
-        returns (bool);
+    function getReserveIsStableBorrowRateEnabled(address _reserve) external view returns (bool);
 
-    function getReserveLastUpdate(address _reserve)
-        external
-        view
-        returns (uint40 timestamp);
+    function getReserveLastUpdate(address _reserve) external view returns (uint40 timestamp);
 
-    function getReserveLiquidationBonus(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveLiquidationBonus(address _reserve) external view returns (uint256);
 
-    function getReserveLiquidationThreshold(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveLiquidationThreshold(address _reserve) external view returns (uint256);
 
-    function getReserveLiquidityCumulativeIndex(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveLiquidityCumulativeIndex(address _reserve) external view returns (uint256);
 
-    function getReserveNormalizedIncome(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveNormalizedIncome(address _reserve) external view returns (uint256);
 
-    function getReserveTotalBorrows(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveTotalBorrows(address _reserve) external view returns (uint256);
 
-    function getReserveTotalBorrowsStable(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveTotalBorrowsStable(address _reserve) external view returns (uint256);
 
-    function getReserveTotalBorrowsVariable(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveTotalBorrowsVariable(address _reserve) external view returns (uint256);
 
-    function getReserveTotalLiquidity(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveTotalLiquidity(address _reserve) external view returns (uint256);
 
-    function getReserveUtilizationRate(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveUtilizationRate(address _reserve) external view returns (uint256);
 
-    function getReserveVariableBorrowsCumulativeIndex(address _reserve)
-        external
-        view
-        returns (uint256);
+    function getReserveVariableBorrowsCumulativeIndex(address _reserve) external view returns (uint256);
 
     function getReserves() external view returns (address[] memory);
 
@@ -183,35 +120,17 @@ interface ILendingPoolCore {
             uint256
         );
 
-    function getUserCurrentBorrowRateMode(address _reserve, address _user)
-        external
-        view
-        returns (uint8);
+    function getUserCurrentBorrowRateMode(address _reserve, address _user) external view returns (uint8);
 
-    function getUserCurrentStableBorrowRate(address _reserve, address _user)
-        external
-        view
-        returns (uint256);
+    function getUserCurrentStableBorrowRate(address _reserve, address _user) external view returns (uint256);
 
-    function getUserLastUpdate(address _reserve, address _user)
-        external
-        view
-        returns (uint256 timestamp);
+    function getUserLastUpdate(address _reserve, address _user) external view returns (uint256 timestamp);
 
-    function getUserOriginationFee(address _reserve, address _user)
-        external
-        view
-        returns (uint256);
+    function getUserOriginationFee(address _reserve, address _user) external view returns (uint256);
 
-    function getUserUnderlyingAssetBalance(address _reserve, address _user)
-        external
-        view
-        returns (uint256);
+    function getUserUnderlyingAssetBalance(address _reserve, address _user) external view returns (uint256);
 
-    function getUserVariableBorrowCumulativeIndex(
-        address _reserve,
-        address _user
-    ) external view returns (uint256);
+    function getUserVariableBorrowCumulativeIndex(address _reserve, address _user) external view returns (uint256);
 
     function initReserve(
         address _reserve,
@@ -222,15 +141,9 @@ interface ILendingPoolCore {
 
     function initialize(address _addressesProvider) external;
 
-    function isReserveBorrowingEnabled(address _reserve)
-        external
-        view
-        returns (bool);
+    function isReserveBorrowingEnabled(address _reserve) external view returns (bool);
 
-    function isReserveUsageAsCollateralEnabled(address _reserve)
-        external
-        view
-        returns (bool);
+    function isReserveUsageAsCollateralEnabled(address _reserve) external view returns (bool);
 
     function isUserAllowedToBorrowAtStable(
         address _reserve,
@@ -238,10 +151,7 @@ interface ILendingPoolCore {
         uint256 _amount
     ) external view returns (bool);
 
-    function isUserUseReserveAsCollateralEnabled(
-        address _reserve,
-        address _user
-    ) external view returns (bool);
+    function isUserUseReserveAsCollateralEnabled(address _reserve, address _user) external view returns (bool);
 
     function lendingPoolAddress() external view returns (address);
 
@@ -257,23 +167,15 @@ interface ILendingPoolCore {
 
     function reservesList(uint256) external view returns (address);
 
-    function setReserveBaseLTVasCollateral(address _reserve, uint256 _ltv)
-        external;
+    function setReserveBaseLTVasCollateral(address _reserve, uint256 _ltv) external;
 
     function setReserveDecimals(address _reserve, uint256 _decimals) external;
 
-    function setReserveInterestRateStrategyAddress(
-        address _reserve,
-        address _rateStrategyAddress
-    ) external;
+    function setReserveInterestRateStrategyAddress(address _reserve, address _rateStrategyAddress) external;
 
-    function setReserveLiquidationBonus(address _reserve, uint256 _bonus)
-        external;
+    function setReserveLiquidationBonus(address _reserve, uint256 _bonus) external;
 
-    function setReserveLiquidationThreshold(
-        address _reserve,
-        uint256 _threshold
-    ) external;
+    function setReserveLiquidationThreshold(address _reserve, uint256 _threshold) external;
 
     function setUserUseReserveAsCollateral(
         address _reserve,

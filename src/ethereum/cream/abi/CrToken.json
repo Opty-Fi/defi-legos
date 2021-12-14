@@ -491,9 +491,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "addAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "addAmount", "type": "uint256" }],
     "name": "_addReserves",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -511,9 +509,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "reduceAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "reduceAmount", "type": "uint256" }],
     "name": "_reduceReserves",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -635,9 +631,7 @@
     "constant": true,
     "inputs": [],
     "name": "admin",
-    "outputs": [
-      { "internalType": "address payable", "name": "", "type": "address" }
-    ],
+    "outputs": [{ "internalType": "address payable", "name": "", "type": "address" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
@@ -668,9 +662,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "owner", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
     "name": "balanceOf",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -679,9 +671,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "owner", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
     "name": "balanceOfUnderlying",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -690,9 +680,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "borrowAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "borrowAmount", "type": "uint256" }],
     "name": "borrow",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -701,9 +689,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
     "name": "borrowBalanceCurrent",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -712,9 +698,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
     "name": "borrowBalanceStored",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -816,9 +800,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "uint256", "name": "amount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "amount", "type": "uint256" }],
     "name": "flashFee",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -854,9 +836,7 @@
   },
   {
     "constant": true,
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
     "name": "getAccountSnapshot",
     "outputs": [
       { "internalType": "uint256", "name": "", "type": "uint256" },
@@ -1022,9 +1002,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "mintAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "mintAmount", "type": "uint256" }],
     "name": "mint",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -1044,18 +1022,14 @@
     "constant": true,
     "inputs": [],
     "name": "pendingAdmin",
-    "outputs": [
-      { "internalType": "address payable", "name": "", "type": "address" }
-    ],
+    "outputs": [{ "internalType": "address payable", "name": "", "type": "address" }],
     "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "redeemTokens", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "redeemTokens", "type": "uint256" }],
     "name": "redeem",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -1064,9 +1038,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "redeemAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "redeemAmount", "type": "uint256" }],
     "name": "redeemUnderlying",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -1075,9 +1047,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
     "name": "registerCollateral",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -1086,9 +1056,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "uint256", "name": "repayAmount", "type": "uint256" }
-    ],
+    "inputs": [{ "internalType": "uint256", "name": "repayAmount", "type": "uint256" }],
     "name": "repayBorrow",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
@@ -1228,9 +1196,7 @@
   },
   {
     "constant": false,
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
     "name": "unregisterCollateral",
     "outputs": [],
     "payable": false,

@@ -1,47 +1,44 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <= 0.9.0;
-
+pragma solidity >=0.6.0 <=0.9.0;
 
 interface ExchangeProxy {
-
     function batchSwapExactIn(
         Swap[] memory swaps,
         address tokenIn,
         address tokenOut,
-        uint totalAmountIn,
-        uint minTotalAmountOut
-    ) public returns (uint totalAmountOut);
-    
+        uint256 totalAmountIn,
+        uint256 minTotalAmountOut
+    ) public returns (uint256 totalAmountOut);
+
     function batchSwapExactOut(
         Swap[] memory swaps,
         address tokenIn,
         address tokenOut,
-        uint maxTotalAmountIn
-    ) public returns (uint totalAmountIn);
-    
+        uint256 maxTotalAmountIn
+    ) public returns (uint256 totalAmountIn);
+
     function batchEthInSwapExactIn(
         Swap[] memory swaps,
         address tokenOut,
-        uint minTotalAmountOut
-    ) public payable returns (uint totalAmountOut);
-    
+        uint256 minTotalAmountOut
+    ) public payable returns (uint256 totalAmountOut);
+
     function batchEthOutSwapExactIn(
         Swap[] memory swaps,
         address tokenIn,
-        uint totalAmountIn,
-        uint minTotalAmountOut
-    ) public returns (uint totalAmountOut);
-    
-    function batchEthInSwapExactOut(
-        Swap[] memory swaps,
-        address tokenOut
-    ) public payable returns (uint totalAmountIn);
-    
+        uint256 totalAmountIn,
+        uint256 minTotalAmountOut
+    ) public returns (uint256 totalAmountOut);
+
+    function batchEthInSwapExactOut(Swap[] memory swaps, address tokenOut)
+        public
+        payable
+        returns (uint256 totalAmountIn);
+
     function batchEthOutSwapExactOut(
         Swap[] memory swaps,
         address tokenIn,
-        uint maxTotalAmountIn
-    ) public returns (uint totalAmountIn);
-    
+        uint256 maxTotalAmountIn
+    ) public returns (uint256 totalAmountIn);
 }

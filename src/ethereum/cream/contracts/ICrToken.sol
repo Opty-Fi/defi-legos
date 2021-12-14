@@ -1,32 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 
-pragma solidity >=0.6.0 <= 0.9.0;
+pragma solidity >=0.6.0 <=0.9.0;
 
 interface ICrToken {
-    event AccrueInterest(
-        uint256 cashPrior,
-        uint256 interestAccumulated,
-        uint256 borrowIndex,
-        uint256 totalBorrows
-    );
-    event Approval(
-        address indexed owner,
-        address indexed spender,
-        uint256 amount
-    );
-    event Borrow(
-        address borrower,
-        uint256 borrowAmount,
-        uint256 accountBorrows,
-        uint256 totalBorrows
-    );
+    event AccrueInterest(uint256 cashPrior, uint256 interestAccumulated, uint256 borrowIndex, uint256 totalBorrows);
+    event Approval(address indexed owner, address indexed spender, uint256 amount);
+    event Borrow(address borrower, uint256 borrowAmount, uint256 accountBorrows, uint256 totalBorrows);
     event Failure(uint256 error, uint256 info, uint256 detail);
-    event Flashloan(
-        address indexed receiver,
-        uint256 amount,
-        uint256 totalFee,
-        uint256 reservesFee
-    );
+    event Flashloan(address indexed receiver, uint256 amount, uint256 totalFee, uint256 reservesFee);
     event LiquidateBorrow(
         address liquidator,
         address borrower,
@@ -38,15 +19,9 @@ interface ICrToken {
     event NewAdmin(address oldAdmin, address newAdmin);
     event NewCollateralCap(address token, uint256 newCap);
     event NewComptroller(address oldComptroller, address newComptroller);
-    event NewMarketInterestRateModel(
-        address oldInterestRateModel,
-        address newInterestRateModel
-    );
+    event NewMarketInterestRateModel(address oldInterestRateModel, address newInterestRateModel);
     event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin);
-    event NewReserveFactor(
-        uint256 oldReserveFactorMantissa,
-        uint256 newReserveFactorMantissa
-    );
+    event NewReserveFactor(uint256 oldReserveFactorMantissa, uint256 newReserveFactorMantissa);
     event Redeem(address redeemer, uint256 redeemAmount, uint256 redeemTokens);
     event RepayBorrow(
         address payer,
@@ -55,16 +30,8 @@ interface ICrToken {
         uint256 accountBorrows,
         uint256 totalBorrows
     );
-    event ReservesAdded(
-        address benefactor,
-        uint256 addAmount,
-        uint256 newTotalReserves
-    );
-    event ReservesReduced(
-        address admin,
-        uint256 reduceAmount,
-        uint256 newTotalReserves
-    );
+    event ReservesAdded(address benefactor, uint256 addAmount, uint256 newTotalReserves);
+    event ReservesReduced(address admin, uint256 reduceAmount, uint256 newTotalReserves);
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event UserCollateralChanged(address account, uint256 newCollateralTokens);
 
@@ -82,17 +49,11 @@ interface ICrToken {
 
     function _setComptroller(address newComptroller) external returns (uint256);
 
-    function _setInterestRateModel(address newInterestRateModel)
-        external
-        returns (uint256);
+    function _setInterestRateModel(address newInterestRateModel) external returns (uint256);
 
-    function _setPendingAdmin(address newPendingAdmin)
-        external
-        returns (uint256);
+    function _setPendingAdmin(address newPendingAdmin) external returns (uint256);
 
-    function _setReserveFactor(uint256 newReserveFactorMantissa)
-        external
-        returns (uint256);
+    function _setReserveFactor(uint256 newReserveFactorMantissa) external returns (uint256);
 
     function accountCollateralTokens(address) external view returns (uint256);
 
@@ -102,10 +63,7 @@ interface ICrToken {
 
     function admin() external view returns (address);
 
-    function allowance(address owner, address spender)
-        external
-        view
-        returns (uint256);
+    function allowance(address owner, address spender) external view returns (uint256);
 
     function approve(address spender, uint256 amount) external returns (bool);
 
@@ -117,10 +75,7 @@ interface ICrToken {
 
     function borrowBalanceCurrent(address account) external returns (uint256);
 
-    function borrowBalanceStored(address account)
-        external
-        view
-        returns (uint256);
+    function borrowBalanceStored(address account) external view returns (uint256);
 
     function borrowIndex() external view returns (uint256);
 
@@ -132,15 +87,9 @@ interface ICrToken {
 
     function decimals() external view returns (uint8);
 
-    function estimateBorrowRatePerBlockAfterChange(uint256 change, bool repay)
-        external
-        view
-        returns (uint256);
+    function estimateBorrowRatePerBlockAfterChange(uint256 change, bool repay) external view returns (uint256);
 
-    function estimateSupplyRatePerBlockAfterChange(uint256 change, bool repay)
-        external
-        view
-        returns (uint256);
+    function estimateSupplyRatePerBlockAfterChange(uint256 change, bool repay) external view returns (uint256);
 
     function exchangeRateCurrent() external returns (uint256);
 
@@ -222,9 +171,7 @@ interface ICrToken {
 
     function repayBorrow(uint256 repayAmount) external returns (uint256);
 
-    function repayBorrowBehalf(address borrower, uint256 repayAmount)
-        external
-        returns (uint256);
+    function repayBorrowBehalf(address borrower, uint256 repayAmount) external returns (uint256);
 
     function reserveFactorMantissa() external view returns (uint256);
 

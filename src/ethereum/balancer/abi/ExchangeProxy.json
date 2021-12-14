@@ -1,8 +1,6 @@
 [
   {
-    "inputs": [
-      { "internalType": "address", "name": "_weth", "type": "address" }
-    ],
+    "inputs": [{ "internalType": "address", "name": "_weth", "type": "address" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -63,9 +61,7 @@
       }
     ],
     "name": "batchEthInSwapExactIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }],
     "payable": true,
     "stateMutability": "payable",
     "type": "function"
@@ -95,9 +91,7 @@
       { "internalType": "address", "name": "tokenOut", "type": "address" }
     ],
     "name": "batchEthInSwapExactOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }],
     "payable": true,
     "stateMutability": "payable",
     "type": "function"
@@ -133,9 +127,7 @@
       }
     ],
     "name": "batchEthOutSwapExactIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -170,9 +162,7 @@
       }
     ],
     "name": "batchEthOutSwapExactOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -209,9 +199,7 @@
       }
     ],
     "name": "batchSwapExactIn",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountOut", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
@@ -247,9 +235,7 @@
       }
     ],
     "name": "batchSwapExactOut",
-    "outputs": [
-      { "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "totalAmountIn", "type": "uint256" }],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"

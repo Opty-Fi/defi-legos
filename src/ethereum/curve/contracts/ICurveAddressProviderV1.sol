@@ -3,16 +3,8 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 interface ICurveAddressProviderV1 {
-    event NewAddressIdentifier(
-        uint256 indexed id,
-        address addr,
-        string description
-    );
-    event AddressModified(
-        uint256 indexed id,
-        address new_address,
-        uint256 version
-    );
+    event NewAddressIdentifier(uint256 indexed id, address addr, string description);
+    event AddressModified(uint256 indexed id, address new_address, uint256 version);
     event CommitNewAdmin(uint256 indexed deadline, address indexed admin);
     event NewAdmin(address indexed admin);
 
@@ -22,17 +14,13 @@ interface ICurveAddressProviderV1 {
 
     function get_address(uint256 _id) external view returns (address);
 
-    function add_new_id(address _address, string memory _description)
-        external
-        returns (uint256);
+    function add_new_id(address _address, string memory _description) external returns (uint256);
 
     function set_address(uint256 _id, address _address) external returns (bool);
 
     function unset_address(uint256 _id) external returns (bool);
 
-    function commit_transfer_ownership(address _new_admin)
-        external
-        returns (bool);
+    function commit_transfer_ownership(address _new_admin) external returns (bool);
 
     function apply_transfer_ownership() external returns (bool);
 

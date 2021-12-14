@@ -32,10 +32,11 @@ import "@optyfi/ethereum/curve/contracts/ICurveAddressProvider.sol";
 import "@optyfi/ethereum/curve/contracts/CurveAddresses.sol";
 
 contract CurveDepositAdapter {
-    function getCurveRegistry() public view returns (address) {
-        return ICurveAddressProvider(CurveAddresses.ADDRESS_PROVIDER).get_registry();
-    }
+  function getCurveRegistry() public view returns (address) {
+    return ICurveAddressProvider(CurveAddresses.ADDRESS_PROVIDER).get_registry();
+  }
 }
+
 ```
 
 ## Security
@@ -55,4 +56,3 @@ Inspired by the incredible [OpenZeppelin Contracts](https://github.com/OpenZeppe
 ## License
 
 Opty.fi's defi-legos is released under the [MIT License](LICENSE).
-

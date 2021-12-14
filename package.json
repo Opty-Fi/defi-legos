@@ -9,27 +9,51 @@
   },
   "license": "MIT",
   "scripts": {
+    "commit": "git-cz",
+    "build": "yarn build:types && yarn postbuild",
+    "build:types": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
     "clean": "rm -rf dist",
-    "build": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
-    "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
-    "link": "yarn build && cd dist && npm link",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
+    "link": "yarn build && cd dist && npm link",
+    "lint": "yarn run lint:sol && yarn run lint:ts && yarn prettier:check",
+    "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"src/**/*.sol\"",
+    "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts",
+    "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
+    "postinstall": "husky install",
+    "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{sol,js,json,md,ts}\"",
+    "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,ts}\"",
     "release": "scripts/release/release.sh"
   },
   "devDependencies": {
-    "@types/node": "^13.13.0",
+    "@codechecks/client": "^0.1.11",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@types/node": "^16.10.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "commitizen": "^4.2.4",
     "copyfiles": "^2.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
     "json2md": "^1.7.0",
-    "typescript": "^3.8.3"
-  },
-  "prettier": {
-    "trailingComma": "all"
+    "lint-staged": "^11.2.0",
+    "pinst": "^2.1.6",
+    "prettier": "^2.4.1",
+    "prettier-plugin-solidity": "1.0.0-beta.10",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^10.2.1",
+    "typechain": "^5.1.2",
+    "typescript": "^4.4.3"
   },
   "keywords": [
     "defi-legos"
   ],
   "dependencies": {
-    "@openzeppelin/contracts": "3.4.0"
+    "@openzeppelin/contracts": "4.4.0"
   },
   "description": "Collection of ABIs, Addresses and Solidity Interfaces that is integrated with optyfi's earn protocol",
   "bugs": {

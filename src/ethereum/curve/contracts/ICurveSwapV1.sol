@@ -17,17 +17,8 @@ interface ICurveSwapV1 {
         uint256 invariant,
         uint256 token_supply
     );
-    event RemoveLiquidity(
-        address indexed provider,
-        uint256[3] token_amounts,
-        uint256[3] fees,
-        uint256 token_supply
-    );
-    event RemoveLiquidityOne(
-        address indexed provider,
-        uint256 token_amount,
-        uint256 coin_amount
-    );
+    event RemoveLiquidity(address indexed provider, uint256[3] token_amounts, uint256[3] fees, uint256 token_supply);
+    event RemoveLiquidityOne(address indexed provider, uint256 token_amount, uint256 coin_amount);
     event RemoveLiquidityImbalance(
         address indexed provider,
         uint256[3] token_amounts,
@@ -37,31 +28,18 @@ interface ICurveSwapV1 {
     );
     event CommitNewAdmin(uint256 indexed deadline, address indexed admin);
     event NewAdmin(address indexed admin);
-    event CommitNewFee(
-        uint256 indexed deadline,
-        uint256 fee,
-        uint256 admin_fee
-    );
+    event CommitNewFee(uint256 indexed deadline, uint256 fee, uint256 admin_fee);
     event NewFee(uint256 fee, uint256 admin_fee);
-    event RampA(
-        uint256 old_A,
-        uint256 new_A,
-        uint256 initial_time,
-        uint256 future_time
-    );
+    event RampA(uint256 old_A, uint256 new_A, uint256 initial_time, uint256 future_time);
     event StopRampA(uint256 A, uint256 t);
 
     function A() external view returns (uint256);
 
     function get_virtual_price() external view returns (uint256);
 
-    function calc_token_amount(uint256[3] memory amounts, bool deposit)
-        external
-        view
-        returns (uint256);
+    function calc_token_amount(uint256[3] memory amounts, bool deposit) external view returns (uint256);
 
-    function add_liquidity(uint256[3] memory amounts, uint256 min_mint_amount)
-        external;
+    function add_liquidity(uint256[3] memory amounts, uint256 min_mint_amount) external;
 
     function get_dy(
         int128 i,
@@ -82,18 +60,11 @@ interface ICurveSwapV1 {
         uint256 min_dy
     ) external;
 
-    function remove_liquidity(uint256 _amount, uint256[3] memory min_amounts)
-        external;
+    function remove_liquidity(uint256 _amount, uint256[3] memory min_amounts) external;
 
-    function remove_liquidity_imbalance(
-        uint256[3] memory amounts,
-        uint256 max_burn_amount
-    ) external;
+    function remove_liquidity_imbalance(uint256[3] memory amounts, uint256 max_burn_amount) external;
 
-    function calc_withdraw_one_coin(uint256 _token_amount, int128 i)
-        external
-        view
-        returns (uint256);
+    function calc_withdraw_one_coin(uint256 _token_amount, int128 i) external view returns (uint256);
 
     function remove_liquidity_one_coin(
         uint256 _token_amount,
