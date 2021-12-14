@@ -1,87 +1,119 @@
 const contracts = {
-    pools: {
-        "CurveDeposit": {
-            "dai_dai+usdc+usdt_am3Crv": {
-                "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
-                "lpToken": "0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171",
-                "tokens": [],
-                "swap": "",
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "usdc_dai+usdc+usdt_am3Crv": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "swap": "",
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "usdt_dai+usdc+usdt_am3Crv": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "swap": "",
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "dai+usdc+usdt_am3Crv": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": ["0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
-                "swap": "",
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": ["0", "1", "2"]
-            }
-        },
-        "CurveSwap": {
-            "adai_adai+ausdc+ausdt": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "ausdc_adai+ausdc+ausdt": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "ausdt_adai+ausdc+ausdt": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            },
-            "adai+ausdc+ausdt": {
-                "pool": "",
-                "lpToken": "",
-                "tokens": [],
-                "gauge": "",
-                "reward_token": "",
-                "rewardedToken": [],
-                "tokenIndexes": []
-            }
-        },
-        "CurveGauge": {
-
-        }
-    }
-}
+  pools: {
+    CurveDeposit: {
+      "dai_dai+usdc+usdt_am3Crv": {
+        pool: "0x445FE580eF8d70FF569aB36e80c647af338db351",
+        lpToken: "0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171",
+        tokens: ["0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"],
+        swap: "",
+        gauge: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+        reward_token: "",
+        rewardedToken: ["0x172370d5Cd63279eFa6d502DAB29171933a610AF", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
+        tokenIndexes: ["0"],
+      },
+      "usdc_dai+usdc+usdt_am3Crv": {
+        pool: "",
+        lpToken: "",
+        tokens: ["0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
+        swap: "",
+        gauge: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+        reward_token: "",
+        rewardedToken: ["0x172370d5Cd63279eFa6d502DAB29171933a610AF", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
+        tokenIndexes: ["1"],
+      },
+      "usdt_dai+usdc+usdt_am3Crv": {
+        pool: "",
+        lpToken: "",
+        tokens: ["0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
+        swap: "",
+        gauge: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+        reward_token: "",
+        rewardedToken: ["0x172370d5Cd63279eFa6d502DAB29171933a610AF", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
+        tokenIndexes: ["2"],
+      },
+      "dai+usdc+usdt_am3Crv": {
+        pool: "",
+        lpToken: "",
+        tokens: [
+          "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        ],
+        swap: "",
+        gauge: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+        reward_token: "",
+        rewardedToken: ["0x172370d5Cd63279eFa6d502DAB29171933a610AF", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
+        tokenIndexes: ["0", "1", "2"],
+      },
+    },
+    CurveSwap: {
+      am3Crv_tricrypto: {
+        pool: "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
+        lpToken: "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
+        tokens: ["0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171"],
+        swap: "",
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: ["0"],
+      },
+      amWBTC_tricrypto: {
+        pool: "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
+        lpToken: "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
+        tokens: ["0x5c2ed810328349100A66B82b78a1791B101C9D61"],
+        swap: "",
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: ["1"],
+      },
+      amWETH_tricrypto: {
+        pool: "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
+        lpToken: "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
+        tokens: ["0x28424507fefb6f7f8E9D3860F56504E4e5f5f390"],
+        swap: "",
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: ["2"],
+      },
+      "adai_adai+ausdc+ausdt": {
+        pool: "",
+        lpToken: "",
+        tokens: [],
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: [],
+      },
+      "ausdc_adai+ausdc+ausdt": {
+        pool: "",
+        lpToken: "",
+        tokens: [],
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: [],
+      },
+      "ausdt_adai+ausdc+ausdt": {
+        pool: "",
+        lpToken: "",
+        tokens: [],
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: [],
+      },
+      "adai+ausdc+ausdt": {
+        pool: "",
+        lpToken: "",
+        tokens: [],
+        gauge: "",
+        reward_token: "",
+        rewardedToken: [],
+        tokenIndexes: [],
+      },
+    },
+    CurveGauge: {},
+  },
+};
