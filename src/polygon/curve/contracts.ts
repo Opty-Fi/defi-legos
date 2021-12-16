@@ -1,4 +1,10 @@
+import ICurveL2FactoryAbi from "./abi/ICurveL2Factory.json";
+
 const contracts = {
+  CurveL2Factory: {
+    abi: ICurveL2FactoryAbi,
+    address: "0x722272D36ef0Da72FF51c5A65Db7b870E2e8D4ee",
+  },
   pools: {
     CurveDeposit: {
       "dai_dai+usdc+usdt_am3Crv": {
@@ -117,3 +123,5 @@ const contracts = {
     CurveGauge: {},
   },
 };
+
+export default contracts;
