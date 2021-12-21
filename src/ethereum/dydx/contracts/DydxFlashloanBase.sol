@@ -30,7 +30,7 @@ contract DydxFlashloanBase {
         revert("No marketId found for provided token");
     }
 
-    function _getRepaymentAmountInternal(uint256 amount) internal view returns (uint256) {
+    function _getRepaymentAmountInternal(uint256 amount) internal pure returns (uint256) {
         // Needs to be overcollateralize
         // Needs to provide +2 wei to be safe
         return amount.add(2);

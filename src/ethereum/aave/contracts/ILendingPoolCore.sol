@@ -16,8 +16,6 @@ interface ILendingPoolCore {
         uint256 variableBorrowIndex
     );
 
-    fallback() external payable;
-
     function CORE_REVISION() external view returns (uint256);
 
     function activateReserve(address _reserve) external;

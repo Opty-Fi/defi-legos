@@ -4,7 +4,7 @@ pragma solidity >=0.6.0 <=0.9.0;
 
 import "./IFlashLoanReceiver.sol";
 
-contract FlashLoanReceiverBase is IFlashLoanReceiver {
+abstract contract FlashLoanReceiverBase is IFlashLoanReceiver {
     using SafeMath for uint256;
 
     address constant ETHADDRESS = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
@@ -12,7 +12,10 @@ contract FlashLoanReceiverBase is IFlashLoanReceiver {
     ILendingPoolAddressesProvider public addressesProvider =
         ILendingPoolAddressesProvider(0x24a42fD28C976A61Df5D00D0599C34c4f90748c8);
 
-    function() external payable {}
+    /*solhint-disable no-empty-blocks */
+    receive() external payable {}
+
+    /*solhint-enable no-empty-blocks */
 
     function transferFundsBackToPoolInternal(address _reserve, uint256 _amount) internal {
         address payable core = addressesProvider.getLendingPoolCore();
@@ -26,7 +29,7 @@ contract FlashLoanReceiverBase is IFlashLoanReceiver {
     ) internal {
         if (_reserve == ETHADDRESS) {
             //solium-disable-next-line
-            _destination.call.value(_amount)("");
+            _destination.call{ value: _amount }("");
             return;
         }
 

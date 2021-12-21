@@ -12,6 +12,7 @@
     "commit": "git-cz",
     "build": "yarn build:types && yarn postbuild",
     "build:types": "yarn clean && tsc --declaration && cp package.json dist && cp README.md dist",
+    "compile": "hardhat --max-memory 4096 compile",
     "clean": "rm -rf dist",
     "dist": "cd dist && npm publish --ignore-scripts --access public",
     "link": "yarn build && cd dist && npm link",
@@ -36,6 +37,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "hardhat": "^2.8.0",
     "husky": "^7.0.2",
     "json2md": "^1.7.0",
     "lint-staged": "^11.2.0",
@@ -53,7 +55,7 @@
     "defi-legos"
   ],
   "dependencies": {
-    "@openzeppelin/contracts": "4.4.0"
+    "@openzeppelin/contracts": "v3.4.0"
   },
   "description": "Collection of ABIs, Addresses and Solidity Interfaces that is integrated with optyfi's earn protocol",
   "bugs": {
