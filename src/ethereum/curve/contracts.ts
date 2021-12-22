@@ -5,6 +5,7 @@ import poolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
 import poolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
 import zapAbi from "./abi/CurveZap.json";
 import metaZapAbi from "./abi/CurveMetaZap.json";
+import metapoolFactory from "./abi/CurveMetapoolFactory.json";
 import metapoolDepositAbi from "./abi/CurveMetapoolDeposit.json";
 import metapoolSwapAbi from "./abi/CurveMetapoolSwap.json";
 import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
@@ -29,6 +30,7 @@ const contracts = {
   metaSwapAbi,
   zapAbi,
   metaZapAbi,
+  metapoolFactory,
   metapoolDepositAbi,
   metapoolSwapAbi,
   liquidityGaugeAbi,
