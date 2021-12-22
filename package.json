@@ -38,7 +38,6 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "hardhat": "^2.8.0",
-    "husky": "^7.0.2",
     "json2md": "^1.7.0",
     "lint-staged": "^11.2.0",
     "pinst": "^2.1.6",
@@ -55,7 +54,8 @@
     "defi-legos"
   ],
   "dependencies": {
-    "@openzeppelin/contracts": "v3.4.0"
+    "@openzeppelin/contracts": "v3.4.0",
+    "husky": "^7.0.2"
   },
   "description": "Collection of ABIs, Addresses and Solidity Interfaces that is integrated with optyfi's earn protocol",
   "bugs": {
