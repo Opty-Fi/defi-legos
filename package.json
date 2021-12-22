@@ -1,6 +1,6 @@
 {
   "name": "@optyfi/defi-legos",
-  "version": "0.1.0-rc.14",
+  "version": "0.1.0-rc.13",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": {
@@ -21,6 +21,8 @@
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts",
     "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
     "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{sol,js,json,md,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,ts}\"",
     "release": "scripts/release/release.sh"
@@ -38,6 +40,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "hardhat": "^2.8.0",
+    "husky": "^7.0.2",
     "json2md": "^1.7.0",
     "lint-staged": "^11.2.0",
     "pinst": "^2.1.6",
@@ -54,8 +57,7 @@
     "defi-legos"
   ],
   "dependencies": {
-    "@openzeppelin/contracts": "v3.4.0",
-    "husky": "^7.0.2"
+    "@openzeppelin/contracts": "v3.4.0"
   },
   "description": "Collection of ABIs, Addresses and Solidity Interfaces that is integrated with optyfi's earn protocol",
   "bugs": {
