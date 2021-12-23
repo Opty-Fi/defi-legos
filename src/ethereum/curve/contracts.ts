@@ -5,9 +5,6 @@ import poolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
 import poolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
 import zapAbi from "./abi/CurveZap.json";
 import metaZapAbi from "./abi/CurveMetaZap.json";
-import metapoolFactory from "./abi/CurveMetapoolFactory.json";
-import metapoolDepositAbi from "./abi/CurveMetapoolDeposit.json";
-import metapoolSwapAbi from "./abi/CurveMetapoolSwap.json";
 import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
 import liquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json";
 import liquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json";
@@ -19,6 +16,9 @@ import CurveGaugeAbi from "./abi/interfacesV0/CurveGauge.json";
 import CurveRegistryAbi from "./abi/interfacesV0/CurveRegistry.json";
 import CurveSwapAbi from "./abi/interfacesV0/CurveSwap.json";
 import TokenMinterAbi from "./abi/interfacesV0/TokenMinter.json";
+import CurveMetapoolFactoryAbi from "./abi/interfacesV0/CurveMetapoolFactory.json";
+import CurveMetapoolDepositAbi from "./abi/interfacesV0/CurveMetapoolDeposit.json";
+import CurveMetapoolSwapAbi from "./abi/interfacesV0/CurveMetapoolSwap.json";
 
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
@@ -30,9 +30,6 @@ const contracts = {
   metaSwapAbi,
   zapAbi,
   metaZapAbi,
-  metapoolFactory,
-  metapoolDepositAbi,
-  metapoolSwapAbi,
   liquidityGaugeAbi,
   liquidityGaugeV2Abi,
   liquidityGaugeV3Abi,
@@ -44,6 +41,9 @@ const contracts = {
   CurveRegistry: { abi: CurveRegistryAbi },
   CurveSwap: { abi: CurveSwapAbi },
   TokenMinter: { abi: TokenMinterAbi },
+  CurveMetapoolFactory: { abi: CurveMetapoolFactoryAbi, address: "0x0959158b6040D32d04c301A72CBFD6b39E21c9AE" },
+  CurveMetapoolDeposit: { abi: CurveMetapoolDepositAbi },
+  CurveMetapoolSwap: { abi: CurveMetapoolSwapAbi },
   CurveDepositPool: {
     "tusd_dai+usdc+usdt+tusd": {
       pool: "0xbBC81d23Ea2c3ec7e56D39296F0cbB648873a5d3",
