@@ -1,13 +1,12 @@
-import swapAbi from "./abi/CurveSwap.json";
-import metaSwapAbi from "./abi/CurveMetaSwap.json";
-import poolTokenV1Abi from "./abi/CurvePoolTokenV1.json";
-import poolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
-import poolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
-import zapAbi from "./abi/CurveZap.json";
-import metaZapAbi from "./abi/CurveMetaZap.json";
-import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
-import liquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json";
-import liquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json";
+import CurveMetaSwapAbi from "./abi/CurveMetaSwap.json";
+import CurvePoolTokenV1Abi from "./abi/CurvePoolTokenV1.json";
+import CurvePoolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
+import CurvePoolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
+import CurveZapAbi from "./abi/CurveZap.json";
+import CurveMetaZapAbi from "./abi/CurveMetaZap.json";
+import CurveLiquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
+import CurveLiquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json";
+import CurveLiquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json";
 import CurveAddressProviderAbi from "./abi/interfacesV0/CurveAddressProvider.json";
 import CurveDAOAbi from "./abi/interfacesV0/CurveDAO.json";
 import CurveDepositAbi from "./abi/interfacesV0/CurveDeposit.json";
@@ -23,16 +22,15 @@ import CurveMetapoolSwapAbi from "./abi/interfacesV0/CurveMetapoolSwap.json";
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
 const contracts = {
-  poolTokenV1Abi,
-  poolTokenV2Abi,
-  poolTokenV3Abi,
-  swapAbi,
-  metaSwapAbi,
-  zapAbi,
-  metaZapAbi,
-  liquidityGaugeAbi,
-  liquidityGaugeV2Abi,
-  liquidityGaugeV3Abi,
+  CurvePoolTokenV1: { abi: CurvePoolTokenV1Abi },
+  CurvePoolTokenV2: { abi: CurvePoolTokenV2Abi },
+  CurvePoolTokenV3: { abi: CurvePoolTokenV3Abi },
+  CurveMetaSwap: { abi: CurveMetaSwapAbi },
+  CurveZap: { abi: CurveZapAbi },
+  CurveMetaZap: { abi: CurveMetaZapAbi },
+  CurveLiquidityGauge: { abi: CurveLiquidityGaugeAbi },
+  CurveLiquidityGaugeV2: { abi: CurveLiquidityGaugeV2Abi },
+  CurveLiquidityGaugeV3: { abi: CurveLiquidityGaugeV3Abi },
   CurveAddressProvider: { abi: CurveAddressProviderAbi },
   CurveDAO: { abi: CurveDAOAbi },
   CurveDeposit: { abi: CurveDepositAbi },
