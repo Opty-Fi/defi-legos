@@ -98,10 +98,10 @@ const contracts = {
       lpToken: "0xba3D9687Cf50fE253cd2e1cFeEdE1d6787344Ed5",
       tokens: ["0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"],
     },
-    eth: {
+    weth: {
       pool: "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8",
       lpToken: "0x3a3A65aAb0dd2A17E3F1947bA16138cd37d08c04",
-      tokens: ["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],
+      tokens: ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
     },
     enj: {
       pool: "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8",
