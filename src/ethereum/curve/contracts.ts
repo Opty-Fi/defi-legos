@@ -1,13 +1,12 @@
-import swapAbi from "./abi/CurveSwap.json";
-import metaSwapAbi from "./abi/CurveMetaSwap.json";
-import poolTokenV1Abi from "./abi/CurvePoolTokenV1.json";
-import poolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
-import poolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
-import zapAbi from "./abi/CurveZap.json";
-import metaZapAbi from "./abi/CurveMetaZap.json";
-import liquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
-import liquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json";
-import liquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json";
+import CurveMetaSwapAbi from "./abi/CurveMetaSwap.json";
+import CurvePoolTokenV1Abi from "./abi/CurvePoolTokenV1.json";
+import CurvePoolTokenV2Abi from "./abi/CurvePoolTokenV2.json";
+import CurvePoolTokenV3Abi from "./abi/CurvePoolTokenV3.json";
+import CurveZapAbi from "./abi/CurveZap.json";
+import CurveMetaZapAbi from "./abi/CurveMetaZap.json";
+import CurveLiquidityGaugeAbi from "./abi/CurveLiquidityGauge.json";
+import CurveLiquidityGaugeV2Abi from "./abi/CurveLiquidityGaugeV2.json";
+import CurveLiquidityGaugeV3Abi from "./abi/CurveLiquidityGaugeV3.json";
 import CurveAddressProviderAbi from "./abi/interfacesV0/CurveAddressProvider.json";
 import CurveDAOAbi from "./abi/interfacesV0/CurveDAO.json";
 import CurveDepositAbi from "./abi/interfacesV0/CurveDeposit.json";
@@ -16,20 +15,22 @@ import CurveGaugeAbi from "./abi/interfacesV0/CurveGauge.json";
 import CurveRegistryAbi from "./abi/interfacesV0/CurveRegistry.json";
 import CurveSwapAbi from "./abi/interfacesV0/CurveSwap.json";
 import TokenMinterAbi from "./abi/interfacesV0/TokenMinter.json";
+import CurveMetapoolFactoryAbi from "./abi/interfacesV0/CurveMetapoolFactory.json";
+import CurveMetapoolDepositAbi from "./abi/interfacesV0/CurveMetapoolDeposit.json";
+import CurveMetapoolSwapAbi from "./abi/interfacesV0/CurveMetapoolSwap.json";
 
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
 const contracts = {
-  poolTokenV1Abi,
-  poolTokenV2Abi,
-  poolTokenV3Abi,
-  swapAbi,
-  metaSwapAbi,
-  zapAbi,
-  metaZapAbi,
-  liquidityGaugeAbi,
-  liquidityGaugeV2Abi,
-  liquidityGaugeV3Abi,
+  CurvePoolTokenV1: { abi: CurvePoolTokenV1Abi },
+  CurvePoolTokenV2: { abi: CurvePoolTokenV2Abi },
+  CurvePoolTokenV3: { abi: CurvePoolTokenV3Abi },
+  CurveMetaSwap: { abi: CurveMetaSwapAbi },
+  CurveZap: { abi: CurveZapAbi },
+  CurveMetaZap: { abi: CurveMetaZapAbi },
+  CurveLiquidityGauge: { abi: CurveLiquidityGaugeAbi },
+  CurveLiquidityGaugeV2: { abi: CurveLiquidityGaugeV2Abi },
+  CurveLiquidityGaugeV3: { abi: CurveLiquidityGaugeV3Abi },
   CurveAddressProvider: { abi: CurveAddressProviderAbi },
   CurveDAO: { abi: CurveDAOAbi },
   CurveDeposit: { abi: CurveDepositAbi },
@@ -38,6 +39,9 @@ const contracts = {
   CurveRegistry: { abi: CurveRegistryAbi },
   CurveSwap: { abi: CurveSwapAbi },
   TokenMinter: { abi: TokenMinterAbi },
+  CurveMetapoolFactory: { abi: CurveMetapoolFactoryAbi, address: "0x0959158b6040D32d04c301A72CBFD6b39E21c9AE" },
+  CurveMetapoolDeposit: { abi: CurveMetapoolDepositAbi },
+  CurveMetapoolSwap: { abi: CurveMetapoolSwapAbi },
   CurveDepositPool: {
     "dai_dai+usdc": {
       pool: "0xeB21209ae4C2c9FF2a86ACA31E123764A3B6Bc06",
@@ -1823,6 +1827,4780 @@ const contracts = {
       rewardToken: "0x0000000000000000000000000000000000000000",
       rewardedTokens: ["0x090185f2135308BaD17527004364eBcC2D37e5F6"],
       tokenIndexes: ["0", "1"],
+    },
+  },
+  CurveMetapoolDepositPool: {
+    "dola_dola+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0x865377367054516e17014CcdED1e7d814EDC9ce4"],
+    },
+    "dai_dola+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_dola+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_dola+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "dola+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: [
+        "0x865377367054516e17014CcdED1e7d814EDC9ce4",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "alusd_alusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9"],
+    },
+    "dai_alusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_alusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_alusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "alusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: [
+        "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "frax_frax+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0x853d955aCEf822Db058eb8505911ED77F175b99e"],
+    },
+    "dai_frax+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_frax+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_frax+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "frax+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: [
+        "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "flexusd_flexusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0xa774FFB4AF6B0A91331C084E1aebAE6Ad535e6F3"],
+    },
+    "dai_flexusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_flexusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_flexusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "flexusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: [
+        "0xa774FFB4AF6B0A91331C084E1aebAE6Ad535e6F3",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "grapefruitusd_grapefruitusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0x71dF9Dd3e658f0136c40E2E8eC3988a5226E9A67"],
+    },
+    "dai_grapefruitusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_grapefruitusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_grapefruitusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "grapefruitusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: [
+        "0x71dF9Dd3e658f0136c40E2E8eC3988a5226E9A67",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "mountainvusd_mountainvusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0x4206Fc377c22eB4778B5DAc3C28d0fa92db43AE4"],
+    },
+    "dai_mountainvusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_mountainvusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_mountainvusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "mountainvusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: [
+        "0x4206Fc377c22eB4778B5DAc3C28d0fa92db43AE4",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "efrontierusd_efrontierusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0x575990152169e1C1a4867E81C6AE662caEf068fd"],
+    },
+    "dai_efrontierusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_efrontierusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_efrontierusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "efrontierusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: [
+        "0x575990152169e1C1a4867E81C6AE662caEf068fd",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "nibbiousd_nibbiousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0x25de492f43661Af568f46C0a3F39850Aa1D066A0"],
+    },
+    "dai_nibbiousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_nibbiousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_nibbiousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "nibbiousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: [
+        "0x25de492f43661Af568f46C0a3F39850Aa1D066A0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "folkvangusd_folkvangusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0xe14026c2f4EdD463791DA1991c74Cf16975942f6"],
+    },
+    "dai_folkvangusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_folkvangusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_folkvangusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "folkvangusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: [
+        "0xe14026c2f4EdD463791DA1991c74Cf16975942f6",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "1-noteusd_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0"],
+    },
+    "1-dai_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "1-usdc_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "1-usdt_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "1-noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: [
+        "0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "mbtc_mbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0xcfc013B416bE0Bd4b3bEdE35659423B796f8Dcf0"],
+    },
+    "renbtc_mbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D"],
+    },
+    "wbtc_mbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+    },
+    "sbtc_mbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"],
+    },
+    "mbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: [
+        "0xcfc013B416bE0Bd4b3bEdE35659423B796f8Dcf0",
+        "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+        "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6",
+      ],
+    },
+    "stablex_stablex+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0xcD91538B91B4ba7797D39a2f66E63810b50A33d0"],
+    },
+    "dai_stablex+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_stablex+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_stablex+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "stablex+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: [
+        "0xcD91538B91B4ba7797D39a2f66E63810b50A33d0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "tusd_tusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0x0000000000085d4780B73119b644AE5ecd22b376"],
+    },
+    "dai_tusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_tusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_tusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "tusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: [
+        "0x0000000000085d4780B73119b644AE5ecd22b376",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_wbtc_25000_dai_2021_3_31_rc_wbtc_25000_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0x368df85396Be56f1D475E5D10339211a77e13C32"],
+    },
+    "dai_rc_wbtc_25000_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_wbtc_25000_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_wbtc_25000_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_wbtc_25000_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: [
+        "0x368df85396Be56f1D475E5D10339211a77e13C32",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_inv_300_dai_2021_3_31_rc_inv_300_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0xd0f05F157aB49b537009594d4605f8AC9564B34B"],
+    },
+    "dai_rc_inv_300_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_inv_300_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_inv_300_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_inv_300_dai_2021_3_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: [
+        "0xd0f05F157aB49b537009594d4605f8AC9564B34B",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_veth2_850_dai_2021_4_30_rc_veth2_850_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0xFa8490d1C7A270B5f339eA97D05CC7c657774772"],
+    },
+    "dai_rc_veth2_850_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_veth2_850_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_veth2_850_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_veth2_850_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: [
+        "0xFa8490d1C7A270B5f339eA97D05CC7c657774772",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "mic2_mic2+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0xEEd0c8d2DA6d243329a6F4A8C2aC61A59ecBFa02"],
+    },
+    "dai_mic2+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_mic2+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_mic2+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "mic2+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: [
+        "0xEEd0c8d2DA6d243329a6F4A8C2aC61A59ecBFa02",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "2-noteusd_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0"],
+    },
+    "2-dai_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "2-usdc_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "2-usdt_noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "2-noteusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: [
+        "0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "wausd_wausd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0xc2db4c131ADaF01c15a1DB654c040c8578929D55"],
+    },
+    "dai_wausd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_wausd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_wausd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "wausd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: [
+        "0xc2db4c131ADaF01c15a1DB654c040c8578929D55",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "nkap_nkap+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0xd29F64577603F2854ab5270E0C68d44cee41e435"],
+    },
+    "dai_nkap+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_nkap+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_nkap+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "nkap+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: [
+        "0xd29F64577603F2854ab5270E0C68d44cee41e435",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_pickle_4_dai_2021_4_30_rc_pickle_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0xdA8b51EbD2ef9ADDb8F9223116Ba1960D9F1388f"],
+    },
+    "dai_rc_pickle_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_pickle_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_pickle_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_pickle_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: [
+        "0xdA8b51EbD2ef9ADDb8F9223116Ba1960D9F1388f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_wbtc_29000_dai_2021_4_30_rc_wbtc_29000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0xF91C09A2f407753540718209e893E5C96dDB46cc"],
+    },
+    "dai_rc_wbtc_29000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_wbtc_29000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_wbtc_29000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_wbtc_29000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: [
+        "0xF91C09A2f407753540718209e893E5C96dDB46cc",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_weth_900_dai_2021_4_30_rc_weth_900_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0x8781407e5acBB728FF1f9289107118f8163880D9"],
+    },
+    "dai_rc_weth_900_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_weth_900_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_weth_900_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_weth_900_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: [
+        "0x8781407e5acBB728FF1f9289107118f8163880D9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_inv_300_dai_2021_4_30_rc_inv_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0x573Fff325f4a20db909fBbE7D037E17c486D8697"],
+    },
+    "dai_rc_inv_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_inv_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_inv_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_inv_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: [
+        "0x573Fff325f4a20db909fBbE7D037E17c486D8697",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xcover_150_dai_2021_4_30_rc_xcover_150_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0xC92Caa33F8ce55123437B88ACe245f915D6A0953"],
+    },
+    "dai_rc_xcover_150_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xcover_150_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xcover_150_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xcover_150_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: [
+        "0xC92Caa33F8ce55123437B88ACe245f915D6A0953",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xsushi_8_dai_2021_4_30_rc_xsushi_8_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0xb239556beb879Dbe313e2334AA924Ed734e4e1Bc"],
+    },
+    "dai_rc_xsushi_8_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xsushi_8_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xsushi_8_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xsushi_8_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: [
+        "0xb239556beb879Dbe313e2334AA924Ed734e4e1Bc",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bbadger_15_dai_2021_4_30_rc_bbadger_15_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0xDdd2fb8DbA3E1f8c6dDD1BCb1d8460F33adB897d"],
+    },
+    "dai_rc_bbadger_15_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bbadger_15_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bbadger_15_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bbadger_15_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: [
+        "0xDdd2fb8DbA3E1f8c6dDD1BCb1d8460F33adB897d",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xruler_125_dai_2021_4_30_rc_xruler_125_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0xf3D907f9C7cb0B45dE0FDdfe9311B52F09A1c614"],
+    },
+    "dai_rc_xruler_125_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xruler_125_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xruler_125_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xruler_125_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: [
+        "0xf3D907f9C7cb0B45dE0FDdfe9311B52F09A1c614",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bor_300_dai_2021_4_30_rc_bor_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0x2A924F39780c1EC568c2c2a169a13584A2E81E7D"],
+    },
+    "dai_rc_bor_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bor_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bor_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bor_300_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: [
+        "0x2A924F39780c1EC568c2c2a169a13584A2E81E7D",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_rgt_4_dai_2021_4_30_rc_rgt_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0xAE9949C8BdD8e6976CE775153c760d5ef75c4A4d"],
+    },
+    "dai_rc_rgt_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_rgt_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_rgt_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_rgt_4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: [
+        "0xAE9949C8BdD8e6976CE775153c760d5ef75c4A4d",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_mask_700_dai_2021_4_30_rc_mask_700_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0x513d29D2b296a51b40A35C4d63884E0AC0a8D075"],
+    },
+    "dai_rc_mask_700_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_mask_700_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_mask_700_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_mask_700_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: [
+        "0x513d29D2b296a51b40A35C4d63884E0AC0a8D075",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_punk-basic_10000_dai_2021_4_30_rc_punk-basic_10000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0x4616638bB5688673452FDfDAF3F7711D0722d96D"],
+    },
+    "dai_rc_punk-basic_10000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_punk-basic_10000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_punk-basic_10000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_punk-basic_10000_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: [
+        "0x4616638bB5688673452FDfDAF3F7711D0722d96D",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "fei_fei+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0x956F47F50A910163D8BF957Cf5846D573E7f87CA"],
+    },
+    "dai_fei+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_fei+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_fei+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "fei+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: [
+        "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "tribe_tribe+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B"],
+    },
+    "dai_tribe+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_tribe+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_tribe+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "tribe+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: [
+        "0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_defi5_60_dai_2021_4_30_rc_defi5_60_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0x6A426a279380CaCc4428Db42b8F5C53A7Fd06662"],
+    },
+    "dai_rc_defi5_60_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_defi5_60_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_defi5_60_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_defi5_60_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: [
+        "0x6A426a279380CaCc4428Db42b8F5C53A7Fd06662",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "1-rc_weth_1650_dai_2021_4_30_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096"],
+    },
+    "1-dai_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "1-usdc_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "1-usdt_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "1-rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: [
+        "0x810c4b2A31665ef77b75D2410ACeb29F0F099096",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "2-rc_weth_1650_dai_2021_4_30_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096"],
+    },
+    "2-dai_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "2-usdc_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "2-usdt_rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "2-rc_weth_1650_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: [
+        "0x810c4b2A31665ef77b75D2410ACeb29F0F099096",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "lusd_lusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"],
+    },
+    "dai_lusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_lusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_lusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "lusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: [
+        "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_fei_0.4_dai_2021_4_30_rc_fei_0.4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0x18880A0cb468Fc76eD63E023A0a510E9fB9FBd2f"],
+    },
+    "dai_rc_fei_0.4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_fei_0.4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_fei_0.4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_fei_0.4_dai_2021_4_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: [
+        "0x18880A0cb468Fc76eD63E023A0a510E9fB9FBd2f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "busd_busd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0x4Fabb145d64652a948d72533023f6E7A623C7C53"],
+    },
+    "dai_busd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_busd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_busd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "busd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: [
+        "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "1-vbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4"],
+    },
+    "1-renbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D"],
+    },
+    "1-wbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+    },
+    "1-sbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"],
+    },
+    "1-vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: [
+        "0xe1406825186D63980fd6e2eC61888f7B91C4bAe4",
+        "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+        "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6",
+      ],
+    },
+    "rc_xruler_250_dai_2021_5_31_rc_xruler_250_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0x751aF265374df8eB065e1dBD8132E7eB7E97A7D0"],
+    },
+    "dai_rc_xruler_250_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xruler_250_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xruler_250_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xruler_250_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: [
+        "0x751aF265374df8eB065e1dBD8132E7eB7E97A7D0",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_aave_300_dai_2021_5_31_rc_aave_300_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0x6CD591Ff4148C6eDefCAb97925113c040728aFAb"],
+    },
+    "dai_rc_aave_300_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_aave_300_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_aave_300_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_aave_300_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: [
+        "0x6CD591Ff4148C6eDefCAb97925113c040728aFAb",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_comp_350_dai_2021_5_31_rc_comp_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0xF35A04a8D018c49153f6163C03F8153dA8b6e23d"],
+    },
+    "dai_rc_comp_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_comp_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_comp_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_comp_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: [
+        "0xF35A04a8D018c49153f6163C03F8153dA8b6e23d",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xpremia_0.4_dai_2021_5_31_rc_xpremia_0.4_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0xD6f22f71399104CEd96054E7Cab0A76926c413a6"],
+    },
+    "dai_rc_xpremia_0.4_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xpremia_0.4_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xpremia_0.4_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xpremia_0.4_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: [
+        "0xD6f22f71399104CEd96054E7Cab0A76926c413a6",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "2-vbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4"],
+    },
+    "2-renbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D"],
+    },
+    "2-wbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+    },
+    "2-sbtc_vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"],
+    },
+    "2-vbtc+renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: [
+        "0xe1406825186D63980fd6e2eC61888f7B91C4bAe4",
+        "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+        "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6",
+      ],
+    },
+    "rc_alcx_700_dai_2021_5_31_rc_alcx_700_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0x02355248C6bfE873D6e3d82cdc6E1fE54a63627a"],
+    },
+    "dai_rc_alcx_700_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_alcx_700_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_alcx_700_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_alcx_700_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: [
+        "0x02355248C6bfE873D6e3d82cdc6E1fE54a63627a",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_oltc_140_dai_2021_5_31_rc_oltc_140_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0x96f2ed52824863F9b85A5231b81dAfCB066695c9"],
+    },
+    "dai_rc_oltc_140_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_oltc_140_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_oltc_140_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_oltc_140_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: [
+        "0x96f2ed52824863F9b85A5231b81dAfCB066695c9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_wbtc_32000_dai_2021_5_31_rc_wbtc_32000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0xf74aF96Eb48A3146e16b33c32837900A1bE7fA40"],
+    },
+    "dai_rc_wbtc_32000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_wbtc_32000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_wbtc_32000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_wbtc_32000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: [
+        "0xf74aF96Eb48A3146e16b33c32837900A1bE7fA40",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_weth_1600_dai_2021_5_31_rc_weth_1600_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0xAe6d35c25bFc72ab3366AF415cA8EFF93e487f24"],
+    },
+    "dai_rc_weth_1600_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_weth_1600_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_weth_1600_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_weth_1600_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: [
+        "0xAe6d35c25bFc72ab3366AF415cA8EFF93e487f24",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xcover_260_dai_2021_5_31_rc_xcover_260_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0xFC96d415D59614B5200652427bb8b24Eb52341c3"],
+    },
+    "dai_rc_xcover_260_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xcover_260_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xcover_260_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xcover_260_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: [
+        "0xFC96d415D59614B5200652427bb8b24Eb52341c3",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xruler_150_dai_2021_5_31_rc_xruler_150_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0xA6f69cD607e4AFe5117bFf03ea8C7d677944dfdB"],
+    },
+    "dai_rc_xruler_150_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xruler_150_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xruler_150_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xruler_150_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: [
+        "0xA6f69cD607e4AFe5117bFf03ea8C7d677944dfdB",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bbadger_17_dai_2021_5_31_rc_bbadger_17_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0x38D0665172F1167FD6C3240a01c6158f1FBE0D41"],
+    },
+    "dai_rc_bbadger_17_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bbadger_17_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bbadger_17_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bbadger_17_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: [
+        "0x38D0665172F1167FD6C3240a01c6158f1FBE0D41",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xsushi_7_dai_2021_5_31_rc_xsushi_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0x2c448ACd9E04d34fe74059e3748287390e9BDDa9"],
+    },
+    "dai_rc_xsushi_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xsushi_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xsushi_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xsushi_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: [
+        "0x2c448ACd9E04d34fe74059e3748287390e9BDDa9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_weth_1900_dai_2021_5_31_rc_weth_1900_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0xE44c86C6d52773175D5f6f1Fa97219d21F09E0d5"],
+    },
+    "dai_rc_weth_1900_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_weth_1900_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_weth_1900_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_weth_1900_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: [
+        "0xE44c86C6d52773175D5f6f1Fa97219d21F09E0d5",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_defi5_60_dai_2021_5_31_rc_defi5_60_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0x753724342046c366A05675a9bcF7083F1DE21c5c"],
+    },
+    "dai_rc_defi5_60_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_defi5_60_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_defi5_60_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_defi5_60_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: [
+        "0x753724342046c366A05675a9bcF7083F1DE21c5c",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bor_330_dai_2021_5_31_rc_bor_330_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0xd59108fF65cD7C1AEf309fc92E8706746E80c09A"],
+    },
+    "dai_rc_bor_330_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bor_330_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bor_330_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bor_330_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: [
+        "0xd59108fF65cD7C1AEf309fc92E8706746E80c09A",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_veth2_1200_dai_2021_5_31_rc_veth2_1200_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0x8cC2eAD1457Af98dfb2c811bF6D01C2560ef40cc"],
+    },
+    "dai_rc_veth2_1200_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_veth2_1200_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_veth2_1200_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_veth2_1200_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: [
+        "0x8cC2eAD1457Af98dfb2c811bF6D01C2560ef40cc",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_inv_350_dai_2021_5_31_rc_inv_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0x3fa372155439e9150a99D86A1de93a92F26b00C8"],
+    },
+    "dai_rc_inv_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_inv_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_inv_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_inv_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: [
+        "0x3fa372155439e9150a99D86A1de93a92F26b00C8",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_vvsp_25_dai_2021_5_31_rc_vvsp_25_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0x1f2930909396b40EF7B64afF8f148430B344e428"],
+    },
+    "dai_rc_vvsp_25_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_vvsp_25_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_vvsp_25_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_vvsp_25_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: [
+        "0x1f2930909396b40EF7B64afF8f148430B344e428",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_ifarm_110_dai_2021_5_31_rc_ifarm_110_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0x3A200791aa0642e6Ba1AF118AAc46b34c24c91Bf"],
+    },
+    "dai_rc_ifarm_110_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_ifarm_110_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_ifarm_110_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_ifarm_110_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: [
+        "0x3A200791aa0642e6Ba1AF118AAc46b34c24c91Bf",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_yvyfi_25000_dai_2021_5_31_rc_yvyfi_25000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0x5882ab1ab5DA409eD3ba48dce3684824B642C8CB"],
+    },
+    "dai_rc_yvyfi_25000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_yvyfi_25000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_yvyfi_25000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_yvyfi_25000_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: [
+        "0x5882ab1ab5DA409eD3ba48dce3684824B642C8CB",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_rai_2_dai_2021_5_31_rc_rai_2_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0xdfb2c2222B305eFCa2E414083CF42318D442aB9F"],
+    },
+    "dai_rc_rai_2_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_rai_2_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_rai_2_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_rai_2_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: [
+        "0xdfb2c2222B305eFCa2E414083CF42318D442aB9F",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bdpi_350_dai_2021_5_31_rc_bdpi_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0xa839D74FE0E456c8fCd4d9bb8759861aFcBbD1CE"],
+    },
+    "dai_rc_bdpi_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bdpi_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bdpi_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bdpi_350_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: [
+        "0xa839D74FE0E456c8fCd4d9bb8759861aFcBbD1CE",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_pickle_7_dai_2021_5_31_rc_pickle_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0x2EA853fd316A3D6E400bc688ad4a8f61eFAAb322"],
+    },
+    "dai_rc_pickle_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_pickle_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_pickle_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_pickle_7_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: [
+        "0x2EA853fd316A3D6E400bc688ad4a8f61eFAAb322",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "opium_lp_af0d_opium_lp_af0d+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0xb54539D39529cE58fB63877DEbC6d6b70E3ecA01"],
+    },
+    "dai_opium_lp_af0d+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_opium_lp_af0d+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_opium_lp_af0d+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "opium_lp_af0d+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: [
+        "0xb54539D39529cE58fB63877DEbC6d6b70E3ecA01",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "crylyl_crylyl+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0xeD86b7Ce1924c6AceF801EDd87BDA29E486A16EA"],
+    },
+    "dai_crylyl+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_crylyl+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_crylyl+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "crylyl+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: [
+        "0xeD86b7Ce1924c6AceF801EDd87BDA29E486A16EA",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "opium_lp_1c60_opium_lp_1c60+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0x0cAb5A7dCAb521aF5404Fa604b85113267d38444"],
+    },
+    "dai_opium_lp_1c60+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_opium_lp_1c60+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_opium_lp_1c60+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "opium_lp_1c60+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: [
+        "0x0cAb5A7dCAb521aF5404Fa604b85113267d38444",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_armor_0.35_dai_2021_5_31_rc_armor_0.35_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0x4491BA118C7C358817B6b453eE329A02E93012Bc"],
+    },
+    "dai_rc_armor_0.35_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_armor_0.35_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_armor_0.35_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_armor_0.35_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: [
+        "0x4491BA118C7C358817B6b453eE329A02E93012Bc",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_exrd_0.06_dai_2021_5_31_rc_exrd_0.06_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0x54DE230ff753be1E2313Fa567cb22F7d5FAe80D9"],
+    },
+    "dai_rc_exrd_0.06_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_exrd_0.06_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_exrd_0.06_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_exrd_0.06_dai_2021_5_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: [
+        "0x54DE230ff753be1E2313Fa567cb22F7d5FAe80D9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "curvebtc+_curvebtc++renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0xDe79d36aB6D2489dd36729A657a25f299Cb2Fbca"],
+    },
+    "renbtc_curvebtc++renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D"],
+    },
+    "wbtc_curvebtc++renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"],
+    },
+    "sbtc_curvebtc++renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"],
+    },
+    "curvebtc++renbtc+wbtc+sbtc": {
+      pool: "0x7AbDBAf29929e7F8621B757D2a7c04d78d633834",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: [
+        "0xDe79d36aB6D2489dd36729A657a25f299Cb2Fbca",
+        "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+        "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6",
+      ],
+    },
+    "rc_weth_2000_dai_2021_6_30_rc_weth_2000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0xF3d948CEA0FaDd9Bfc63745F8469922184910a5E"],
+    },
+    "dai_rc_weth_2000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_weth_2000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_weth_2000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_weth_2000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: [
+        "0xF3d948CEA0FaDd9Bfc63745F8469922184910a5E",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_weth_1400_dai_2021_7_31_rc_weth_1400_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0xf006f6898A814d498927524e7a9745ec05fEE18a"],
+    },
+    "dai_rc_weth_1400_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_weth_1400_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_weth_1400_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_weth_1400_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: [
+        "0xf006f6898A814d498927524e7a9745ec05fEE18a",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_wbtc_22000_dai_2021_7_31_rc_wbtc_22000_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0x79519Ae4bdA45252E23eA84f48F2447b768f5193"],
+    },
+    "dai_rc_wbtc_22000_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_wbtc_22000_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_wbtc_22000_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_wbtc_22000_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: [
+        "0x79519Ae4bdA45252E23eA84f48F2447b768f5193",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xruler_15_dai_2021_6_30_rc_xruler_15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0xe7D18f2507869280111025F4938376846e8ad11A"],
+    },
+    "dai_rc_xruler_15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xruler_15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xruler_15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xruler_15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: [
+        "0xe7D18f2507869280111025F4938376846e8ad11A",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xcover_100_dai_2021_6_30_rc_xcover_100_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0xB556Bb40E40f4AF34d9eea04d2fF7DB2674939BB"],
+    },
+    "dai_rc_xcover_100_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xcover_100_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xcover_100_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xcover_100_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: [
+        "0xB556Bb40E40f4AF34d9eea04d2fF7DB2674939BB",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_veth2_1300_dai_2021_6_30_rc_veth2_1300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0x3143C25447a589e7Bb0DBec4bA8FcFEB9FC11150"],
+    },
+    "dai_rc_veth2_1300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_veth2_1300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_veth2_1300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_veth2_1300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: [
+        "0x3143C25447a589e7Bb0DBec4bA8FcFEB9FC11150",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "1-rc_bbadger_5_dai_2021_6_30_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f"],
+    },
+    "1-dai_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "1-usdc_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "1-usdt_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "1-rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: [
+        "0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_alcx_300_dai_2021_6_30_rc_alcx_300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0x09c7A3ac261a45BE1A6B8D8502035F4491F644AE"],
+    },
+    "dai_rc_alcx_300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_alcx_300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_alcx_300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_alcx_300_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: [
+        "0x09c7A3ac261a45BE1A6B8D8502035F4491F644AE",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_ifarm_30_dai_2021_6_30_rc_ifarm_30_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0xa414B17cbaA24195547369d6afFe7fE1F642714A"],
+    },
+    "dai_rc_ifarm_30_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_ifarm_30_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_ifarm_30_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_ifarm_30_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: [
+        "0xa414B17cbaA24195547369d6afFe7fE1F642714A",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_bdi_150_dai_2021_6_30_rc_bdi_150_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0xC2d0Deb48D30D196Db9867f5c263396D46a3A48E"],
+    },
+    "dai_rc_bdi_150_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_bdi_150_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_bdi_150_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_bdi_150_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: [
+        "0xC2d0Deb48D30D196Db9867f5c263396D46a3A48E",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_armor_0.15_dai_2021_6_30_rc_armor_0.15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0x01880e5A97d827A2e77b3F2ca436a0A42FE2Dc19"],
+    },
+    "dai_rc_armor_0.15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_armor_0.15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_armor_0.15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_armor_0.15_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: [
+        "0x01880e5A97d827A2e77b3F2ca436a0A42FE2Dc19",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_exrd_0.04_dai_2021_6_30_rc_exrd_0.04_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0x496b33a6E22D2193360F462E326312260CbDEF08"],
+    },
+    "dai_rc_exrd_0.04_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_exrd_0.04_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_exrd_0.04_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_exrd_0.04_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: [
+        "0x496b33a6E22D2193360F462E326312260CbDEF08",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_ibbtc_20000_dai_2021_6_30_rc_ibbtc_20000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0x2da36A502ed49cf2d550EDac6f6257252764FE04"],
+    },
+    "dai_rc_ibbtc_20000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_ibbtc_20000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_ibbtc_20000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_ibbtc_20000_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: [
+        "0x2da36A502ed49cf2d550EDac6f6257252764FE04",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_near_1.1_dai_2021_6_30_rc_near_1.1_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0x738EA1263e70Dbbae98a6093113cB441e65EDA10"],
+    },
+    "dai_rc_near_1.1_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_near_1.1_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_near_1.1_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_near_1.1_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: [
+        "0x738EA1263e70Dbbae98a6093113cB441e65EDA10",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "2-rc_bbadger_5_dai_2021_6_30_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f"],
+    },
+    "2-dai_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "2-usdc_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "2-usdt_rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "2-rc_bbadger_5_dai_2021_6_30+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: [
+        "0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_vvsp_7_dai_2021_7_31_rc_vvsp_7_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0xb0b806A39D838d6854DCF9927420830F7eE53259"],
+    },
+    "dai_rc_vvsp_7_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_vvsp_7_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_vvsp_7_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_vvsp_7_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: [
+        "0xb0b806A39D838d6854DCF9927420830F7eE53259",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "mim_mim+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3"],
+    },
+    "dai_mim+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_mim+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_mim+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "mim+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: [
+        "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "uad_uad+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0x0F644658510c95CB46955e55D7BA9DDa9E9fBEc6"],
+    },
+    "dai_uad+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_uad+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_uad+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "uad+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: [
+        "0x0F644658510c95CB46955e55D7BA9DDa9E9fBEc6",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_inv_100_dai_2021_7_31_rc_inv_100_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0xc8919A086f05A894d54D6BA945fA2ED24375d34f"],
+    },
+    "dai_rc_inv_100_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_inv_100_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_inv_100_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_inv_100_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: [
+        "0xc8919A086f05A894d54D6BA945fA2ED24375d34f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "kmxsushi/usdt-link_kmxsushi/usdt-link+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0x17Fb5f39C55903DE60E63543067031cE2B2659EE"],
+    },
+    "dai_kmxsushi/usdt-link+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_kmxsushi/usdt-link+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_kmxsushi/usdt-link+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "kmxsushi/usdt-link+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: [
+        "0x17Fb5f39C55903DE60E63543067031cE2B2659EE",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rusd_rusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0x9bB1B080b37b6f3FcD38b86b9dF04feef16E97B3"],
+    },
+    "dai_rusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: [
+        "0x9bB1B080b37b6f3FcD38b86b9dF04feef16E97B3",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "vusd_vusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0x677ddbd918637E5F2c79e164D402454dE7dA8619"],
+    },
+    "dai_vusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_vusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_vusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "vusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: [
+        "0x677ddbd918637E5F2c79e164D402454dE7dA8619",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "bpf_bpf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0x5197FBE1a86679FF1360E27862BF88B0c5119BD8"],
+    },
+    "dai_bpf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_bpf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_bpf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "bpf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: [
+        "0x5197FBE1a86679FF1360E27862BF88B0c5119BD8",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "xruler_xruler+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0x01F7Fd324b366380D2145Dfa6C7A76fdb75f17B9"],
+    },
+    "dai_xruler+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_xruler+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_xruler+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "xruler+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: [
+        "0x01F7Fd324b366380D2145Dfa6C7A76fdb75f17B9",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "xcover_xcover+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0xa921392015eB37c5977c4Fd77E14DD568c59D5F8"],
+    },
+    "dai_xcover+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_xcover+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_xcover+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "xcover+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: [
+        "0xa921392015eB37c5977c4Fd77E14DD568c59D5F8",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xruler_12_dai_2021_7_31_rc_xruler_12_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0xd0F3063fBD4cE76bbc942f15B80Be8026Ea8FaCf"],
+    },
+    "dai_rc_xruler_12_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xruler_12_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xruler_12_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xruler_12_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: [
+        "0xd0F3063fBD4cE76bbc942f15B80Be8026Ea8FaCf",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_xcover_90_dai_2021_7_31_rc_xcover_90_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0x4289C84AA79953c103Fe0767C3aFF26Ab28Cd723"],
+    },
+    "dai_rc_xcover_90_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_xcover_90_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_xcover_90_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_xcover_90_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: [
+        "0x4289C84AA79953c103Fe0767C3aFF26Ab28Cd723",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_ifarm_25_dai_2021_7_31_rc_ifarm_25_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0x203f6666028af5520d0364a1fcfE576BE2747B5f"],
+    },
+    "dai_rc_ifarm_25_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_ifarm_25_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_ifarm_25_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_ifarm_25_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: [
+        "0x203f6666028af5520d0364a1fcfE576BE2747B5f",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_amp_0.02_dai_2021_7_31_rc_amp_0.02_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0x07028f0eb368195e5BD7c621f25a08e2E4e63d54"],
+    },
+    "dai_rc_amp_0.02_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_amp_0.02_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_amp_0.02_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_amp_0.02_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: [
+        "0x07028f0eb368195e5BD7c621f25a08e2E4e63d54",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "1-nusd_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C"],
+    },
+    "1-dai_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "1-usdc_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "1-usdt_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "1-nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: [
+        "0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "rc_armor_0.1_dai_2021_7_31_rc_armor_0.1_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0x465B0673BbcECA807504FEB129d67576c698c649"],
+    },
+    "dai_rc_armor_0.1_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_rc_armor_0.1_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_rc_armor_0.1_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "rc_armor_0.1_dai_2021_7_31+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: [
+        "0x465B0673BbcECA807504FEB129d67576c698c649",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "usdf_usdf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0x92FC8E6EfdF389e2527d14393b15F543f9a03420"],
+    },
+    "dai_usdf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_usdf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_usdf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "usdf+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: [
+        "0x92FC8E6EfdF389e2527d14393b15F543f9a03420",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "2-nusd_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C"],
+    },
+    "2-dai_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "2-usdc_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "2-usdt_nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "2-nusd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: [
+        "0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "ousd_ousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86"],
+    },
+    "dai_ousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_ousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_ousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "ousd+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: [
+        "0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+    "dsu_dsu+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0x605D26FBd5be761089281d5cec2Ce86eeA667109"],
+    },
+    "dai_dsu+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0x6B175474E89094C44Da98b954EedeAC495271d0F"],
+    },
+    "usdc_dsu+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    },
+    "usdt_dsu+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    },
+    "dsu+dai+usdc+usdt": {
+      pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: [
+        "0x605D26FBd5be761089281d5cec2Ce86eeA667109",
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      ],
+    },
+  },
+  CurveMetapoolSwapPool: {
+    "dola_dola+3crv": {
+      pool: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0x865377367054516e17014CcdED1e7d814EDC9ce4"],
+    },
+    "3crv_dola+3crv": {
+      pool: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "dola+3crv": {
+      pool: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
+      tokens: ["0x865377367054516e17014CcdED1e7d814EDC9ce4", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "alusd_alusd+3crv": {
+      pool: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9"],
+    },
+    "3crv_alusd+3crv": {
+      pool: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "alusd+3crv": {
+      pool: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      tokens: ["0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "frax_frax+3crv": {
+      pool: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0x853d955aCEf822Db058eb8505911ED77F175b99e"],
+    },
+    "3crv_frax+3crv": {
+      pool: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "frax+3crv": {
+      pool: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      tokens: ["0x853d955aCEf822Db058eb8505911ED77F175b99e", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "flexusd_flexusd+3crv": {
+      pool: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0xa774FFB4AF6B0A91331C084E1aebAE6Ad535e6F3"],
+    },
+    "3crv_flexusd+3crv": {
+      pool: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "flexusd+3crv": {
+      pool: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      lpToken: "0x11E0Ab0561Ee271967F70Ea0DA54Fd538ba7a6B0",
+      tokens: ["0xa774FFB4AF6B0A91331C084E1aebAE6Ad535e6F3", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "grapefruitusd_grapefruitusd+3crv": {
+      pool: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0x71dF9Dd3e658f0136c40E2E8eC3988a5226E9A67"],
+    },
+    "3crv_grapefruitusd+3crv": {
+      pool: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "grapefruitusd+3crv": {
+      pool: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      lpToken: "0xf5A95ccDe486B5fE98852bB02d8eC80a4b9422BD",
+      tokens: ["0x71dF9Dd3e658f0136c40E2E8eC3988a5226E9A67", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mountainvusd_mountainvusd+3crv": {
+      pool: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0x4206Fc377c22eB4778B5DAc3C28d0fa92db43AE4"],
+    },
+    "3crv_mountainvusd+3crv": {
+      pool: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mountainvusd+3crv": {
+      pool: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      lpToken: "0xE0b99F540B3cD69f88b4666c8f39877c79072851",
+      tokens: ["0x4206Fc377c22eB4778B5DAc3C28d0fa92db43AE4", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "efrontierusd_efrontierusd+3crv": {
+      pool: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0x575990152169e1C1a4867E81C6AE662caEf068fd"],
+    },
+    "3crv_efrontierusd+3crv": {
+      pool: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "efrontierusd+3crv": {
+      pool: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      lpToken: "0x592ae00d0DEE274d74faeDc6760302F54A5dB67e",
+      tokens: ["0x575990152169e1C1a4867E81C6AE662caEf068fd", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "nibbiousd_nibbiousd+3crv": {
+      pool: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0x25de492f43661Af568f46C0a3F39850Aa1D066A0"],
+    },
+    "3crv_nibbiousd+3crv": {
+      pool: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "nibbiousd+3crv": {
+      pool: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      lpToken: "0x6f682319F4eE0320a53cc72341aC28408C4BeD19",
+      tokens: ["0x25de492f43661Af568f46C0a3F39850Aa1D066A0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "folkvangusd_folkvangusd+3crv": {
+      pool: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0xe14026c2f4EdD463791DA1991c74Cf16975942f6"],
+    },
+    "3crv_folkvangusd+3crv": {
+      pool: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "folkvangusd+3crv": {
+      pool: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      lpToken: "0x296B9FA08cf80138dfa6c3fcce497152662BC314",
+      tokens: ["0xe14026c2f4EdD463791DA1991c74Cf16975942f6", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-noteusd_noteusd+3crv": {
+      pool: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0"],
+    },
+    "1-3crv_noteusd+3crv": {
+      pool: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-noteusd+3crv": {
+      pool: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      lpToken: "0xe9Ab166bC03099d251170d0578FDFFb94bCDDe6F",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mbtc_mbtc+crvrenwsbtc": {
+      pool: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0xcfc013B416bE0Bd4b3bEdE35659423B796f8Dcf0"],
+    },
+    "crvrenwsbtc_mbtc+crvrenwsbtc": {
+      pool: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "mbtc+crvrenwsbtc": {
+      pool: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      lpToken: "0x064841157BadDcB2704cA38901D7d754a59b80E8",
+      tokens: ["0xcfc013B416bE0Bd4b3bEdE35659423B796f8Dcf0", "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "stablex_stablex+3crv": {
+      pool: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0xcD91538B91B4ba7797D39a2f66E63810b50A33d0"],
+    },
+    "3crv_stablex+3crv": {
+      pool: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "stablex+3crv": {
+      pool: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      lpToken: "0x3252eFd4EA2d6c78091a1f43982ee2C3659cC3D1",
+      tokens: ["0xcD91538B91B4ba7797D39a2f66E63810b50A33d0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "tusd_tusd+3crv": {
+      pool: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0x0000000000085d4780B73119b644AE5ecd22b376"],
+    },
+    "3crv_tusd+3crv": {
+      pool: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "tusd+3crv": {
+      pool: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      tokens: ["0x0000000000085d4780B73119b644AE5ecd22b376", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_25000_dai_2021_3_31_rc_wbtc_25000_dai_2021_3_31+3crv": {
+      pool: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0x368df85396Be56f1D475E5D10339211a77e13C32"],
+    },
+    "3crv_rc_wbtc_25000_dai_2021_3_31+3crv": {
+      pool: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_25000_dai_2021_3_31+3crv": {
+      pool: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      lpToken: "0x52EEEa483Ab7A801e2592a904Ad209C90e12E471",
+      tokens: ["0x368df85396Be56f1D475E5D10339211a77e13C32", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_300_dai_2021_3_31_rc_inv_300_dai_2021_3_31+3crv": {
+      pool: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0xd0f05F157aB49b537009594d4605f8AC9564B34B"],
+    },
+    "3crv_rc_inv_300_dai_2021_3_31+3crv": {
+      pool: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_300_dai_2021_3_31+3crv": {
+      pool: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      lpToken: "0x52890A0c018fbab21794AD18e15f87fdb57fb975",
+      tokens: ["0xd0f05F157aB49b537009594d4605f8AC9564B34B", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_850_dai_2021_4_30_rc_veth2_850_dai_2021_4_30+3crv": {
+      pool: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0xFa8490d1C7A270B5f339eA97D05CC7c657774772"],
+    },
+    "3crv_rc_veth2_850_dai_2021_4_30+3crv": {
+      pool: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_850_dai_2021_4_30+3crv": {
+      pool: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      lpToken: "0x1Daf17e6d1d9ed6aa9Fe9910AE17Be98C2C4e6BA",
+      tokens: ["0xFa8490d1C7A270B5f339eA97D05CC7c657774772", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mic2_mic2+3crv": {
+      pool: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0xEEd0c8d2DA6d243329a6F4A8C2aC61A59ecBFa02"],
+    },
+    "3crv_mic2+3crv": {
+      pool: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mic2+3crv": {
+      pool: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      lpToken: "0x2B26239f52420d11420bC0982571BFE091417A7d",
+      tokens: ["0xEEd0c8d2DA6d243329a6F4A8C2aC61A59ecBFa02", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-noteusd_noteusd+3crv": {
+      pool: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0"],
+    },
+    "2-3crv_noteusd+3crv": {
+      pool: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-noteusd+3crv": {
+      pool: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      lpToken: "0xBd184cD60AF678633b3072FD0B47b5D4b7a072f3",
+      tokens: ["0x25aE7B9808F6Cc3B5E9b8699b62b0395C3F01BE0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "wausd_wausd+3crv": {
+      pool: "0x9f6664205988C3bf4B12B851c075102714869535",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0xc2db4c131ADaF01c15a1DB654c040c8578929D55"],
+    },
+    "3crv_wausd+3crv": {
+      pool: "0x9f6664205988C3bf4B12B851c075102714869535",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "wausd+3crv": {
+      pool: "0x9f6664205988C3bf4B12B851c075102714869535",
+      lpToken: "0x9f6664205988C3bf4B12B851c075102714869535",
+      tokens: ["0xc2db4c131ADaF01c15a1DB654c040c8578929D55", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "nkap_nkap+3crv": {
+      pool: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0xd29F64577603F2854ab5270E0C68d44cee41e435"],
+    },
+    "3crv_nkap+3crv": {
+      pool: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "nkap+3crv": {
+      pool: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      lpToken: "0xF9bE07E6E1f28890c1647612187Df8c6e4CC035b",
+      tokens: ["0xd29F64577603F2854ab5270E0C68d44cee41e435", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_pickle_4_dai_2021_4_30_rc_pickle_4_dai_2021_4_30+3crv": {
+      pool: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0xdA8b51EbD2ef9ADDb8F9223116Ba1960D9F1388f"],
+    },
+    "3crv_rc_pickle_4_dai_2021_4_30+3crv": {
+      pool: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_pickle_4_dai_2021_4_30+3crv": {
+      pool: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      lpToken: "0x910A00594DC16dD699D579A8F7811d465Dfa2752",
+      tokens: ["0xdA8b51EbD2ef9ADDb8F9223116Ba1960D9F1388f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_29000_dai_2021_4_30_rc_wbtc_29000_dai_2021_4_30+3crv": {
+      pool: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0xF91C09A2f407753540718209e893E5C96dDB46cc"],
+    },
+    "3crv_rc_wbtc_29000_dai_2021_4_30+3crv": {
+      pool: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_29000_dai_2021_4_30+3crv": {
+      pool: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      lpToken: "0x6Df2B0855060439251fee7eD34952b87b68EeEd9",
+      tokens: ["0xF91C09A2f407753540718209e893E5C96dDB46cc", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_900_dai_2021_4_30_rc_weth_900_dai_2021_4_30+3crv": {
+      pool: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0x8781407e5acBB728FF1f9289107118f8163880D9"],
+    },
+    "3crv_rc_weth_900_dai_2021_4_30+3crv": {
+      pool: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_900_dai_2021_4_30+3crv": {
+      pool: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      lpToken: "0xf085c77B66cD32182f3573cA2B10762DF3Caaa50",
+      tokens: ["0x8781407e5acBB728FF1f9289107118f8163880D9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_300_dai_2021_4_30_rc_inv_300_dai_2021_4_30+3crv": {
+      pool: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0x573Fff325f4a20db909fBbE7D037E17c486D8697"],
+    },
+    "3crv_rc_inv_300_dai_2021_4_30+3crv": {
+      pool: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_300_dai_2021_4_30+3crv": {
+      pool: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      lpToken: "0xaC63c167955007D5166Fec43255AD5675EfC3102",
+      tokens: ["0x573Fff325f4a20db909fBbE7D037E17c486D8697", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_150_dai_2021_4_30_rc_xcover_150_dai_2021_4_30+3crv": {
+      pool: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0xC92Caa33F8ce55123437B88ACe245f915D6A0953"],
+    },
+    "3crv_rc_xcover_150_dai_2021_4_30+3crv": {
+      pool: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_150_dai_2021_4_30+3crv": {
+      pool: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      lpToken: "0x421CB018b91b4048FaAC1760Cee3B66026B940f2",
+      tokens: ["0xC92Caa33F8ce55123437B88ACe245f915D6A0953", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xsushi_8_dai_2021_4_30_rc_xsushi_8_dai_2021_4_30+3crv": {
+      pool: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0xb239556beb879Dbe313e2334AA924Ed734e4e1Bc"],
+    },
+    "3crv_rc_xsushi_8_dai_2021_4_30+3crv": {
+      pool: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xsushi_8_dai_2021_4_30+3crv": {
+      pool: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      lpToken: "0x4AcE85cF348F316384A96b4739A1ab58f5123E7a",
+      tokens: ["0xb239556beb879Dbe313e2334AA924Ed734e4e1Bc", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bbadger_15_dai_2021_4_30_rc_bbadger_15_dai_2021_4_30+3crv": {
+      pool: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0xDdd2fb8DbA3E1f8c6dDD1BCb1d8460F33adB897d"],
+    },
+    "3crv_rc_bbadger_15_dai_2021_4_30+3crv": {
+      pool: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bbadger_15_dai_2021_4_30+3crv": {
+      pool: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      lpToken: "0x23078d5BC3AAD79aEFa8773079EE703168F15cF5",
+      tokens: ["0xDdd2fb8DbA3E1f8c6dDD1BCb1d8460F33adB897d", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_125_dai_2021_4_30_rc_xruler_125_dai_2021_4_30+3crv": {
+      pool: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0xf3D907f9C7cb0B45dE0FDdfe9311B52F09A1c614"],
+    },
+    "3crv_rc_xruler_125_dai_2021_4_30+3crv": {
+      pool: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_125_dai_2021_4_30+3crv": {
+      pool: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      lpToken: "0xaFcc5DADcDcFc4D353Ab2d36fbd57b80513a34e6",
+      tokens: ["0xf3D907f9C7cb0B45dE0FDdfe9311B52F09A1c614", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bor_300_dai_2021_4_30_rc_bor_300_dai_2021_4_30+3crv": {
+      pool: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0x2A924F39780c1EC568c2c2a169a13584A2E81E7D"],
+    },
+    "3crv_rc_bor_300_dai_2021_4_30+3crv": {
+      pool: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bor_300_dai_2021_4_30+3crv": {
+      pool: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      lpToken: "0xE764Fb1f870D621a197951F1A27aaC6d4F930329",
+      tokens: ["0x2A924F39780c1EC568c2c2a169a13584A2E81E7D", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_rgt_4_dai_2021_4_30_rc_rgt_4_dai_2021_4_30+3crv": {
+      pool: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0xAE9949C8BdD8e6976CE775153c760d5ef75c4A4d"],
+    },
+    "3crv_rc_rgt_4_dai_2021_4_30+3crv": {
+      pool: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_rgt_4_dai_2021_4_30+3crv": {
+      pool: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      lpToken: "0xaF47f0877A9b26FfF12ec8253E07f92F89c6805D",
+      tokens: ["0xAE9949C8BdD8e6976CE775153c760d5ef75c4A4d", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_mask_700_dai_2021_4_30_rc_mask_700_dai_2021_4_30+3crv": {
+      pool: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0x513d29D2b296a51b40A35C4d63884E0AC0a8D075"],
+    },
+    "3crv_rc_mask_700_dai_2021_4_30+3crv": {
+      pool: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_mask_700_dai_2021_4_30+3crv": {
+      pool: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      lpToken: "0x273AfbF6E257aae160749a61D4b83E06A841c3eB",
+      tokens: ["0x513d29D2b296a51b40A35C4d63884E0AC0a8D075", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_punk-basic_10000_dai_2021_4_30_rc_punk-basic_10000_dai_2021_4_30+3crv": {
+      pool: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0x4616638bB5688673452FDfDAF3F7711D0722d96D"],
+    },
+    "3crv_rc_punk-basic_10000_dai_2021_4_30+3crv": {
+      pool: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_punk-basic_10000_dai_2021_4_30+3crv": {
+      pool: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      lpToken: "0xfB51e37CebC5D6f1569004206629BB7e47b6843f",
+      tokens: ["0x4616638bB5688673452FDfDAF3F7711D0722d96D", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "fei_fei+3crv": {
+      pool: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0x956F47F50A910163D8BF957Cf5846D573E7f87CA"],
+    },
+    "3crv_fei+3crv": {
+      pool: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "fei+3crv": {
+      pool: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      lpToken: "0x152d13e62952a7c74c536bb3C8b7BD91853F076A",
+      tokens: ["0x956F47F50A910163D8BF957Cf5846D573E7f87CA", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "tribe_tribe+3crv": {
+      pool: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B"],
+    },
+    "3crv_tribe+3crv": {
+      pool: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "tribe+3crv": {
+      pool: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      lpToken: "0xf01E56475ea4081e6640914b2310E1Aa8F09d2E1",
+      tokens: ["0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_defi5_60_dai_2021_4_30_rc_defi5_60_dai_2021_4_30+3crv": {
+      pool: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0x6A426a279380CaCc4428Db42b8F5C53A7Fd06662"],
+    },
+    "3crv_rc_defi5_60_dai_2021_4_30+3crv": {
+      pool: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_defi5_60_dai_2021_4_30+3crv": {
+      pool: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      lpToken: "0xbe735E6dd6c47d86BF8510D3c36Cba1a359B8dDc",
+      tokens: ["0x6A426a279380CaCc4428Db42b8F5C53A7Fd06662", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-rc_weth_1650_dai_2021_4_30_rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096"],
+    },
+    "1-3crv_rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      lpToken: "0xd97f71Bc0Ecb40B105dBACF5225d847d9c2334F8",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-rc_weth_1650_dai_2021_4_30_rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096"],
+    },
+    "2-3crv_rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-rc_weth_1650_dai_2021_4_30+3crv": {
+      pool: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      lpToken: "0x2009f19A8B46642E92Ea19adCdFB23ab05fC20A6",
+      tokens: ["0x810c4b2A31665ef77b75D2410ACeb29F0F099096", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "lusd_lusd+3crv": {
+      pool: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0"],
+    },
+    "3crv_lusd+3crv": {
+      pool: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "lusd+3crv": {
+      pool: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      tokens: ["0x5f98805A4E8be255a32880FDeC7F6728C6568bA0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_fei_0.4_dai_2021_4_30_rc_fei_0.4_dai_2021_4_30+3crv": {
+      pool: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0x18880A0cb468Fc76eD63E023A0a510E9fB9FBd2f"],
+    },
+    "3crv_rc_fei_0.4_dai_2021_4_30+3crv": {
+      pool: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_fei_0.4_dai_2021_4_30+3crv": {
+      pool: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      lpToken: "0xA46649Ffe1860d79DBE777930aF8e802B8b48AC4",
+      tokens: ["0x18880A0cb468Fc76eD63E023A0a510E9fB9FBd2f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "busd_busd+3crv": {
+      pool: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0x4Fabb145d64652a948d72533023f6E7A623C7C53"],
+    },
+    "3crv_busd+3crv": {
+      pool: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "busd+3crv": {
+      pool: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      tokens: ["0x4Fabb145d64652a948d72533023f6E7A623C7C53", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-vbtc_vbtc+crvrenwsbtc": {
+      pool: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4"],
+    },
+    "1-crvrenwsbtc_vbtc+crvrenwsbtc": {
+      pool: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "1-vbtc+crvrenwsbtc": {
+      pool: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      lpToken: "0x87ca9AC842905628A83df72a23aa480091BB682e",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4", "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "rc_xruler_250_dai_2021_5_31_rc_xruler_250_dai_2021_5_31+3crv": {
+      pool: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0x751aF265374df8eB065e1dBD8132E7eB7E97A7D0"],
+    },
+    "3crv_rc_xruler_250_dai_2021_5_31+3crv": {
+      pool: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_250_dai_2021_5_31+3crv": {
+      pool: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      lpToken: "0x51714B15aB2C2172914A005f4f2889f16Af7003c",
+      tokens: ["0x751aF265374df8eB065e1dBD8132E7eB7E97A7D0", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_aave_300_dai_2021_5_31_rc_aave_300_dai_2021_5_31+3crv": {
+      pool: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0x6CD591Ff4148C6eDefCAb97925113c040728aFAb"],
+    },
+    "3crv_rc_aave_300_dai_2021_5_31+3crv": {
+      pool: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_aave_300_dai_2021_5_31+3crv": {
+      pool: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      lpToken: "0x92719D8b48795CBccD7eC68114ea7a2Db8065140",
+      tokens: ["0x6CD591Ff4148C6eDefCAb97925113c040728aFAb", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_comp_350_dai_2021_5_31_rc_comp_350_dai_2021_5_31+3crv": {
+      pool: "0xf5C511E559342087d30a793705228bFEB881c325",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0xF35A04a8D018c49153f6163C03F8153dA8b6e23d"],
+    },
+    "3crv_rc_comp_350_dai_2021_5_31+3crv": {
+      pool: "0xf5C511E559342087d30a793705228bFEB881c325",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_comp_350_dai_2021_5_31+3crv": {
+      pool: "0xf5C511E559342087d30a793705228bFEB881c325",
+      lpToken: "0xf5C511E559342087d30a793705228bFEB881c325",
+      tokens: ["0xF35A04a8D018c49153f6163C03F8153dA8b6e23d", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xpremia_0.4_dai_2021_5_31_rc_xpremia_0.4_dai_2021_5_31+3crv": {
+      pool: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0xD6f22f71399104CEd96054E7Cab0A76926c413a6"],
+    },
+    "3crv_rc_xpremia_0.4_dai_2021_5_31+3crv": {
+      pool: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xpremia_0.4_dai_2021_5_31+3crv": {
+      pool: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      lpToken: "0xB0c6CE798da73F455c2ac4d669C9F4106c251193",
+      tokens: ["0xD6f22f71399104CEd96054E7Cab0A76926c413a6", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-vbtc_vbtc+crvrenwsbtc": {
+      pool: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4"],
+    },
+    "2-crvrenwsbtc_vbtc+crvrenwsbtc": {
+      pool: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "2-vbtc+crvrenwsbtc": {
+      pool: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      lpToken: "0xdCB5BE55674ceC407D8A6D28aE2098FEdDf2c296",
+      tokens: ["0xe1406825186D63980fd6e2eC61888f7B91C4bAe4", "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "rc_alcx_700_dai_2021_5_31_rc_alcx_700_dai_2021_5_31+3crv": {
+      pool: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0x02355248C6bfE873D6e3d82cdc6E1fE54a63627a"],
+    },
+    "3crv_rc_alcx_700_dai_2021_5_31+3crv": {
+      pool: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_alcx_700_dai_2021_5_31+3crv": {
+      pool: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      lpToken: "0xcf2be480d37777E6eE846e935E57Aaae1fd466F4",
+      tokens: ["0x02355248C6bfE873D6e3d82cdc6E1fE54a63627a", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_oltc_140_dai_2021_5_31_rc_oltc_140_dai_2021_5_31+3crv": {
+      pool: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0x96f2ed52824863F9b85A5231b81dAfCB066695c9"],
+    },
+    "3crv_rc_oltc_140_dai_2021_5_31+3crv": {
+      pool: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_oltc_140_dai_2021_5_31+3crv": {
+      pool: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      lpToken: "0xf5E2e90952d3Bdf8e9ACA1Fb38Fa195F0A108a9D",
+      tokens: ["0x96f2ed52824863F9b85A5231b81dAfCB066695c9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_32000_dai_2021_5_31_rc_wbtc_32000_dai_2021_5_31+3crv": {
+      pool: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0xf74aF96Eb48A3146e16b33c32837900A1bE7fA40"],
+    },
+    "3crv_rc_wbtc_32000_dai_2021_5_31+3crv": {
+      pool: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_32000_dai_2021_5_31+3crv": {
+      pool: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      lpToken: "0xda3B4449E055C76a740dC5796aFC7bE2A535a70F",
+      tokens: ["0xf74aF96Eb48A3146e16b33c32837900A1bE7fA40", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1600_dai_2021_5_31_rc_weth_1600_dai_2021_5_31+3crv": {
+      pool: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0xAe6d35c25bFc72ab3366AF415cA8EFF93e487f24"],
+    },
+    "3crv_rc_weth_1600_dai_2021_5_31+3crv": {
+      pool: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1600_dai_2021_5_31+3crv": {
+      pool: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      lpToken: "0x1E20205cd346CD8e5FcA92fCEa34Ead4057e4AE5",
+      tokens: ["0xAe6d35c25bFc72ab3366AF415cA8EFF93e487f24", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_260_dai_2021_5_31_rc_xcover_260_dai_2021_5_31+3crv": {
+      pool: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0xFC96d415D59614B5200652427bb8b24Eb52341c3"],
+    },
+    "3crv_rc_xcover_260_dai_2021_5_31+3crv": {
+      pool: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_260_dai_2021_5_31+3crv": {
+      pool: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      lpToken: "0x11fbFe3a6c183Dcd6Fd9BaA42Fe39206174a6C00",
+      tokens: ["0xFC96d415D59614B5200652427bb8b24Eb52341c3", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_150_dai_2021_5_31_rc_xruler_150_dai_2021_5_31+3crv": {
+      pool: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0xA6f69cD607e4AFe5117bFf03ea8C7d677944dfdB"],
+    },
+    "3crv_rc_xruler_150_dai_2021_5_31+3crv": {
+      pool: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_150_dai_2021_5_31+3crv": {
+      pool: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      lpToken: "0xF9ef8A8dE38ceA3196a4E009aD7A7aF6F5A3d776",
+      tokens: ["0xA6f69cD607e4AFe5117bFf03ea8C7d677944dfdB", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bbadger_17_dai_2021_5_31_rc_bbadger_17_dai_2021_5_31+3crv": {
+      pool: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0x38D0665172F1167FD6C3240a01c6158f1FBE0D41"],
+    },
+    "3crv_rc_bbadger_17_dai_2021_5_31+3crv": {
+      pool: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bbadger_17_dai_2021_5_31+3crv": {
+      pool: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      lpToken: "0x9d7ee35a38952bd5Ad36dB0BF435a298363ac1Aa",
+      tokens: ["0x38D0665172F1167FD6C3240a01c6158f1FBE0D41", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xsushi_7_dai_2021_5_31_rc_xsushi_7_dai_2021_5_31+3crv": {
+      pool: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0x2c448ACd9E04d34fe74059e3748287390e9BDDa9"],
+    },
+    "3crv_rc_xsushi_7_dai_2021_5_31+3crv": {
+      pool: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xsushi_7_dai_2021_5_31+3crv": {
+      pool: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      lpToken: "0x4EB0Bb03A246b955D36316a96BE314885c23a1B0",
+      tokens: ["0x2c448ACd9E04d34fe74059e3748287390e9BDDa9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1900_dai_2021_5_31_rc_weth_1900_dai_2021_5_31+3crv": {
+      pool: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0xE44c86C6d52773175D5f6f1Fa97219d21F09E0d5"],
+    },
+    "3crv_rc_weth_1900_dai_2021_5_31+3crv": {
+      pool: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1900_dai_2021_5_31+3crv": {
+      pool: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      lpToken: "0xDa3028f415374dE92cD5A7C64F865a6B1AAbf804",
+      tokens: ["0xE44c86C6d52773175D5f6f1Fa97219d21F09E0d5", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_defi5_60_dai_2021_5_31_rc_defi5_60_dai_2021_5_31+3crv": {
+      pool: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0x753724342046c366A05675a9bcF7083F1DE21c5c"],
+    },
+    "3crv_rc_defi5_60_dai_2021_5_31+3crv": {
+      pool: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_defi5_60_dai_2021_5_31+3crv": {
+      pool: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      lpToken: "0x0750da0ED0a4448eD516c326d702e7Fee88F4aD9",
+      tokens: ["0x753724342046c366A05675a9bcF7083F1DE21c5c", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bor_330_dai_2021_5_31_rc_bor_330_dai_2021_5_31+3crv": {
+      pool: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0xd59108fF65cD7C1AEf309fc92E8706746E80c09A"],
+    },
+    "3crv_rc_bor_330_dai_2021_5_31+3crv": {
+      pool: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bor_330_dai_2021_5_31+3crv": {
+      pool: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      lpToken: "0xe69fC18b2252f5c3Cf8b8C35CE06AF0Bb461d476",
+      tokens: ["0xd59108fF65cD7C1AEf309fc92E8706746E80c09A", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_1200_dai_2021_5_31_rc_veth2_1200_dai_2021_5_31+3crv": {
+      pool: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0x8cC2eAD1457Af98dfb2c811bF6D01C2560ef40cc"],
+    },
+    "3crv_rc_veth2_1200_dai_2021_5_31+3crv": {
+      pool: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_1200_dai_2021_5_31+3crv": {
+      pool: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      lpToken: "0x3c7Ac391Ad242c7C2Cfbf004ed72C0bDf9d620cc",
+      tokens: ["0x8cC2eAD1457Af98dfb2c811bF6D01C2560ef40cc", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_350_dai_2021_5_31_rc_inv_350_dai_2021_5_31+3crv": {
+      pool: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0x3fa372155439e9150a99D86A1de93a92F26b00C8"],
+    },
+    "3crv_rc_inv_350_dai_2021_5_31+3crv": {
+      pool: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_350_dai_2021_5_31+3crv": {
+      pool: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      lpToken: "0x883F7d4B6B24F8BF1dB980951Ad08930D9AEC6Bc",
+      tokens: ["0x3fa372155439e9150a99D86A1de93a92F26b00C8", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_vvsp_25_dai_2021_5_31_rc_vvsp_25_dai_2021_5_31+3crv": {
+      pool: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0x1f2930909396b40EF7B64afF8f148430B344e428"],
+    },
+    "3crv_rc_vvsp_25_dai_2021_5_31+3crv": {
+      pool: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_vvsp_25_dai_2021_5_31+3crv": {
+      pool: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      lpToken: "0xD5c91b8161924F389A33E97FC8624431a53858F5",
+      tokens: ["0x1f2930909396b40EF7B64afF8f148430B344e428", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_110_dai_2021_5_31_rc_ifarm_110_dai_2021_5_31+3crv": {
+      pool: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0x3A200791aa0642e6Ba1AF118AAc46b34c24c91Bf"],
+    },
+    "3crv_rc_ifarm_110_dai_2021_5_31+3crv": {
+      pool: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_110_dai_2021_5_31+3crv": {
+      pool: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      lpToken: "0xDD577F3c26e322d6e790947D5e56362c3F99Cc6d",
+      tokens: ["0x3A200791aa0642e6Ba1AF118AAc46b34c24c91Bf", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_yvyfi_25000_dai_2021_5_31_rc_yvyfi_25000_dai_2021_5_31+3crv": {
+      pool: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0x5882ab1ab5DA409eD3ba48dce3684824B642C8CB"],
+    },
+    "3crv_rc_yvyfi_25000_dai_2021_5_31+3crv": {
+      pool: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_yvyfi_25000_dai_2021_5_31+3crv": {
+      pool: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      lpToken: "0x9231dfF16BE1020dcE7dd6F48d565FDA123c11C8",
+      tokens: ["0x5882ab1ab5DA409eD3ba48dce3684824B642C8CB", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_rai_2_dai_2021_5_31_rc_rai_2_dai_2021_5_31+3crv": {
+      pool: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0xdfb2c2222B305eFCa2E414083CF42318D442aB9F"],
+    },
+    "3crv_rc_rai_2_dai_2021_5_31+3crv": {
+      pool: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_rai_2_dai_2021_5_31+3crv": {
+      pool: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      lpToken: "0xAf7c2Fb62ea78Bd5bE98F716de55B480C354f17B",
+      tokens: ["0xdfb2c2222B305eFCa2E414083CF42318D442aB9F", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bdpi_350_dai_2021_5_31_rc_bdpi_350_dai_2021_5_31+3crv": {
+      pool: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0xa839D74FE0E456c8fCd4d9bb8759861aFcBbD1CE"],
+    },
+    "3crv_rc_bdpi_350_dai_2021_5_31+3crv": {
+      pool: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bdpi_350_dai_2021_5_31+3crv": {
+      pool: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      lpToken: "0x5c277D5CC9b258Ca957FF83Ec41d153c4DF7619A",
+      tokens: ["0xa839D74FE0E456c8fCd4d9bb8759861aFcBbD1CE", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_pickle_7_dai_2021_5_31_rc_pickle_7_dai_2021_5_31+3crv": {
+      pool: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0x2EA853fd316A3D6E400bc688ad4a8f61eFAAb322"],
+    },
+    "3crv_rc_pickle_7_dai_2021_5_31+3crv": {
+      pool: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_pickle_7_dai_2021_5_31+3crv": {
+      pool: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      lpToken: "0x3EaC18b3e7A4663d38cb6EDB6024cad9d5E76a49",
+      tokens: ["0x2EA853fd316A3D6E400bc688ad4a8f61eFAAb322", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "opium_lp_af0d_opium_lp_af0d+3crv": {
+      pool: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0xb54539D39529cE58fB63877DEbC6d6b70E3ecA01"],
+    },
+    "3crv_opium_lp_af0d+3crv": {
+      pool: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "opium_lp_af0d+3crv": {
+      pool: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      lpToken: "0x6448113F6c31F738B7c6b24c1b4A1Cf23c6133f2",
+      tokens: ["0xb54539D39529cE58fB63877DEbC6d6b70E3ecA01", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "crylyl_crylyl+3crv": {
+      pool: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0xeD86b7Ce1924c6AceF801EDd87BDA29E486A16EA"],
+    },
+    "3crv_crylyl+3crv": {
+      pool: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "crylyl+3crv": {
+      pool: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      lpToken: "0xE75916b70c0E1C58bB605948066151EA449561F4",
+      tokens: ["0xeD86b7Ce1924c6AceF801EDd87BDA29E486A16EA", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "opium_lp_1c60_opium_lp_1c60+3crv": {
+      pool: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0x0cAb5A7dCAb521aF5404Fa604b85113267d38444"],
+    },
+    "3crv_opium_lp_1c60+3crv": {
+      pool: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "opium_lp_1c60+3crv": {
+      pool: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      lpToken: "0x5400234516485A8e474A6f1c34DBed940a1A866E",
+      tokens: ["0x0cAb5A7dCAb521aF5404Fa604b85113267d38444", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.35_dai_2021_5_31_rc_armor_0.35_dai_2021_5_31+3crv": {
+      pool: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0x4491BA118C7C358817B6b453eE329A02E93012Bc"],
+    },
+    "3crv_rc_armor_0.35_dai_2021_5_31+3crv": {
+      pool: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.35_dai_2021_5_31+3crv": {
+      pool: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      lpToken: "0x1E556F647f79e734530F2B354FBf339553fB1f6E",
+      tokens: ["0x4491BA118C7C358817B6b453eE329A02E93012Bc", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_exrd_0.06_dai_2021_5_31_rc_exrd_0.06_dai_2021_5_31+3crv": {
+      pool: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0x54DE230ff753be1E2313Fa567cb22F7d5FAe80D9"],
+    },
+    "3crv_rc_exrd_0.06_dai_2021_5_31+3crv": {
+      pool: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_exrd_0.06_dai_2021_5_31+3crv": {
+      pool: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      lpToken: "0xC55834C9cDf6e92e0ceB181fd07f6243eAC0f598",
+      tokens: ["0x54DE230ff753be1E2313Fa567cb22F7d5FAe80D9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "curvebtc+_curvebtc++crvrenwsbtc": {
+      pool: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0xDe79d36aB6D2489dd36729A657a25f299Cb2Fbca"],
+    },
+    "crvrenwsbtc_curvebtc++crvrenwsbtc": {
+      pool: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "curvebtc++crvrenwsbtc": {
+      pool: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      lpToken: "0xf6b657Cb19A4cB2AF427D50F3054104871100D52",
+      tokens: ["0xDe79d36aB6D2489dd36729A657a25f299Cb2Fbca", "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"],
+    },
+    "rc_weth_2000_dai_2021_6_30_rc_weth_2000_dai_2021_6_30+3crv": {
+      pool: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0xF3d948CEA0FaDd9Bfc63745F8469922184910a5E"],
+    },
+    "3crv_rc_weth_2000_dai_2021_6_30+3crv": {
+      pool: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_2000_dai_2021_6_30+3crv": {
+      pool: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      lpToken: "0x56680FDEbDd3e31f79938fa1222bFea4706a0758",
+      tokens: ["0xF3d948CEA0FaDd9Bfc63745F8469922184910a5E", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1400_dai_2021_7_31_rc_weth_1400_dai_2021_7_31+3crv": {
+      pool: "0x0212133321479B183637e52942564162bCc37C1D",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0xf006f6898A814d498927524e7a9745ec05fEE18a"],
+    },
+    "3crv_rc_weth_1400_dai_2021_7_31+3crv": {
+      pool: "0x0212133321479B183637e52942564162bCc37C1D",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_weth_1400_dai_2021_7_31+3crv": {
+      pool: "0x0212133321479B183637e52942564162bCc37C1D",
+      lpToken: "0x0212133321479B183637e52942564162bCc37C1D",
+      tokens: ["0xf006f6898A814d498927524e7a9745ec05fEE18a", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_22000_dai_2021_7_31_rc_wbtc_22000_dai_2021_7_31+3crv": {
+      pool: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0x79519Ae4bdA45252E23eA84f48F2447b768f5193"],
+    },
+    "3crv_rc_wbtc_22000_dai_2021_7_31+3crv": {
+      pool: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_wbtc_22000_dai_2021_7_31+3crv": {
+      pool: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      lpToken: "0x8e49801018361aBb1EDe67D5B12907A5F895C623",
+      tokens: ["0x79519Ae4bdA45252E23eA84f48F2447b768f5193", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_15_dai_2021_6_30_rc_xruler_15_dai_2021_6_30+3crv": {
+      pool: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0xe7D18f2507869280111025F4938376846e8ad11A"],
+    },
+    "3crv_rc_xruler_15_dai_2021_6_30+3crv": {
+      pool: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_15_dai_2021_6_30+3crv": {
+      pool: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      lpToken: "0x46f5ab27914A670CFE260A2DEDb87f84c264835f",
+      tokens: ["0xe7D18f2507869280111025F4938376846e8ad11A", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_100_dai_2021_6_30_rc_xcover_100_dai_2021_6_30+3crv": {
+      pool: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0xB556Bb40E40f4AF34d9eea04d2fF7DB2674939BB"],
+    },
+    "3crv_rc_xcover_100_dai_2021_6_30+3crv": {
+      pool: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_100_dai_2021_6_30+3crv": {
+      pool: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      lpToken: "0x2206cF41E7Db9393a3BcbB6Ad35d344811523b46",
+      tokens: ["0xB556Bb40E40f4AF34d9eea04d2fF7DB2674939BB", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_1300_dai_2021_6_30_rc_veth2_1300_dai_2021_6_30+3crv": {
+      pool: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0x3143C25447a589e7Bb0DBec4bA8FcFEB9FC11150"],
+    },
+    "3crv_rc_veth2_1300_dai_2021_6_30+3crv": {
+      pool: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_veth2_1300_dai_2021_6_30+3crv": {
+      pool: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      lpToken: "0xC3134cCB0810418Dcc2540c7df6E4995a9966d4e",
+      tokens: ["0x3143C25447a589e7Bb0DBec4bA8FcFEB9FC11150", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-rc_bbadger_5_dai_2021_6_30_rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f"],
+    },
+    "1-3crv_rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      lpToken: "0x0043Fcb34e7470130fDe28198571DeE092c70Bd7",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_alcx_300_dai_2021_6_30_rc_alcx_300_dai_2021_6_30+3crv": {
+      pool: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0x09c7A3ac261a45BE1A6B8D8502035F4491F644AE"],
+    },
+    "3crv_rc_alcx_300_dai_2021_6_30+3crv": {
+      pool: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_alcx_300_dai_2021_6_30+3crv": {
+      pool: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      lpToken: "0x439bfaE666826a7cB73663E366c12f03d0A13B49",
+      tokens: ["0x09c7A3ac261a45BE1A6B8D8502035F4491F644AE", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_30_dai_2021_6_30_rc_ifarm_30_dai_2021_6_30+3crv": {
+      pool: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0xa414B17cbaA24195547369d6afFe7fE1F642714A"],
+    },
+    "3crv_rc_ifarm_30_dai_2021_6_30+3crv": {
+      pool: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_30_dai_2021_6_30+3crv": {
+      pool: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      lpToken: "0xBc984294CedABE05d7317CC55BCdA241a7222615",
+      tokens: ["0xa414B17cbaA24195547369d6afFe7fE1F642714A", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bdi_150_dai_2021_6_30_rc_bdi_150_dai_2021_6_30+3crv": {
+      pool: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0xC2d0Deb48D30D196Db9867f5c263396D46a3A48E"],
+    },
+    "3crv_rc_bdi_150_dai_2021_6_30+3crv": {
+      pool: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_bdi_150_dai_2021_6_30+3crv": {
+      pool: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      lpToken: "0x0457E0ed628143b6A6A39f6e3458153f96abB26a",
+      tokens: ["0xC2d0Deb48D30D196Db9867f5c263396D46a3A48E", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.15_dai_2021_6_30_rc_armor_0.15_dai_2021_6_30+3crv": {
+      pool: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0x01880e5A97d827A2e77b3F2ca436a0A42FE2Dc19"],
+    },
+    "3crv_rc_armor_0.15_dai_2021_6_30+3crv": {
+      pool: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.15_dai_2021_6_30+3crv": {
+      pool: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      lpToken: "0x3c9aEEb08be0c10cA4135e981F2C73dF8a28F8a0",
+      tokens: ["0x01880e5A97d827A2e77b3F2ca436a0A42FE2Dc19", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_exrd_0.04_dai_2021_6_30_rc_exrd_0.04_dai_2021_6_30+3crv": {
+      pool: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0x496b33a6E22D2193360F462E326312260CbDEF08"],
+    },
+    "3crv_rc_exrd_0.04_dai_2021_6_30+3crv": {
+      pool: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_exrd_0.04_dai_2021_6_30+3crv": {
+      pool: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      lpToken: "0xDc0b9c549809BD4BDe021BD35A99f612D472d827",
+      tokens: ["0x496b33a6E22D2193360F462E326312260CbDEF08", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ibbtc_20000_dai_2021_6_30_rc_ibbtc_20000_dai_2021_6_30+3crv": {
+      pool: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0x2da36A502ed49cf2d550EDac6f6257252764FE04"],
+    },
+    "3crv_rc_ibbtc_20000_dai_2021_6_30+3crv": {
+      pool: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ibbtc_20000_dai_2021_6_30+3crv": {
+      pool: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      lpToken: "0x8aEe2e72ff7e34fC15dcAD5BbAa6AB2dF1bdEb1c",
+      tokens: ["0x2da36A502ed49cf2d550EDac6f6257252764FE04", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_near_1.1_dai_2021_6_30_rc_near_1.1_dai_2021_6_30+3crv": {
+      pool: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0x738EA1263e70Dbbae98a6093113cB441e65EDA10"],
+    },
+    "3crv_rc_near_1.1_dai_2021_6_30+3crv": {
+      pool: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_near_1.1_dai_2021_6_30+3crv": {
+      pool: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      lpToken: "0x620E3C54d8c6efCA7476D657c57dA5Eb144d3f81",
+      tokens: ["0x738EA1263e70Dbbae98a6093113cB441e65EDA10", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-rc_bbadger_5_dai_2021_6_30_rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f"],
+    },
+    "2-3crv_rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-rc_bbadger_5_dai_2021_6_30+3crv": {
+      pool: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      lpToken: "0x8B93c5727fF8c0e4CD16f8ae8dFe4DAc8730C4BE",
+      tokens: ["0xa713Cc74eE148414bcAb46aC2c41c93D84A56B0f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_vvsp_7_dai_2021_7_31_rc_vvsp_7_dai_2021_7_31+3crv": {
+      pool: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0xb0b806A39D838d6854DCF9927420830F7eE53259"],
+    },
+    "3crv_rc_vvsp_7_dai_2021_7_31+3crv": {
+      pool: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_vvsp_7_dai_2021_7_31+3crv": {
+      pool: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      lpToken: "0xd752B367B1d5998446daA6E9Eb90d05D12d9f263",
+      tokens: ["0xb0b806A39D838d6854DCF9927420830F7eE53259", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mim_mim+3crv": {
+      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3"],
+    },
+    "3crv_mim+3crv": {
+      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "mim+3crv": {
+      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      tokens: ["0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "uad_uad+3crv": {
+      pool: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0x0F644658510c95CB46955e55D7BA9DDa9E9fBEc6"],
+    },
+    "3crv_uad+3crv": {
+      pool: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "uad+3crv": {
+      pool: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      lpToken: "0x20955CB69Ae1515962177D164dfC9522feef567E",
+      tokens: ["0x0F644658510c95CB46955e55D7BA9DDa9E9fBEc6", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_100_dai_2021_7_31_rc_inv_100_dai_2021_7_31+3crv": {
+      pool: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0xc8919A086f05A894d54D6BA945fA2ED24375d34f"],
+    },
+    "3crv_rc_inv_100_dai_2021_7_31+3crv": {
+      pool: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_inv_100_dai_2021_7_31+3crv": {
+      pool: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      lpToken: "0xEAF21e096793d92A1028Bb6F2570846d79165B48",
+      tokens: ["0xc8919A086f05A894d54D6BA945fA2ED24375d34f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "kmxsushi/usdt-link_kmxsushi/usdt-link+3crv": {
+      pool: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0x17Fb5f39C55903DE60E63543067031cE2B2659EE"],
+    },
+    "3crv_kmxsushi/usdt-link+3crv": {
+      pool: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "kmxsushi/usdt-link+3crv": {
+      pool: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      lpToken: "0xF420cdabD89a40D98541df39014576CeAB01cdc7",
+      tokens: ["0x17Fb5f39C55903DE60E63543067031cE2B2659EE", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rusd_rusd+3crv": {
+      pool: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0x9bB1B080b37b6f3FcD38b86b9dF04feef16E97B3"],
+    },
+    "3crv_rusd+3crv": {
+      pool: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rusd+3crv": {
+      pool: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      lpToken: "0xC3018Fc8B7aC3a01c1fAdb3292B50e6faC417486",
+      tokens: ["0x9bB1B080b37b6f3FcD38b86b9dF04feef16E97B3", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "vusd_vusd+3crv": {
+      pool: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0x677ddbd918637E5F2c79e164D402454dE7dA8619"],
+    },
+    "3crv_vusd+3crv": {
+      pool: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "vusd+3crv": {
+      pool: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      lpToken: "0x4dF9E1A764Fb8Df1113EC02fc9dc75963395b508",
+      tokens: ["0x677ddbd918637E5F2c79e164D402454dE7dA8619", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "bpf_bpf+3crv": {
+      pool: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0x5197FBE1a86679FF1360E27862BF88B0c5119BD8"],
+    },
+    "3crv_bpf+3crv": {
+      pool: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "bpf+3crv": {
+      pool: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      lpToken: "0xeb20b6Dda329685863c7193d8C3b13D3DEf9a02F",
+      tokens: ["0x5197FBE1a86679FF1360E27862BF88B0c5119BD8", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "xruler_xruler+3crv": {
+      pool: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0x01F7Fd324b366380D2145Dfa6C7A76fdb75f17B9"],
+    },
+    "3crv_xruler+3crv": {
+      pool: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "xruler+3crv": {
+      pool: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      lpToken: "0x3279827b8233Ab455ba6F6bcB9804ee601Bf725B",
+      tokens: ["0x01F7Fd324b366380D2145Dfa6C7A76fdb75f17B9", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "xcover_xcover+3crv": {
+      pool: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0xa921392015eB37c5977c4Fd77E14DD568c59D5F8"],
+    },
+    "3crv_xcover+3crv": {
+      pool: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "xcover+3crv": {
+      pool: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      lpToken: "0x0c46aC7dC6a06Fa5de5a6e74c0726F96c0319900",
+      tokens: ["0xa921392015eB37c5977c4Fd77E14DD568c59D5F8", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_12_dai_2021_7_31_rc_xruler_12_dai_2021_7_31+3crv": {
+      pool: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0xd0F3063fBD4cE76bbc942f15B80Be8026Ea8FaCf"],
+    },
+    "3crv_rc_xruler_12_dai_2021_7_31+3crv": {
+      pool: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xruler_12_dai_2021_7_31+3crv": {
+      pool: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      lpToken: "0x80Bb24b127b96f8C6637acF3BAcAE4F5F860F08c",
+      tokens: ["0xd0F3063fBD4cE76bbc942f15B80Be8026Ea8FaCf", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_90_dai_2021_7_31_rc_xcover_90_dai_2021_7_31+3crv": {
+      pool: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0x4289C84AA79953c103Fe0767C3aFF26Ab28Cd723"],
+    },
+    "3crv_rc_xcover_90_dai_2021_7_31+3crv": {
+      pool: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_xcover_90_dai_2021_7_31+3crv": {
+      pool: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      lpToken: "0xfE97D8f55884186E50AeDba306Ad553911a26A24",
+      tokens: ["0x4289C84AA79953c103Fe0767C3aFF26Ab28Cd723", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_25_dai_2021_7_31_rc_ifarm_25_dai_2021_7_31+3crv": {
+      pool: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0x203f6666028af5520d0364a1fcfE576BE2747B5f"],
+    },
+    "3crv_rc_ifarm_25_dai_2021_7_31+3crv": {
+      pool: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_ifarm_25_dai_2021_7_31+3crv": {
+      pool: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      lpToken: "0x5e94A7EE56a168B06C79E5fd972AE0C35cB36FEa",
+      tokens: ["0x203f6666028af5520d0364a1fcfE576BE2747B5f", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_amp_0.02_dai_2021_7_31_rc_amp_0.02_dai_2021_7_31+3crv": {
+      pool: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0x07028f0eb368195e5BD7c621f25a08e2E4e63d54"],
+    },
+    "3crv_rc_amp_0.02_dai_2021_7_31+3crv": {
+      pool: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_amp_0.02_dai_2021_7_31+3crv": {
+      pool: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      lpToken: "0x2a1E73bf81941630869c125194fBF8f5Ec060Ff0",
+      tokens: ["0x07028f0eb368195e5BD7c621f25a08e2E4e63d54", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-nusd_nusd+3crv": {
+      pool: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C"],
+    },
+    "1-3crv_nusd+3crv": {
+      pool: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "1-nusd+3crv": {
+      pool: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      lpToken: "0x67d9eAe741944D4402eB0D1cB3bC3a168EC1764c",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.1_dai_2021_7_31_rc_armor_0.1_dai_2021_7_31+3crv": {
+      pool: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0x465B0673BbcECA807504FEB129d67576c698c649"],
+    },
+    "3crv_rc_armor_0.1_dai_2021_7_31+3crv": {
+      pool: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "rc_armor_0.1_dai_2021_7_31+3crv": {
+      pool: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      lpToken: "0x8CAdb80062D6EA09b6d480cB3F955cb7F915b2C7",
+      tokens: ["0x465B0673BbcECA807504FEB129d67576c698c649", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "usdf_usdf+3crv": {
+      pool: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0x92FC8E6EfdF389e2527d14393b15F543f9a03420"],
+    },
+    "3crv_usdf+3crv": {
+      pool: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "usdf+3crv": {
+      pool: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      lpToken: "0x6E386F8E746af332d18f5c21F3369835C9c5DB16",
+      tokens: ["0x92FC8E6EfdF389e2527d14393b15F543f9a03420", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-nusd_nusd+3crv": {
+      pool: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C"],
+    },
+    "2-3crv_nusd+3crv": {
+      pool: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "2-nusd+3crv": {
+      pool: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      lpToken: "0x57EB6fbE61216d9f8c7c09Ad1EE5a3023747244b",
+      tokens: ["0x1BEf2e5DE862034Fb0ed456DF59d29Ecadc9934C", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "ousd_ousd+3crv": {
+      pool: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86"],
+    },
+    "3crv_ousd+3crv": {
+      pool: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "ousd+3crv": {
+      pool: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      lpToken: "0x87650D7bbfC3A9F10587d7778206671719d9910D",
+      tokens: ["0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "dsu_dsu+3crv": {
+      pool: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0x605D26FBd5be761089281d5cec2Ce86eeA667109"],
+    },
+    "3crv_dsu+3crv": {
+      pool: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
+    },
+    "dsu+3crv": {
+      pool: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      lpToken: "0x6eC80df362d7042c50D4469bcfbc174C9dd9109a",
+      tokens: ["0x605D26FBd5be761089281d5cec2Ce86eeA667109", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
     },
   },
   CurveTokens: {
