@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface ICurve4StableSwap {
+interface ICurve4MaticStableSwapMetapoolFactory {
     event Transfer(address indexed sender, address indexed receiver, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event TokenExchange(
@@ -64,13 +64,13 @@ interface ICurve4StableSwap {
 
     function calc_token_amount(uint256[4] memory _amounts, bool _is_deposit) external view returns (uint256);
 
-    function add_liquidity(uint256[4] memory _amounts, uint256 _min_mint_amount) external returns (uint256);
+    function add_liquidity(uint256[4] memory _amounts, uint256 _min_mint_amount) external payable returns (uint256);
 
     function add_liquidity(
         uint256[4] memory _amounts,
         uint256 _min_mint_amount,
         address _receiver
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
     function get_dy(
         int128 i,
@@ -83,7 +83,7 @@ interface ICurve4StableSwap {
         int128 j,
         uint256 _dx,
         uint256 _min_dy
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
     function exchange(
         int128 i,
@@ -91,7 +91,7 @@ interface ICurve4StableSwap {
         uint256 _dx,
         uint256 _min_dy,
         address _receiver
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
     function remove_liquidity(uint256 _burn_amount, uint256[4] memory _min_amounts)
         external

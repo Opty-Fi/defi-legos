@@ -1,12 +1,28 @@
 import ICurveL2FactoryAbi from "./abi/ICurveL2Factory.json";
+import ICurveATriCryptoSwapV1abi from "./abi/ICurveATriCryptoSwapV1.json";
+import ICurveATriCryptoSwapV3abi from "./abi/ICurveATriCryptoSwapV3.json";
+import ICurveATriCryptoZapabi from "./abi/ICurveATriCryptoZap.json";
+import ICurveGaugeabi from "./abi/ICurveGauge.json";
+import ICurve2StableSwapabi from "./abi/ICurve2StableSwap.json";
+import ICurve3StableSwapabi from "./abi/ICurve3StableSwap.json";
+import ICurve2StableSwapMetapoolFactoryabi from "./abi/ICurve2StableSwapMetapoolFactory.json";
+import ICurve2MaticStableSwapMetapoolFactoryabi from "./abi/ICurve2MaticStableSwapMetapoolFactory.json";
+import ICurve3StableSwapMetapoolFactoryabi from "./abi/ICurve3StableSwapMetapoolFactory.json";
+import ICurve3MaticStableSwapMetapoolFactoryabi from "./abi/ICurve3MaticStableSwapMetapoolFactory.json";
+import ICurve4StableSwapMetapoolFactoryabi from "./abi/ICurve4StableSwapMetapoolFactory.json";
+import ICurve4MaticStableSwapMetapoolFactoryabi from "./abi/ICurve4MaticStableSwapMetapoolFactory.json";
 
 const contracts = {
   CurveL2Factory: {
     abi: ICurveL2FactoryAbi,
     address: "0x722272D36ef0Da72FF51c5A65Db7b870E2e8D4ee",
   },
-  pools: {
-    CurveDeposit: {
+  CurveStableSwap: {
+    abi: {
+      ICurve2StableSwap: ICurve2StableSwapabi,
+      ICurve3StableSwap: ICurve3StableSwapabi,
+    },
+    pools: {
       dai_am3Crv: {
         pool: "0x445FE580eF8d70FF569aB36e80c647af338db351",
         lpToken: "0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171",
@@ -94,7 +110,13 @@ const contracts = {
         tokenIndexes: ["0", "1"],
       },
     },
-    CurveCrypto: {
+  },
+  CurveATriCryptoSwap: {
+    abi: {
+      ICurveATriCryptoSwapV1: ICurveATriCryptoSwapV1abi,
+      ICurveATriCryptoSwapV3: ICurveATriCryptoSwapV3abi,
+    },
+    pools: {
       am3Crv_crvUSDBTCETH_3: {
         pool: "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
         lpToken: "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
@@ -170,7 +192,10 @@ const contracts = {
         tokenIndexes: ["0", "1"],
       },
     },
-    CurveCryptoZap: {
+  },
+  CurveATriCryptoZap: {
+    abi: ICurveATriCryptoZapabi,
+    pools: {
       "dai_crvUSDBTCETH ": {
         pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
         lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
@@ -202,7 +227,10 @@ const contracts = {
         tokenIndexes: ["3"],
       },
     },
-    CurveGauge: {
+  },
+  CurveGauge: {
+    abi: ICurveGaugeabi,
+    pools: {
       "am3CRV-gauge": {
         pool: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
         lpToken: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
@@ -222,7 +250,17 @@ const contracts = {
         rewardedToken: ["0x172370d5Cd63279eFa6d502DAB29171933a610AF", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
       },
     },
-    CurveFactoryMetaPools: {
+  },
+  CurveFactoryMetaPools: {
+    abi: {
+      ICurve2StableSwapMetapoolFactory: ICurve2StableSwapMetapoolFactoryabi,
+      ICurve2MaticStableSwapMetapoolFactory: ICurve2MaticStableSwapMetapoolFactoryabi,
+      ICurve3StableSwapMetapoolFactory: ICurve3StableSwapMetapoolFactoryabi,
+      ICurve3MaticStableSwapMetapoolFactory: ICurve3MaticStableSwapMetapoolFactoryabi,
+      ICurve4StableSwapMetapoolFactory: ICurve4StableSwapMetapoolFactoryabi,
+      ICurve4MaticStableSwapMetapoolFactory: ICurve4MaticStableSwapMetapoolFactoryabi,
+    },
+    pools: {
       "husd_usdtusdt-f": {
         pool: "0x82f1534324e60581e693335dC39b569DC7605af5",
         lpToken: "0x82f1534324e60581e693335dC39b569DC7605af5",
