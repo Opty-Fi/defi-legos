@@ -170,6 +170,38 @@ const contracts = {
         tokenIndexes: ["0", "1"],
       },
     },
+    CurveCryptoZap: {
+      "dai_crvUSDBTCETH ": {
+        pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
+        lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+        tokens: ["0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"],
+        tokenIndexes: ["0"],
+      },
+      "usdc_crvUSDBTCETH ": {
+        pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
+        lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+        tokens: ["0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
+        tokenIndexes: ["1"],
+      },
+      "usdt_crvUSDBTCETH ": {
+        pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
+        lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+        tokens: ["0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"],
+        tokenIndexes: ["2"],
+      },
+      "wbtc_crvUSDBTCETH ": {
+        pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
+        lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+        tokens: ["0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"],
+        tokenIndexes: ["3"],
+      },
+      "weth_crvUSDBTCETH ": {
+        pool: "0x3FCD5De6A9fC8A99995c406c77DDa3eD7E406f81",
+        lpToken: "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+        tokens: ["0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"],
+        tokenIndexes: ["3"],
+      },
+    },
     CurveGauge: {
       "am3CRV-gauge": {
         pool: "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
