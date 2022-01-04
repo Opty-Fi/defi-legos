@@ -1,6 +1,6 @@
 {
   "name": "@optyfi/defi-legos",
-  "version": "0.1.0-rc.11",
+  "version": "0.1.0-rc.19",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": {
@@ -21,6 +21,8 @@
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts",
     "postbuild": "copyfiles --verbose -u 1 src/**/*.sol dist",
     "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{sol,js,json,md,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,ts}\"",
     "release": "scripts/release/release.sh"
