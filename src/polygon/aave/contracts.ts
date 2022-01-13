@@ -27,32 +27,32 @@ const contracts = {
   },
   pools: {
     dai: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x27F8D03b3a2196956ED754baDc28D73be8830A6e",
       tokens: ["0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063"],
     },
     usdc: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x1a13F4Ca1d028320A707D99520AbFefca3998b7F",
       tokens: ["0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
     },
     usdt: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x60D55F02A771d515e077c9C2403a1ef324885CeC",
       tokens: ["0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
     },
     wbtc: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x5c2ed810328349100A66B82b78a1791B101C9D61",
       tokens: ["0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"],
     },
     weth: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x28424507fefb6f7f8E9D3860F56504E4e5f5f390",
       tokens: ["0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"],
     },
     wmatic: {
-      pool: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",
+      pool: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
       lpToken: "0x8dF3aad3a84da6b69A4DA8aeC3eA40d9091B2Ac4",
       tokens: ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
     },
