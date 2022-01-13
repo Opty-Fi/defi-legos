@@ -42,7 +42,7 @@ interface IAToken {
     function symbol() external view returns (string memory);
 
     function totalSupply() external view returns (uint256);
-    
+
     function approve(address spender, uint256 amount) external returns (bool);
 
     function burn(
@@ -53,7 +53,6 @@ interface IAToken {
     ) external;
 
     function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool);
-
 
     function increaseAllowance(address spender, uint256 addedValue) external returns (bool);
 

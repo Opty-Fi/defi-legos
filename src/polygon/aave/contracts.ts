@@ -6,11 +6,17 @@ import AaveAbi from "./abi/Aave.json";
 import LendingPoolAddressesProviderRegistryAbi from "./abi/AaveLendingPoolAddressesProviderRegistry.json";
 
 const contracts = {
-  AToken: {abi:ATokenAbi},
+  AToken: { abi: ATokenAbi },
   Aave: { abi: AaveAbi },
   AavePriceOracle: { abi: PriceOracleAbi, address: "0x0229f777b0fab107f9591a41d5f02e4e98db6f2d" },
-  AaveLendingPoolAddressesProvider: { abi: LendingPoolAddressesProviderAbi,address: "0xd05e3E715d945B59290df0ae8eF85c1BdB684744" },
-  AaveLendingPoolAddressesProviderRegistry: { abi: LendingPoolAddressesProviderRegistryAbi,address:"0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19" },
+  AaveLendingPoolAddressesProvider: {
+    abi: LendingPoolAddressesProviderAbi,
+    address: "0xd05e3E715d945B59290df0ae8eF85c1BdB684744",
+  },
+  AaveLendingPoolAddressesProviderRegistry: {
+    abi: LendingPoolAddressesProviderRegistryAbi,
+    address: "0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19",
+  },
   AaveLendingPool: {
     abi: AaveAbi,
     address: "0x8dff5e27ea6b7ac08ebfdf9eb090f32ee9a30fcf",

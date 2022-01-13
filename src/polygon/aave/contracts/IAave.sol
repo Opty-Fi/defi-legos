@@ -51,9 +51,9 @@ struct ReserveConfigurationMap {
     uint256 data;
 }
 
-  struct UserConfigurationMap {
+struct UserConfigurationMap {
     uint256 data;
-  }
+}
 
 interface IAave {
     function deposit(
