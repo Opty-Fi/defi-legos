@@ -6503,32 +6503,32 @@ const contracts = {
   CurveMetapoolGaugePool: {
     "alusd3crv-f": {
       pool: "0x9582C4ADACB3BCE56Fea3e590F05c3ca2fb9C477",
-      lpToken: "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+      lpToken: "0x9582C4ADACB3BCE56Fea3e590F05c3ca2fb9C477",
       tokens: ["0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c"],
     },
     "frax3crv-f": {
       pool: "0x72E158d38dbd50A483501c24f792bDAAA3e7D55C",
-      lpToken: "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+      lpToken: "0x72E158d38dbd50A483501c24f792bDAAA3e7D55C",
       tokens: ["0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B"],
     },
     "tusd3crv-f": {
       pool: "0x359FD5d6417aE3D8D6497d9B2e7A890798262BA4",
-      lpToken: "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+      lpToken: "0x359FD5d6417aE3D8D6497d9B2e7A890798262BA4",
       tokens: ["0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1"],
     },
     "lusd3crv-f": {
       pool: "0x9B8519A9a00100720CCdC8a120fBeD319cA47a14",
-      lpToken: "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+      lpToken: "0x9B8519A9a00100720CCdC8a120fBeD319cA47a14",
       tokens: ["0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA"],
     },
     "busd3crv-f": {
       pool: "0xd4B22fEdcA85E684919955061fDf353b9d38389b",
-      lpToken: "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+      lpToken: "0xd4B22fEdcA85E684919955061fDf353b9d38389b",
       tokens: ["0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a"],
     },
     "mim-3lp3crv-f": {
       pool: "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
-      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      lpToken: "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
       tokens: ["0x5a6A4D54456819380173272A5E8E9B9904BdF41B"],
     },
   },
