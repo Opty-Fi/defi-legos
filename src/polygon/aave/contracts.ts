@@ -4,6 +4,7 @@ import ATokenAbi from "./abi/AToken.json";
 import ProtocolDataProviderAbi from "./abi/AaveProtocolDataProvider.json";
 import AaveAbi from "./abi/Aave.json";
 import LendingPoolAddressesProviderRegistryAbi from "./abi/AaveLendingPoolAddressesProviderRegistry.json";
+import IncentivesController from "./abi/AaveIncentivesController.json";
 
 const contracts = {
   AToken: { abi: ATokenAbi },
@@ -24,6 +25,10 @@ const contracts = {
   AaveProtocolDataProvider: {
     abi: ProtocolDataProviderAbi,
     address: "0x7551b5D2763519d4e37e8B81929D336De671d46d",
+  },
+  AaveIncentivesController: {
+    abi: IncentivesController,
+    address: "0x357D51124f59836DeD84c8a1730D72B749d8BC23",
   },
   pools: {
     dai: {
