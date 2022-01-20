@@ -899,7 +899,7 @@ const contracts = {
     },
     "ust+dai+usdc+usdt": {
       pool: "0xB0a0716841F2Fc03fbA72A891B8Bb13584F52F2d",
-      lpToken: "0x2fE94ea3d5d4a175184081439753DE15AeF9d614",
+      lpToken: "0x94e131324b6054c0D789b190b2dAC504e4361b53",
       tokens: [
         "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
         "0x6B175474E89094C44Da98b954EedeAC495271d0F",
