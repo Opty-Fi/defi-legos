@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity >=0.6.0 <0.9.0;
+pragma experimental ABIEncoderV2;
 
 interface ISushiswapMasterChefV2 {
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount, address indexed to);
