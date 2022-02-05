@@ -35,6 +35,8 @@ interface ICurveSwap {
 
     function coins(uint256 arg0) external view returns (address);
 
+    function underlying_coins(uint256 arg0) external view returns (address);
+
     function calc_withdraw_one_coin(
         uint256 _liquidityPoolTokenAmount,
         int128 _tokenIndex,
