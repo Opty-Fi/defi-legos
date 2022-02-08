@@ -1698,33 +1698,6 @@ const contracts = {
       rewardedToken: ["0xef3A930e1FfFFAcd2fc13434aC81bD278B0ecC8d"],
       tokenIndexes: ["0", "1"],
     },
-    "mim_mim+3Crv": {
-      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      tokens: ["0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3"],
-      gauge: "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
-      rewardToken: "0x0000000000000000000000000000000000000000",
-      rewardedTokens: ["0x090185f2135308BaD17527004364eBcC2D37e5F6"],
-      tokenIndexes: ["0"],
-    },
-    "3Crv_mim+3Crv": {
-      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      tokens: ["0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
-      gauge: "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
-      rewardToken: "0x0000000000000000000000000000000000000000",
-      rewardedTokens: ["0x090185f2135308BaD17527004364eBcC2D37e5F6"],
-      tokenIndexes: ["1"],
-    },
-    "mim+3Crv": {
-      pool: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      lpToken: "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
-      tokens: ["0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
-      gauge: "0xd8b712d29381748dB89c36BCa0138d7c75866ddF",
-      rewardToken: "0x0000000000000000000000000000000000000000",
-      rewardedTokens: ["0x090185f2135308BaD17527004364eBcC2D37e5F6"],
-      tokenIndexes: ["0", "1"],
-    },
   },
   CurveMetapoolDepositPool: {
     "dola_dola+dai+usdc+usdt": {
