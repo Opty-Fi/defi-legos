@@ -33,6 +33,8 @@ interface ICurveSwap {
 
     function get_virtual_price() external view returns (uint256);
 
+    function coins(int128 arg0) external view returns (address);
+
     function coins(uint256 arg0) external view returns (address);
 
     function underlying_coins(uint256 arg0) external view returns (address);
