@@ -1,6 +1,6 @@
 {
   "name": "@optyfi/defi-legos",
-  "version": "0.1.0-rc.32",
+  "version": "0.1.0-rc.33",
   "main": "index.js",
   "types": "index.d.ts",
   "repository": {
