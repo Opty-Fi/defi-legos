@@ -1699,7 +1699,7 @@ const contracts = {
       tokenIndexes: ["0", "1"],
     },
   },
-  CurveMetapoolDepositPool: {
+  CurveMetapoolDepositAdapter: {
     "dola_dola+dai+usdc+usdt": {
       pool: "0xA79828DF1850E8a3A3064576f380D90aECDD3359",
       lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
@@ -4881,7 +4881,7 @@ const contracts = {
       ],
     },
   },
-  CurveMetapoolSwapPool: {
+  CurveMetapoolSwapAdapter: {
     "dola_dola+3crv": {
       pool: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
       lpToken: "0x9547429C0e2c3A8B88C6833B58FCE962734C0E8C",
@@ -6473,7 +6473,7 @@ const contracts = {
       tokens: ["0x605D26FBd5be761089281d5cec2Ce86eeA667109", "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"],
     },
   },
-  CurveMetapoolGaugePool: {
+  CurveMetapoolGaugeAdapter: {
     "alusd3crv-f": {
       pool: "0x9582C4ADACB3BCE56Fea3e590F05c3ca2fb9C477",
       lpToken: "0x9582C4ADACB3BCE56Fea3e590F05c3ca2fb9C477",
