@@ -5710,7 +5710,7 @@ const contracts = {
     "usdc_ust+dai+usdc+usdt": {
       pool: "0xB0a0716841F2Fc03fbA72A891B8Bb13584F52F2d",
       lpToken: "0x94e131324b6054c0D789b190b2dAC504e4361b53",
-      tokens: ["0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+      tokens: ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
       gauge: "0x3B7020743Bc2A4ca9EaF9D0722d42E20d6935855",
       swap: "0x890f4e345B1dAED0367A877a1612f86A1f86985f",
       rewardToken: "0xD533a949740bb3306d119CC777fa900bA034cd52",
