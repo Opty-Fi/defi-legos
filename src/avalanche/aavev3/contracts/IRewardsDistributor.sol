@@ -130,7 +130,8 @@ interface IRewardsDistributor {
     function getRewardsList() external view returns (address[] memory);
 
     /**
-     * @dev Returns the accrued rewards balance of a user, not including virtually accrued rewards since last distribution.
+     * @dev Returns the accrued rewards balance of a user,
+     * not including virtually accrued rewards since last distribution.
      * @param user The address of the user
      * @param reward The address of the reward token
      * @return Unclaimed rewards, not including new distributions

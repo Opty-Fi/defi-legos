@@ -1,6 +1,39 @@
 // SPDX-License-Identifier: AGPL-3.0
 pragma solidity >=0.6.0 <=0.9.0;
 
+struct ReserveData {
+    //stores the reserve configuration
+    ReserveConfigurationMap configuration;
+    //the liquidity index. Expressed in ray
+    uint128 liquidityIndex;
+    //the current supply rate. Expressed in ray
+    uint128 currentLiquidityRate;
+    //variable borrow index. Expressed in ray
+    uint128 variableBorrowIndex;
+    //the current variable borrow rate. Expressed in ray
+    uint128 currentVariableBorrowRate;
+    //the current stable borrow rate. Expressed in ray
+    uint128 currentStableBorrowRate;
+    //timestamp of last update
+    uint40 lastUpdateTimestamp;
+    //the id of the reserve. Represents the position in the list of the active reserves
+    uint16 id;
+    //aToken address
+    address aTokenAddress;
+    //stableDebtToken address
+    address stableDebtTokenAddress;
+    //variableDebtToken address
+    address variableDebtTokenAddress;
+    //address of the interest rate strategy
+    address interestRateStrategyAddress;
+    //the current treasury balance, scaled
+    uint128 accruedToTreasury;
+    //the outstanding unbacked aTokens minted through the bridging feature
+    uint128 unbacked;
+    //the outstanding debt borrowed against this asset in isolation mode
+    uint128 isolationModeTotalDebt;
+}
+
 struct EModeCategory {
     // each eMode category has a custom ltv and liquidation threshold
     uint16 ltv;
@@ -143,7 +176,8 @@ interface IAave {
      * @dev Emitted on swapBorrowRateMode()
      * @param reserve The address of the underlying asset of the reserve
      * @param user The address of the user swapping his rate mode
-     * @param interestRateMode The current interest rate mode of the position being swapped: 1 for Stable, 2 for Variable
+     * @param interestRateMode The current interest rate mode of the position being swapped:
+     * 1 for Stable, 2 for Variable
      **/
     event SwapBorrowRateMode(address indexed reserve, address indexed user, InterestRateMode interestRateMode);
 
@@ -204,7 +238,8 @@ interface IAave {
 
     /**
      * @dev Emitted when a borrower is liquidated.
-     * @param collateralAsset The address of the underlying asset used as collateral, to receive as result of the liquidation
+     * @param collateralAsset The address of the underlying asset used as collateral,
+     * to receive as result of the liquidation
      * @param debtAsset The address of the underlying borrowed asset to be repaid with the liquidation
      * @param user The address of the borrower getting liquidated
      * @param debtToCover The debt amount of borrowed `asset` the liquidator wants to cover
@@ -365,7 +400,8 @@ interface IAave {
      * @param asset The address of the borrowed underlying asset previously borrowed
      * @param amount The amount to repay
      * - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`
-     * @param interestRateMode The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable
+     * @param interestRateMode The interest rate mode at of the debt the user wants to repay:
+     * 1 for Stable, 2 for Variable
      * @param onBehalfOf The address of the user who will get his debt reduced/removed. Should be the address of the
      * user calling the function if he wants to reduce/remove his own debt, or the address of any other
      * other borrower whose debt should be removed
@@ -384,7 +420,8 @@ interface IAave {
      * @param asset The address of the borrowed underlying asset previously borrowed
      * @param amount The amount to repay
      * - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`
-     * @param interestRateMode The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable
+     * @param interestRateMode The interest rate mode at of the debt the user wants to repay:
+     * 1 for Stable, 2 for Variable
      * @param onBehalfOf Address of the user who will get his debt reduced/removed. Should be the address of the
      * user calling the function if he wants to reduce/remove his own debt, or the address of any other
      * other borrower whose debt should be removed
@@ -414,7 +451,8 @@ interface IAave {
      * @param asset The address of the borrowed underlying asset previously borrowed
      * @param amount The amount to repay
      * - Send the value type(uint256).max in order to repay the whole debt for `asset` on the specific `debtMode`
-     * @param interestRateMode The interest rate mode at of the debt the user wants to repay: 1 for Stable, 2 for Variable
+     * @param interestRateMode The interest rate mode at of the debt the user wants to repay:
+     * 1 for Stable, 2 for Variable
      * @return The final amount repaid
      **/
     function repayWithATokens(
@@ -426,7 +464,8 @@ interface IAave {
     /**
      * @notice Allows a borrower to swap his debt between stable and variable mode, or vice versa
      * @param asset The address of the underlying asset borrowed
-     * @param interestRateMode The current interest rate mode of the position being swapped: 1 for Stable, 2 for Variable
+     * @param interestRateMode The current interest rate mode of the position being swapped:
+     * 1 for Stable, 2 for Variable
      **/
     function swapBorrowRateMode(address asset, uint256 interestRateMode) external;
 
@@ -452,7 +491,8 @@ interface IAave {
      * @notice Function to liquidate a non-healthy position collateral-wise, with Health Factor below 1
      * - The caller (liquidator) covers `debtToCover` amount of debt of the user getting liquidated, and receives
      *   a proportionally amount of the `collateralAsset` plus a bonus to cover market risk
-     * @param collateralAsset The address of the underlying asset used as collateral, to receive as result of the liquidation
+     * @param collateralAsset The address of the underlying asset used as collateral,
+     * to receive as result of the liquidation
      * @param debtAsset The address of the underlying borrowed asset to be repaid with the liquidation
      * @param user The address of the borrower getting liquidated
      * @param debtToCover The debt amount of borrowed `asset` the liquidator wants to cover
@@ -499,7 +539,8 @@ interface IAave {
      * as long as the amount taken plus a fee is returned.
      * @dev IMPORTANT There are security concerns for developers of flashloan receiver contracts that must be kept
      * into consideration. For further details please visit https://developers.aave.com
-     * @param receiverAddress The address of the contract receiving the funds, implementing IFlashLoanSimpleReceiver interface
+     * @param receiverAddress The address of the contract receiving the funds,
+     * implementing IFlashLoanSimpleReceiver interface
      * @param asset The address of the asset being flash-borrowed
      * @param amount The amount of the asset being flash-borrowed
      * @param params Variadic packed params to pass to the receiver as extra information
@@ -639,7 +680,8 @@ interface IAave {
     function getReservesList() external view returns (address[] memory);
 
     /**
-     * @notice Returns the address of the underlying asset of a reserve by the reserve id as stored in the DataTypes.ReserveData struct
+     * @notice Returns the address of the underlying asset of a reserve by the reserve
+     * id as stored in the DataTypes.ReserveData struct
      * @param id The id of the reserve as stored in the DataTypes.ReserveData struct
      * @return The address of the reserve associated with id
      **/
