@@ -8,9 +8,9 @@ import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
 
 // helper contracts
 import { ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
 import { AdapterModifiersBase } from "./AdapterModifiersBase.sol";
 
+// interfaces
 import "../../interfaces/defiAdapters/contracts/IAdapterInvestLimit.sol";
 
 abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifiersBase {
@@ -39,6 +39,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
      */
     function setMaxDepositPoolPct(address _liquidityPool, uint256 _maxDepositPoolPct)
         external
+        virtual
         override
         onlyRiskOperator
     {
@@ -53,7 +54,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
         address _liquidityPool,
         address _underlyingToken,
         uint256 _maxDepositAmount
-    ) external override onlyRiskOperator {
+    ) external virtual override onlyRiskOperator {
         maxDepositAmount[_liquidityPool][_underlyingToken] = _maxDepositAmount;
         emit LogMaxDepositAmount(maxDepositAmount[_liquidityPool][_underlyingToken], msg.sender);
     }
@@ -61,7 +62,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
     /**
      * @inheritdoc IAdapterInvestLimit
      */
-    function setMaxDepositProtocolMode(MaxExposure _mode) external override onlyRiskOperator {
+    function setMaxDepositProtocolMode(MaxExposure _mode) external virtual override onlyRiskOperator {
         maxDepositProtocolMode = _mode;
         emit LogMaxDepositProtocolMode(maxDepositProtocolMode, msg.sender);
     }
@@ -69,7 +70,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
     /**
      * @inheritdoc IAdapterInvestLimit
      */
-    function setMaxDepositProtocolPct(uint256 _maxDepositProtocolPct) external override onlyRiskOperator {
+    function setMaxDepositProtocolPct(uint256 _maxDepositProtocolPct) external virtual override onlyRiskOperator {
         maxDepositProtocolPct = _maxDepositProtocolPct;
         emit LogMaxDepositProtocolPct(maxDepositProtocolPct, msg.sender);
     }
@@ -82,15 +83,15 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
      * @param _poolValue pool value
      * @return amount in underlying token to be deposited affected by investment limitation
      */
-    function _getDepositAmount(
+    function getDepositAmount(
         address _liquidityPool,
         address _underlyingToken,
         uint256 _amount,
         uint256 _poolValue
-    ) internal view returns (uint256) {
+    ) public view returns (uint256) {
         uint256 _limit =
             maxDepositProtocolMode == MaxExposure.Pct
-                ? _getMaxDepositAmountByPct(_liquidityPool, _poolValue)
+                ? getMaxDepositAmountByPct(_liquidityPool, _poolValue)
                 : maxDepositAmount[_liquidityPool][_underlyingToken];
         return _amount > _limit ? _limit : _amount;
     }
@@ -102,7 +103,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
      * @return  amount in underlying token to be deposited affected by
      *          investment limit in percentage
      */
-    function _getMaxDepositAmountByPct(address _liquidityPool, uint256 _poolValue) internal view returns (uint256) {
+    function getMaxDepositAmountByPct(address _liquidityPool, uint256 _poolValue) public view returns (uint256) {
         uint256 _poolPct = maxDepositPoolPct[_liquidityPool];
         uint256 _limit =
             _poolPct == 0
