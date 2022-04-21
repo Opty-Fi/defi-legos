@@ -85,7 +85,7 @@ struct ReserveConfigurationMap {
  * @author Aave
  * @notice Defines the basic interface for an Aave Pool.
  **/
-interface IAave {
+interface IAaveV3 {
     /**
      * @dev Emitted on mintUnbacked()
      * @param reserve The address of the underlying asset of the reserve

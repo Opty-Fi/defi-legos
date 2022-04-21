@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity >=0.6.0 <=0.9.0;
 
-import { IRewardsDistributor } from "./IRewardsDistributor.sol";
+import { IAaveV3RewardsDistributor } from "./IAaveV3RewardsDistributor.sol";
 
 /**
  * @title IRewardsController
  * @author Aave
  * @notice Defines the basic interface for a Rewards Controller.
  */
-interface IRewardsController is IRewardsDistributor {
+interface IAaveV3RewardsController is IAaveV3RewardsDistributor {
     /**
      * @dev Emitted when a new address is whitelisted as claimer of rewards on behalf of a user
      * @param user The address of the user

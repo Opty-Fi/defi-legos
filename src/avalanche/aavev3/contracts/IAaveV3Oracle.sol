@@ -2,11 +2,11 @@
 pragma solidity >=0.6.0 <=0.9.0;
 
 /**
- * @title IAaveOracle
+ * @title IAaveV3Oracle
  * @author Aave
  * @notice Defines the basic interface for the Aave Oracle
  */
-interface IAaveOracle {
+interface IAaveV3Oracle {
     /**
      * @dev Emitted after the base currency is set
      * @param baseCurrency The base currency of used for price quotes

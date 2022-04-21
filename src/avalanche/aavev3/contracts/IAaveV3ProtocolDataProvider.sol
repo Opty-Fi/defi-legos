@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface IAaveProtocolDataProvider {
+interface IAaveV3ProtocolDataProvider {
     /**
      * @notice Returns the reserve data
      * @param asset The address of the underlying asset of the reserve
