@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface IAToken {
+interface IAaveV3Token {
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event BalanceTransfer(address indexed from, address indexed to, uint256 value, uint256 index);
     event Burn(address indexed from, address indexed target, uint256 value, uint256 index);

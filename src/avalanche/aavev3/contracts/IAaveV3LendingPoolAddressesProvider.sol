@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface IAaveLendingPoolAddressesProvider {
+interface IAaveV3LendingPoolAddressesProvider {
     /**
      * @dev Emitted when the market identifier is updated.
      * @param oldMarketId The old id of the market

@@ -6,7 +6,7 @@ pragma solidity >=0.6.0 <=0.9.0;
  * @author Aave
  * @notice Defines the basic interface for an Aave Pool Addresses Provider Registry.
  **/
-interface IAaveLendingPoolAddressesProviderRegistry {
+interface IAaveV3LendingPoolAddressesProviderRegistry {
     /**
      * @dev Emitted when a new AddressesProvider is registered.
      * @param addressesProvider The address of the registered PoolAddressesProvider

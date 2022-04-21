@@ -6,7 +6,7 @@ pragma solidity >=0.6.0 <=0.9.0;
  * @author Aave
  * @notice Defines the basic interface for a Rewards Distributor.
  */
-interface IRewardsDistributor {
+interface IAaveV3RewardsDistributor {
     /**
      * @dev Emitted when the configuration of the rewards of an asset is updated.
      * @param asset The address of the incentivized asset
