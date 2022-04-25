@@ -41,12 +41,12 @@ const contracts = {
     usdc: {
       pool: "0x770ef9f4fe897e59daCc474EF11238303F9552b6",
       lpToken: "0x625E7708f30cA75bfd92586e17077590C60eb4cD",
-      tokens: ["0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664"],
+      tokens: ["0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"],
     },
     usdt: {
       pool: "0x770ef9f4fe897e59daCc474EF11238303F9552b6",
       lpToken: "0x6ab707Aca953eDAeFBc4fD23bA73294241490620",
-      tokens: ["0xc7198437980c041c805A1EDcbA50c1Ce5db95118"],
+      tokens: ["0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7"],
     },
     wbtc: {
       pool: "0x770ef9f4fe897e59daCc474EF11238303F9552b6",
