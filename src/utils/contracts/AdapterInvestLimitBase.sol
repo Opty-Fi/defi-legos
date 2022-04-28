@@ -88,7 +88,7 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
         address _underlyingToken,
         uint256 _amount,
         uint256 _poolValue
-    ) public view returns (uint256) {
+    ) public view virtual returns (uint256) {
         uint256 _limit =
             maxDepositProtocolMode == MaxExposure.Pct
                 ? getMaxDepositAmountByPct(_liquidityPool, _poolValue)
@@ -103,7 +103,12 @@ abstract contract AdapterInvestLimitBase is IAdapterInvestLimit, AdapterModifier
      * @return  amount in underlying token to be deposited affected by
      *          investment limit in percentage
      */
-    function getMaxDepositAmountByPct(address _liquidityPool, uint256 _poolValue) public view returns (uint256) {
+    function getMaxDepositAmountByPct(address _liquidityPool, uint256 _poolValue)
+        public
+        view
+        virtual
+        returns (uint256)
+    {
         uint256 _poolPct = maxDepositPoolPct[_liquidityPool];
         uint256 _limit =
             _poolPct == 0
