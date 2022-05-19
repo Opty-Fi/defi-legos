@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface ICurveSwap {
+interface ICurve2StableSwap {
     event TokenExchange(
         address indexed buyer,
         int128 sold_id,
@@ -19,17 +19,17 @@ interface ICurveSwap {
     );
     event AddLiquidity(
         address indexed provider,
-        uint256[3] token_amounts,
-        uint256[3] fees,
+        uint256[2] token_amounts,
+        uint256[2] fees,
         uint256 invariant,
         uint256 token_supply
     );
-    event RemoveLiquidity(address indexed provider, uint256[3] token_amounts, uint256[3] fees, uint256 token_supply);
+    event RemoveLiquidity(address indexed provider, uint256[2] token_amounts, uint256[2] fees, uint256 token_supply);
     event RemoveLiquidityOne(address indexed provider, uint256 token_amount, uint256 coin_amount);
     event RemoveLiquidityImbalance(
         address indexed provider,
-        uint256[3] token_amounts,
-        uint256[3] fees,
+        uint256[2] token_amounts,
+        uint256[2] fees,
         uint256 invariant,
         uint256 token_supply
     );
@@ -50,12 +50,12 @@ interface ICurveSwap {
 
     function get_virtual_price() external view returns (uint256);
 
-    function calc_token_amount(uint256[3] memory _amounts, bool is_deposit) external view returns (uint256);
+    function calc_token_amount(uint256[2] memory _amounts, bool is_deposit) external view returns (uint256);
 
-    function add_liquidity(uint256[3] memory _amounts, uint256 _min_mint_amount) external returns (uint256);
+    function add_liquidity(uint256[2] memory _amounts, uint256 _min_mint_amount) external returns (uint256);
 
     function add_liquidity(
-        uint256[3] memory _amounts,
+        uint256[2] memory _amounts,
         uint256 _min_mint_amount,
         bool _use_underlying
     ) external returns (uint256);
@@ -86,20 +86,20 @@ interface ICurveSwap {
         uint256 min_dy
     ) external returns (uint256);
 
-    function remove_liquidity(uint256 _amount, uint256[3] memory _min_amounts) external returns (uint256[3] memory);
+    function remove_liquidity(uint256 _amount, uint256[2] memory _min_amounts) external returns (uint256[2] memory);
 
     function remove_liquidity(
         uint256 _amount,
-        uint256[3] memory _min_amounts,
+        uint256[2] memory _min_amounts,
         bool _use_underlying
-    ) external returns (uint256[3] memory);
+    ) external returns (uint256[2] memory);
 
-    function remove_liquidity_imbalance(uint256[3] memory _amounts, uint256 _max_burn_amount)
+    function remove_liquidity_imbalance(uint256[2] memory _amounts, uint256 _max_burn_amount)
         external
         returns (uint256);
 
     function remove_liquidity_imbalance(
-        uint256[3] memory _amounts,
+        uint256[2] memory _amounts,
         uint256 _max_burn_amount,
         bool _use_underlying
     ) external returns (uint256);

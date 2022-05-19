@@ -25,11 +25,21 @@ interface ICurveSwap {
 
     function remove_liquidity(uint256 _amount, uint256[4] calldata minAmountOut) external;
 
-    function calc_token_amount(uint256[] calldata amountsIn, bool deposit) external view returns (uint256);
+    function calc_token_amount(uint256[2] calldata amountsIn, bool deposit) external view returns (uint256);
+
+    function calc_token_amount(uint256[3] calldata amountsIn, bool deposit) external view returns (uint256);
+
+    function calc_token_amount(uint256[4] calldata amountsIn, bool deposit) external view returns (uint256);
 
     function get_virtual_price() external view returns (uint256);
 
+    function coins(int128 arg0) external view returns (address);
+
     function coins(uint256 arg0) external view returns (address);
+
+    function underlying_coins(uint256 arg0) external view returns (address);
+
+    function calc_withdraw_one_coin(uint256 _balance, int128 _tokenIndex) external view returns (uint256);
 
     function calc_withdraw_one_coin(
         uint256 _liquidityPoolTokenAmount,

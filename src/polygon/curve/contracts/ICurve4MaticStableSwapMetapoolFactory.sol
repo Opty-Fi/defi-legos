@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <=0.9.0;
 
-interface ICurveStableSwap {
+interface ICurve4MaticStableSwapMetapoolFactory {
     event Transfer(address indexed sender, address indexed receiver, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event TokenExchange(
@@ -12,26 +12,19 @@ interface ICurveStableSwap {
         int128 bought_id,
         uint256 tokens_bought
     );
-    event TokenExchangeUnderlying(
-        address indexed buyer,
-        int128 sold_id,
-        uint256 tokens_sold,
-        int128 bought_id,
-        uint256 tokens_bought
-    );
     event AddLiquidity(
         address indexed provider,
-        uint256[2] token_amounts,
-        uint256[2] fees,
+        uint256[4] token_amounts,
+        uint256[4] fees,
         uint256 invariant,
         uint256 token_supply
     );
-    event RemoveLiquidity(address indexed provider, uint256[2] token_amounts, uint256[2] fees, uint256 token_supply);
+    event RemoveLiquidity(address indexed provider, uint256[4] token_amounts, uint256[4] fees, uint256 token_supply);
     event RemoveLiquidityOne(address indexed provider, uint256 token_amount, uint256 coin_amount, uint256 token_supply);
     event RemoveLiquidityImbalance(
         address indexed provider,
-        uint256[2] token_amounts,
-        uint256[2] fees,
+        uint256[4] token_amounts,
+        uint256[4] fees,
         uint256 invariant,
         uint256 token_supply
     );
@@ -41,8 +34,8 @@ interface ICurveStableSwap {
     function initialize(
         string memory _name,
         string memory _symbol,
-        address _coin,
-        uint256 _rate_multiplier,
+        address[4] memory _coins,
+        uint256[4] memory _rate_multipliers,
         uint256 _A,
         uint256 _fee
     ) external;
@@ -59,6 +52,8 @@ interface ICurveStableSwap {
 
     function approve(address _spender, uint256 _value) external returns (bool);
 
+    function get_balances() external view returns (uint256[4] memory);
+
     function admin_fee() external view returns (uint256);
 
     function A() external view returns (uint256);
@@ -67,15 +62,15 @@ interface ICurveStableSwap {
 
     function get_virtual_price() external view returns (uint256);
 
-    function calc_token_amount(uint256[2] memory _amounts, bool _is_deposit) external view returns (uint256);
+    function calc_token_amount(uint256[4] memory _amounts, bool _is_deposit) external view returns (uint256);
 
-    function add_liquidity(uint256[2] memory _amounts, uint256 _min_mint_amount) external returns (uint256);
+    function add_liquidity(uint256[4] memory _amounts, uint256 _min_mint_amount) external payable returns (uint256);
 
     function add_liquidity(
-        uint256[2] memory _amounts,
+        uint256[4] memory _amounts,
         uint256 _min_mint_amount,
         address _receiver
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
     function get_dy(
         int128 i,
@@ -83,18 +78,12 @@ interface ICurveStableSwap {
         uint256 dx
     ) external view returns (uint256);
 
-    function get_dy_underlying(
-        int128 i,
-        int128 j,
-        uint256 dx
-    ) external view returns (uint256);
-
     function exchange(
         int128 i,
         int128 j,
         uint256 _dx,
         uint256 _min_dy
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
     function exchange(
         int128 i,
@@ -102,39 +91,24 @@ interface ICurveStableSwap {
         uint256 _dx,
         uint256 _min_dy,
         address _receiver
-    ) external returns (uint256);
+    ) external payable returns (uint256);
 
-    function exchange_underlying(
-        int128 i,
-        int128 j,
-        uint256 _dx,
-        uint256 _min_dy
-    ) external returns (uint256);
-
-    function exchange_underlying(
-        int128 i,
-        int128 j,
-        uint256 _dx,
-        uint256 _min_dy,
-        address _receiver
-    ) external returns (uint256);
-
-    function remove_liquidity(uint256 _burn_amount, uint256[2] memory _min_amounts)
+    function remove_liquidity(uint256 _burn_amount, uint256[4] memory _min_amounts)
         external
-        returns (uint256[2] memory);
+        returns (uint256[4] memory);
 
     function remove_liquidity(
         uint256 _burn_amount,
-        uint256[2] memory _min_amounts,
+        uint256[4] memory _min_amounts,
         address _receiver
-    ) external returns (uint256[2] memory);
+    ) external returns (uint256[4] memory);
 
-    function remove_liquidity_imbalance(uint256[2] memory _amounts, uint256 _max_burn_amount)
+    function remove_liquidity_imbalance(uint256[4] memory _amounts, uint256 _max_burn_amount)
         external
         returns (uint256);
 
     function remove_liquidity_imbalance(
-        uint256[2] memory _amounts,
+        uint256[4] memory _amounts,
         uint256 _max_burn_amount,
         address _receiver
     ) external returns (uint256);
@@ -185,6 +159,4 @@ interface ICurveStableSwap {
     function allowance(address arg0, address arg1) external view returns (uint256);
 
     function totalSupply() external view returns (uint256);
-
-    function rewards_receiver() external view returns (address);
 }

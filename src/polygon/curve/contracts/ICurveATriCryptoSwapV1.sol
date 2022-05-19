@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.9.0;
 
-interface ICurveCryptoV1 {
+interface ICurveATriCryptoSwapV1 {
     event TokenExchange(
         address indexed buyer,
         uint256 sold_id,
