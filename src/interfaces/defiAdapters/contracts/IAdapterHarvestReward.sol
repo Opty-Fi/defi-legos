@@ -17,13 +17,13 @@ interface IAdapterHarvestReward {
      * @param _vault Vault contract address
      * @param _liquidityPool Liquidity pool's contract address from where to claim reward tokens
      * @param _underlyingToken Underlying token's contract address for which to claim reward tokens
-     * @return _codes Returns an array of bytes in sequence that can be executed by vault
+     * @return Returns the amount of unclaimed reward tokens
      */
     function getUnclaimedRewardTokenAmount(
         address payable _vault,
         address _liquidityPool,
         address _underlyingToken
-    ) external view returns (uint256 _codes);
+    ) external view returns (uint256);
 
     /**
      * @notice Get batch of function calls for claiming the reward tokens (eg: COMP etc.)
