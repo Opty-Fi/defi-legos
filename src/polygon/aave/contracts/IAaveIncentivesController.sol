@@ -2,12 +2,19 @@
 pragma solidity >=0.6.0 <=0.9.0;
 pragma experimental ABIEncoderV2;
 
+struct AssetConfigInput {
+    uint128 emissionPerSecond;
+    address underlyingAsset;
+}
+
 interface IAaveIncentivesController {
     event RewardsAccrued(address indexed user, uint256 amount);
 
     event RewardsClaimed(address indexed user, address indexed to, address indexed claimer, uint256 amount);
 
     event ClaimerSet(address indexed user, address indexed claimer);
+
+    function assets(address assets) external view returns (AssetConfigInput memory);
 
     function setClaimer(address user, address claimer) external;
 
