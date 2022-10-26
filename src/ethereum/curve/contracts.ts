@@ -18,6 +18,10 @@ import TokenMinterAbi from "./abi/interfacesV0/TokenMinter.json";
 import CurveMetapoolFactoryAbi from "./abi/interfacesV0/CurveMetapoolFactory.json";
 import CurveMetapoolDepositAbi from "./abi/interfacesV0/CurveMetapoolDeposit.json";
 import CurveMetapoolSwapAbi from "./abi/interfacesV0/CurveMetapoolSwap.json";
+import CurveFactoryAbi from "./abi/CurveFactory.json";
+import CurveMetaRegistryAbi from "./abi/CurveMetaRegistry.json";
+import CurveCryptoPoolGaugeAbi from "./abi/CurveCryptoPoolGauge.json";
+import CurveCryptoPoolAbi from "./abi/CurveCryptoPool.json";
 
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
@@ -40,6 +44,8 @@ const contracts = {
   CurveSwap: { abi: CurveSwapAbi },
   TokenMinter: { abi: TokenMinterAbi },
   CurveMetapoolFactory: { abi: CurveMetapoolFactoryAbi, address: "0x0959158b6040D32d04c301A72CBFD6b39E21c9AE" },
+  CurveFactory: { abi: CurveFactoryAbi, address: "0xF18056Bbd320E96A48e3Fbf8bC061322531aac99" },
+  CurveMetaRegistry: { abi: CurveMetaRegistryAbi, address: "0xF98B45FA17DE75FB1aD0e7aFD971b0ca00e379fC" },
   CurveMetapoolDeposit: {
     abi: CurveMetapoolDepositAbi,
     pools: {
@@ -6584,6 +6590,26 @@ const contracts = {
       address: "0x94e131324b6054c0D789b190b2dAC504e4361b53",
       pool: "0xB0a0716841F2Fc03fbA72A891B8Bb13584F52F2d",
       old: false,
+    },
+  },
+  CurveCryptoPool: {
+    abi: CurveCryptoPoolAbi,
+    pools: {
+      "bLUSDLUSD3-f": {
+        pool: "0x74ED5d42203806c8CDCf2F04Ca5F60DC777b901c",
+        lpToken: "0x5ca0313D44551e32e0d7a298EC024321c4BC59B4",
+        tokens: ["0xB9D7DdDca9a4AC480991865EfEf82E01273F79C3", "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA"],
+      },
+    },
+  },
+  CurveCryptoPoolGauge: {
+    abi: CurveCryptoPoolGaugeAbi,
+    pools: {
+      "bLUSDLUSD3-f": {
+        pool: "0xdA0DD1798BE66E17d5aB1Dc476302b56689C2DB4",
+        lpToken: "0xdA0DD1798BE66E17d5aB1Dc476302b56689C2DB4",
+        tokens: ["0x5ca0313D44551e32e0d7a298EC024321c4BC59B4"],
+      },
     },
   },
 };
