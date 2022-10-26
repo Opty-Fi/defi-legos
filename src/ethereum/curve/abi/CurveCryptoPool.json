@@ -1,106 +1,30 @@
 [
   {
-    "name": "Transfer",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "sender",
-        "indexed": true
-      },
-      {
-        "type": "address",
-        "name": "receiver",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "value",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "Approval",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "owner",
-        "indexed": true
-      },
-      {
-        "type": "address",
-        "name": "spender",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "value",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
     "name": "TokenExchange",
     "inputs": [
       {
-        "type": "address",
         "name": "buyer",
+        "type": "address",
         "indexed": true
       },
       {
-        "type": "int128",
         "name": "sold_id",
+        "type": "uint256",
         "indexed": false
       },
       {
-        "type": "uint256",
         "name": "tokens_sold",
+        "type": "uint256",
         "indexed": false
       },
       {
-        "type": "int128",
         "name": "bought_id",
+        "type": "uint256",
         "indexed": false
       },
       {
-        "type": "uint256",
         "name": "tokens_bought",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "TokenExchangeUnderlying",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "buyer",
-        "indexed": true
-      },
-      {
-        "type": "int128",
-        "name": "sold_id",
-        "indexed": false
-      },
-      {
         "type": "uint256",
-        "name": "tokens_sold",
-        "indexed": false
-      },
-      {
-        "type": "int128",
-        "name": "bought_id",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
-        "name": "tokens_bought",
         "indexed": false
       }
     ],
@@ -111,28 +35,23 @@
     "name": "AddLiquidity",
     "inputs": [
       {
-        "type": "address",
         "name": "provider",
+        "type": "address",
         "indexed": true
       },
       {
-        "type": "uint256[2]",
         "name": "token_amounts",
-        "indexed": false
-      },
-      {
         "type": "uint256[2]",
-        "name": "fees",
         "indexed": false
       },
       {
+        "name": "fee",
         "type": "uint256",
-        "name": "invariant",
         "indexed": false
       },
       {
-        "type": "uint256",
         "name": "token_supply",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -143,23 +62,18 @@
     "name": "RemoveLiquidity",
     "inputs": [
       {
-        "type": "address",
         "name": "provider",
+        "type": "address",
         "indexed": true
       },
       {
-        "type": "uint256[2]",
         "name": "token_amounts",
-        "indexed": false
-      },
-      {
         "type": "uint256[2]",
-        "name": "fees",
         "indexed": false
       },
       {
-        "type": "uint256",
         "name": "token_supply",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -170,23 +84,23 @@
     "name": "RemoveLiquidityOne",
     "inputs": [
       {
-        "type": "address",
         "name": "provider",
+        "type": "address",
         "indexed": true
       },
       {
-        "type": "uint256",
         "name": "token_amount",
+        "type": "uint256",
         "indexed": false
       },
       {
+        "name": "coin_index",
         "type": "uint256",
+        "indexed": false
+      },
+      {
         "name": "coin_amount",
-        "indexed": false
-      },
-      {
         "type": "uint256",
-        "name": "token_supply",
         "indexed": false
       }
     ],
@@ -194,82 +108,46 @@
     "type": "event"
   },
   {
-    "name": "RemoveLiquidityImbalance",
+    "name": "CommitNewParameters",
     "inputs": [
       {
-        "type": "address",
-        "name": "provider",
-        "indexed": true
-      },
-      {
-        "type": "uint256[2]",
-        "name": "token_amounts",
-        "indexed": false
-      },
-      {
-        "type": "uint256[2]",
-        "name": "fees",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
-        "name": "invariant",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
-        "name": "token_supply",
-        "indexed": false
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "CommitNewAdmin",
-    "inputs": [
-      {
-        "type": "uint256",
         "name": "deadline",
+        "type": "uint256",
         "indexed": true
       },
       {
-        "type": "address",
-        "name": "admin",
-        "indexed": true
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "NewAdmin",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "admin",
-        "indexed": true
-      }
-    ],
-    "anonymous": false,
-    "type": "event"
-  },
-  {
-    "name": "CommitNewFee",
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "deadline",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "fee",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
         "name": "admin_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "mid_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "out_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "fee_gamma",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "allowed_extra_profit",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "adjustment_step",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "ma_half_time",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -277,16 +155,41 @@
     "type": "event"
   },
   {
-    "name": "NewFee",
+    "name": "NewParameters",
     "inputs": [
       {
-        "type": "uint256",
-        "name": "fee",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
         "name": "admin_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "mid_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "out_fee",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "fee_gamma",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "allowed_extra_profit",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "adjustment_step",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "ma_half_time",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -294,26 +197,36 @@
     "type": "event"
   },
   {
-    "name": "RampA",
+    "name": "RampAgamma",
     "inputs": [
       {
+        "name": "initial_A",
         "type": "uint256",
-        "name": "old_A",
         "indexed": false
       },
       {
+        "name": "future_A",
         "type": "uint256",
-        "name": "new_A",
         "indexed": false
       },
       {
+        "name": "initial_gamma",
         "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "future_gamma",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
         "name": "initial_time",
+        "type": "uint256",
         "indexed": false
       },
       {
-        "type": "uint256",
         "name": "future_time",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -324,13 +237,18 @@
     "name": "StopRampA",
     "inputs": [
       {
+        "name": "current_A",
         "type": "uint256",
-        "name": "A",
         "indexed": false
       },
       {
+        "name": "current_gamma",
         "type": "uint256",
-        "name": "t",
+        "indexed": false
+      },
+      {
+        "name": "time",
+        "type": "uint256",
         "indexed": false
       }
     ],
@@ -338,988 +256,1112 @@
     "type": "event"
   },
   {
-    "outputs": [],
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "name": "initialize",
-    "outputs": [],
+    "name": "ClaimAdminFee",
     "inputs": [
       {
-        "type": "string",
-        "name": "_name"
-      },
-      {
-        "type": "string",
-        "name": "_symbol"
-      },
-      {
+        "name": "admin",
         "type": "address",
-        "name": "_coin"
+        "indexed": true
       },
       {
+        "name": "tokens",
         "type": "uint256",
-        "name": "_decimals"
-      },
-      {
-        "type": "uint256",
-        "name": "_A"
-      },
-      {
-        "type": "uint256",
-        "name": "_fee"
-      },
-      {
-        "type": "address",
-        "name": "_admin"
+        "indexed": false
       }
     ],
+    "anonymous": false,
+    "type": "event"
+  },
+  {
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "decimals",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "transfer",
-    "outputs": [
-      {
-        "type": "bool",
-        "name": ""
-      }
-    ],
+    "type": "constructor",
     "inputs": [
       {
-        "type": "address",
-        "name": "_to"
-      },
-      {
-        "type": "uint256",
-        "name": "_value"
+        "name": "_weth",
+        "type": "address"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    "outputs": []
   },
   {
-    "name": "transferFrom",
-    "outputs": [
-      {
-        "type": "bool",
-        "name": ""
-      }
-    ],
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange",
     "inputs": [
       {
-        "type": "address",
-        "name": "_from"
+        "name": "i",
+        "type": "uint256"
       },
       {
-        "type": "address",
-        "name": "_to"
+        "name": "j",
+        "type": "uint256"
       },
       {
-        "type": "uint256",
-        "name": "_value"
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "approve",
     "outputs": [
       {
-        "type": "bool",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
+    ]
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange",
     "inputs": [
       {
-        "type": "address",
-        "name": "_spender"
+        "name": "i",
+        "type": "uint256"
       },
       {
-        "type": "uint256",
-        "name": "_value"
+        "name": "j",
+        "type": "uint256"
+      },
+      {
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "get_previous_balances",
     "outputs": [
       {
-        "type": "uint256[2]",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
-    "name": "get_balances",
-    "outputs": [
-      {
-        "type": "uint256[2]",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_twap_balances",
-    "outputs": [
-      {
-        "type": "uint256[2]",
-        "name": ""
-      }
-    ],
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange",
     "inputs": [
       {
-        "type": "uint256[2]",
-        "name": "_first_balances"
+        "name": "i",
+        "type": "uint256"
       },
       {
-        "type": "uint256[2]",
-        "name": "_last_balances"
+        "name": "j",
+        "type": "uint256"
       },
       {
-        "type": "uint256",
-        "name": "_time_elapsed"
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_price_cumulative_last",
     "outputs": [
       {
-        "type": "uint256[2]",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
-    "name": "admin_fee",
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange_underlying",
+    "inputs": [
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "j",
+        "type": "uint256"
+      },
+      {
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
+      }
+    ],
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange_underlying",
+    "inputs": [
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "j",
+        "type": "uint256"
+      },
+      {
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "exchange_extended",
+    "inputs": [
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "j",
+        "type": "uint256"
+      },
+      {
+        "name": "dx",
+        "type": "uint256"
+      },
+      {
+        "name": "min_dy",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      },
+      {
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      },
+      {
+        "name": "cb",
+        "type": "bytes32"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "add_liquidity",
+    "inputs": [
+      {
+        "name": "amounts",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "min_mint_amount",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "add_liquidity",
+    "inputs": [
+      {
+        "name": "amounts",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "min_mint_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "payable",
+    "type": "function",
+    "name": "add_liquidity",
+    "inputs": [
+      {
+        "name": "amounts",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "min_mint_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity",
+    "inputs": [
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amounts",
+        "type": "uint256[2]"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity",
+    "inputs": [
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amounts",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity",
+    "inputs": [
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amounts",
+        "type": "uint256[2]"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity_one_coin",
+    "inputs": [
+      {
+        "name": "token_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amount",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity_one_coin",
+    "inputs": [
+      {
+        "name": "token_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "remove_liquidity_one_coin",
+    "inputs": [
+      {
+        "name": "token_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "min_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "use_eth",
+        "type": "bool"
+      },
+      {
+        "name": "receiver",
+        "type": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "claim_admin_fees",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "ramp_A_gamma",
+    "inputs": [
+      {
+        "name": "future_A",
+        "type": "uint256"
+      },
+      {
+        "name": "future_gamma",
+        "type": "uint256"
+      },
+      {
+        "name": "future_time",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "stop_ramp_A_gamma",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "commit_new_parameters",
+    "inputs": [
+      {
+        "name": "_new_mid_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_out_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_admin_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_fee_gamma",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_allowed_extra_profit",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_adjustment_step",
+        "type": "uint256"
+      },
+      {
+        "name": "_new_ma_half_time",
+        "type": "uint256"
+      }
+    ],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "apply_new_parameters",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "revert_new_parameters",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "get_dy",
+    "inputs": [
+      {
+        "name": "i",
+        "type": "uint256"
+      },
+      {
+        "name": "j",
+        "type": "uint256"
+      },
+      {
+        "name": "dx",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "calc_token_amount",
+    "inputs": [
+      {
+        "name": "amounts",
+        "type": "uint256[2]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "calc_withdraw_one_coin",
+    "inputs": [
+      {
+        "name": "token_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "i",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "lp_price",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
     "name": "A",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
     "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "A_precise",
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "gamma",
     "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_virtual_price",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "calc_token_amount",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "bool",
-        "name": "_is_deposit"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "calc_token_amount",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "bool",
-        "name": "_is_deposit"
-      },
-      {
-        "type": "bool",
-        "name": "_previous"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "add_liquidity",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "uint256",
-        "name": "_min_mint_amount"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "add_liquidity",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "uint256",
-        "name": "_min_mint_amount"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "get_dy",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_dy",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256[2]",
-        "name": "_balances"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_dy_underlying",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "get_dy_underlying",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256[2]",
-        "name": "_balances"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "exchange",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256",
-        "name": "min_dy"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "exchange",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256",
-        "name": "min_dy"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "exchange_underlying",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256",
-        "name": "min_dy"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "exchange_underlying",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "int128",
-        "name": "j"
-      },
-      {
-        "type": "uint256",
-        "name": "dx"
-      },
-      {
-        "type": "uint256",
-        "name": "min_dy"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity",
-    "outputs": [
-      {
-        "type": "uint256[2]",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "uint256[2]",
-        "name": "_min_amounts"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity",
-    "outputs": [
-      {
-        "type": "uint256[2]",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "uint256[2]",
-        "name": "_min_amounts"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity_imbalance",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "uint256",
-        "name": "_max_burn_amount"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity_imbalance",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256[2]",
-        "name": "_amounts"
-      },
-      {
-        "type": "uint256",
-        "name": "_max_burn_amount"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "calc_withdraw_one_coin",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "int128",
-        "name": "i"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "calc_withdraw_one_coin",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "bool",
-        "name": "_previous"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity_one_coin",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "uint256",
-        "name": "_min_received"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "remove_liquidity_one_coin",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_burn_amount"
-      },
-      {
-        "type": "int128",
-        "name": "i"
-      },
-      {
-        "type": "uint256",
-        "name": "_min_received"
-      },
-      {
-        "type": "address",
-        "name": "_receiver"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "ramp_A",
-    "outputs": [],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "_future_A"
-      },
-      {
-        "type": "uint256",
-        "name": "_future_time"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "stop_ramp_A",
-    "outputs": [],
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "admin_balances",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "i"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "withdraw_admin_fees",
-    "outputs": [],
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "name": "admin",
-    "outputs": [
-      {
-        "type": "address",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "coins",
-    "outputs": [
-      {
-        "type": "address",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "arg0"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "balances",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "uint256",
-        "name": "arg0"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
+    "type": "function",
     "name": "fee",
+    "inputs": [],
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
-    "name": "block_timestamp_last",
+    "stateMutability": "view",
+    "type": "function",
+    "name": "get_virtual_price",
+    "inputs": [],
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
-    "name": "initial_A",
+    "stateMutability": "view",
+    "type": "function",
+    "name": "price_oracle",
+    "inputs": [],
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "uint256"
       }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
+    ]
   },
   {
-    "name": "future_A",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "initial_A_time",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "future_A_time",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "name",
-    "outputs": [
-      {
-        "type": "string",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "symbol",
-    "outputs": [
-      {
-        "type": "string",
-        "name": ""
-      }
-    ],
-    "inputs": [],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "balanceOf",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "name": "initialize",
     "inputs": [
       {
-        "type": "address",
-        "name": "arg0"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "name": "allowance",
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": ""
-      }
-    ],
-    "inputs": [
-      {
-        "type": "address",
-        "name": "arg0"
+        "name": "A",
+        "type": "uint256"
       },
       {
-        "type": "address",
-        "name": "arg1"
+        "name": "gamma",
+        "type": "uint256"
+      },
+      {
+        "name": "mid_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "out_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "allowed_extra_profit",
+        "type": "uint256"
+      },
+      {
+        "name": "fee_gamma",
+        "type": "uint256"
+      },
+      {
+        "name": "adjustment_step",
+        "type": "uint256"
+      },
+      {
+        "name": "admin_fee",
+        "type": "uint256"
+      },
+      {
+        "name": "ma_half_time",
+        "type": "uint256"
+      },
+      {
+        "name": "initial_price",
+        "type": "uint256"
+      },
+      {
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "name": "_coins",
+        "type": "address[2]"
+      },
+      {
+        "name": "_precisions",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
+    "outputs": []
   },
   {
-    "name": "totalSupply",
+    "stateMutability": "view",
+    "type": "function",
+    "name": "token",
+    "inputs": [],
     "outputs": [
       {
-        "type": "uint256",
-        "name": ""
+        "name": "",
+        "type": "address"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "coins",
+    "inputs": [
+      {
+        "name": "arg0",
+        "type": "uint256"
       }
     ],
-    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
+  },
+  {
     "stateMutability": "view",
-    "type": "function"
+    "type": "function",
+    "name": "price_scale",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "last_prices",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "last_prices_timestamp",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "initial_A_gamma",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_A_gamma",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "initial_A_gamma_time",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_A_gamma_time",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "allowed_extra_profit",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_allowed_extra_profit",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "fee_gamma",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_fee_gamma",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "adjustment_step",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_adjustment_step",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "ma_half_time",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_ma_half_time",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "mid_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "out_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "admin_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_mid_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_out_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "future_admin_fee",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "balances",
+    "inputs": [
+      {
+        "name": "arg0",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "D",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "factory",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "xcp_profit",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "xcp_profit_a",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "virtual_price",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "stateMutability": "view",
+    "type": "function",
+    "name": "admin_actions_deadline",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ]
   }
 ]
