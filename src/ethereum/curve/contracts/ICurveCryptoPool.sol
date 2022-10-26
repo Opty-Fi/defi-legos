@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.9.0;
 
-interface CurveCryptoPool {
+interface ICurveCryptoPool {
     event Transfer(address indexed sender, address indexed receiver, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event TokenExchange(
