@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.9.0;
+pragma experimental ABIEncoderV2;
 
 interface ICurveCryptoPoolGauge {
     event Deposit(address indexed provider, uint256 value);
