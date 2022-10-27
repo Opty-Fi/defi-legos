@@ -42,8 +42,6 @@ interface ICurveCryptoPool {
     event StopRampA(uint256 current_A, uint256 current_gamma, uint256 time);
     event ClaimAdminFee(address indexed admin, uint256 tokens);
 
-    fallback() external payable;
-
     function exchange(
         uint256 i,
         uint256 j,
