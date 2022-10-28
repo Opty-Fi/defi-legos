@@ -1,7 +1,7 @@
-import factoryAbi from "./abi/IUniswapV2Factory.json";
-import pairAbi from "./abi/IUniswapV2Pair.json";
-import router01Abi from "./abi/IUniswapV2Router01.json";
-import router02Abi from "./abi/IUniswapV2Router02.json";
+import factoryAbi from "../../uniswapV2/abi/IUniswapV2Factory.json";
+import pairAbi from "../../uniswapV2/abi/IUniswapV2Pair.json";
+import router01Abi from "../../uniswapV2/abi/IUniswapV2Router01.json";
+import router02Abi from "../../uniswapV2/abi/IUniswapV2Router02.json";
 
 const contracts = {
   factory: {
