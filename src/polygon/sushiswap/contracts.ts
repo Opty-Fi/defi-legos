@@ -10,6 +10,7 @@ const contracts = {
     abi: SushiswapMasterChefV2,
     address: "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
   },
+  rootKFactor: "5000000000000000000",
   staking: {
     abi: SushiswapMasterChefV2,
     pools: {

@@ -7,6 +7,7 @@ const contracts = {
   QuickswapFactory: { abi: QuickswapFactoryAbi, address: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32" },
   QuickswapRouter: { abi: QuickswapRouterAbi, address: "0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff" },
   StakingRewardsFactory: { abi: StakingRewardsFactoryAbi, address: "0x8aAA5e259F74c8114e0a471d9f2ADFc66Bfe09ed" },
+  rootKFactor: "5000000000000000000",
   staking: {
     abi: [],
     pools: {},

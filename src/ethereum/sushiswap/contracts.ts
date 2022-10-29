@@ -11,6 +11,7 @@ const contracts = {
   },
   SushiswapFactory: { abi: SushiswapFactoryAbi, address: "0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac" },
   SushiswapRouter: { abi: SushiswapRouterAbi, address: "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f" },
+  rootKFactor: "5000000000000000000",
   staking: {
     abi: SushiswapMasterChefAbi,
     pools: {

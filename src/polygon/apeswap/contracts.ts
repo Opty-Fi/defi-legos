@@ -9,6 +9,7 @@ const contracts = {
     abi: [],
     pools: {},
   },
+  rootKFactor: "333333333333333300",
   liquidity: {
     abi: ApeswapPairAbi,
     pools: {
