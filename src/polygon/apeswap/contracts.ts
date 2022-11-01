@@ -13,7 +13,7 @@ const contracts = {
   liquidity: {
     abi: ApeswapPairAbi,
     pools: {
-      "WMATIC-USDC": {
+      "WMATIC-WETH": {
         pool: "0x6Cf8654e85AB489cA7e70189046D507ebA233613",
         token0: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
         token1: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
