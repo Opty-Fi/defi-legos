@@ -1183,6 +1183,56 @@ const contracts = {
   liquidity: {
     abi: SushiswapPairAbi,
     pools: {
+      "ILV-ETH": {
+        pool: "0x6a091a3406e0073c3cd6340122143009adac0eda",
+        token0: "0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "USDC-ETH": {
+        pool: "0x397ff1542f962076d0bfe58ea045ffa2d347aca0",
+        token0: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "ETH-USDT": {
+        pool: "0x06da0fd433c1a5d7a4faa01111c044910a184553",
+        token0: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        token1: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      },
+      "WBTC-ETH": {
+        pool: "0xceff51756c56ceffca006cd410b03ffc46dd3a58",
+        token0: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "SUSHI-WETH": {
+        pool: "0x795065dCc9f64b5614C407a6EFDC400DA6221FB0",
+        token0: "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "SYN-ETH": {
+        pool: "0x4a86c01d67965f8cb3d0aaa2c655705e64097c31",
+        token0: "0x0f2D719407FdBeFF09D87557AbB7232601FD9F29",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "TOKE-ETH": {
+        pool: "0xd4e7a6e2d03e4e48dfc27dd3f46df1c176647e38",
+        token0: "0x2e9d63788249371f1DFC918a52f8d799F4a38C94",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "ALCX-WETH": {
+        pool: "0xC3f279090a47e80990Fe3a9c30d24Cb117EF91a8",
+        token0: "0xdBdb4d16EdA451D0503b854CF79D55697F90c8DF",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "DAI-ETH": {
+        pool: "0xc3d03e4f041fd4cd388c549ee2a29a9e5075882f",
+        token0: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
+      "PUNK-ETH": {
+        pool: "0x0463a06fbc8bf28b3f120cd1bfc59483f099d332",
+        token0: "0x269616D549D7e8Eaa82DFb17028d0B212D11232A",
+        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      },
       "AAVE-WETH": {
         pool: "0xD75EA151a61d06868E31F8988D28DFE5E9df57B4",
         token0: "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
@@ -1192,11 +1242,6 @@ const contracts = {
         pool: "0xB27C7b131Cf4915BeC6c4Bc1ce2F33f9EE434b9f",
         token0: "0x4d224452801ACEd8B2F0aebE155379bb5D594381",
         token1: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-      },
-      "SUSHI-WETH": {
-        pool: "0x795065dCc9f64b5614C407a6EFDC400DA6221FB0",
-        token0: "0x6B3595068778DD592e39A122f4f5a5cF09C90fE2",
-        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
       },
       "MANA-WETH": {
         pool: "0x1bEC4db6c3Bc499F3DbF289F5499C30d541FEc97",
@@ -1221,11 +1266,6 @@ const contracts = {
       "IMX-WETH": {
         pool: "0x18Cd890F4e23422DC4aa8C2D6E0Bd3F3bD8873d8",
         token0: "0xF57e7e7C23978C3cAEC3C3548E3D615c346e79fF",
-        token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-      },
-      "ALCX-WETH": {
-        pool: "0xC3f279090a47e80990Fe3a9c30d24Cb117EF91a8",
-        token0: "0xdBdb4d16EdA451D0503b854CF79D55697F90c8DF",
         token1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
       },
       "CRV-WETH": {

@@ -4,13 +4,11 @@ pragma solidity >=0.6.0 <=0.9.0;
 pragma experimental ABIEncoderV2;
 
 /**
- * @title Interface for all the DeFi adapters
+ * @title V2 of DeFi Adapter for opty.fi
  * @author Opty.fi
- * @notice Interface with minimal functions to be inhertied in all DeFi adapters
- * @dev Abstraction layer to different DeFi protocols like AaveV1, Compound etc.
+ * @notice Interface with minimal functions to be inhertied in special defi adapters
+ * @dev Abstraction layer to different DEX protocols like Sushi, Curve, Uniswap
  * It is used as a layer for adding any new function which will be used in all DeFi adapters
- * Conventions used:
- *  - lpToken: liquidity pool token
  */
 interface IAdapterV2 {
     /**
