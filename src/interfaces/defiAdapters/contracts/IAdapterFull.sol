@@ -9,6 +9,7 @@ import { IAdapterHarvestReward } from "./IAdapterHarvestReward.sol";
 import { IAdapterStaking } from "./IAdapterStaking.sol";
 import { IAdapterStakingCurve } from "./IAdapterStakingCurve.sol";
 import "./IAdapterInvestLimit.sol";
+import { IAdapterV2 } from "./IAdapterV2.sol";
 
 /**
  * @title Interface containing all functions from different DeFi adapter interfaces
@@ -26,7 +27,8 @@ interface IAdapterFull is
     IAdapterHarvestReward,
     IAdapterStaking,
     IAdapterStakingCurve,
-    IAdapterInvestLimit
+    IAdapterInvestLimit,
+    IAdapterV2
 {
 
 }
