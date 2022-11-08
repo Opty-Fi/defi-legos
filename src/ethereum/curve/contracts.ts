@@ -22,6 +22,7 @@ import CurveFactoryAbi from "./abi/CurveFactory.json";
 import CurveMetaRegistryAbi from "./abi/CurveMetaRegistry.json";
 import CurveCryptoPoolGaugeAbi from "./abi/CurveCryptoPoolGauge.json";
 import CurveCryptoPoolAbi from "./abi/CurveCryptoPool.json";
+import CurveRegistryExchangeAbi from "./abi/CurveRegistryExchange.json";
 
 // Reference: https://curve.readthedocs.io/ref-addresses.html#deployment-addresses
 
@@ -46,6 +47,7 @@ const contracts = {
   CurveMetapoolFactory: { abi: CurveMetapoolFactoryAbi, address: "0x0959158b6040D32d04c301A72CBFD6b39E21c9AE" },
   CurveFactory: { abi: CurveFactoryAbi, address: "0xF18056Bbd320E96A48e3Fbf8bC061322531aac99" },
   CurveMetaRegistry: { abi: CurveMetaRegistryAbi, address: "0xF98B45FA17DE75FB1aD0e7aFD971b0ca00e379fC" },
+  CurveRegistryExchange: { abi: CurveRegistryExchangeAbi, address: "0x55B916Ce078eA594c10a874ba67eCc3d62e29822" },
   CurveMetapoolDeposit: {
     abi: CurveMetapoolDepositAbi,
     pools: {

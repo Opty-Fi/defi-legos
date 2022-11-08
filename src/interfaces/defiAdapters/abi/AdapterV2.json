@@ -1,0 +1,284 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_underlyingTokenAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculateAmountInLPToken",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      }
+    ],
+    "name": "getAllAmountInToken",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      }
+    ],
+    "name": "getDepositAllCodes",
+    "outputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_codes",
+        "type": "bytes[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getDepositSomeCodes",
+    "outputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_codes",
+        "type": "bytes[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      }
+    ],
+    "name": "getLiquidityPoolTokenBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_outputTokenAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getSomeAmountInToken",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      }
+    ],
+    "name": "getWithdrawAllCodes",
+    "outputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_codes",
+        "type": "bytes[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "_vault",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_underlyingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_liquidityPool",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_outputToken",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "getWithdrawSomeCodes",
+    "outputs": [
+      {
+        "internalType": "bytes[]",
+        "name": "_codes",
+        "type": "bytes[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

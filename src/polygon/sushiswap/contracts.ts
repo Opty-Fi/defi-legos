@@ -331,6 +331,51 @@ const contracts = {
   liquidity: {
     abi: SushiswapPairAbi,
     pools: {
+      "MATIC-WETH": {
+        pool: "0xc4e595acdd7d12fec385e5da5d43160e8a0bac0e",
+        token0: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        token1: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      },
+      "USDC-GDDY": {
+        pool: "0xde990994309bc08e57aca82b1a19170ad84323e8",
+        token0: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        token1: "0x67eB41A14C0fe5CD701FC9d5A3D6597A72F641a6",
+      },
+      "USDC-KLIMA": {
+        pool: "0x5786b267d35f9d011c4750e0b0ba584e1fdbead1",
+        token0: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        token1: "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+      },
+      "BCT-KLIMA": {
+        pool: "0x9803c7aE526049210a1725F7487AF26fE2c24614",
+        token0: "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        token1: "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+      },
+      "USDC-WETH": {
+        pool: "0x34965ba0ac2451a34a0471f04cca3f990b8dea27",
+        token0: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        token1: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      },
+      "TUT-WBTC": {
+        pool: "0x5d9ac8993b714df01d079d1b5b0b592e579ca099",
+        token0: "0x12a34A6759c871C4C1E8A0A42CFc97e4D7Aaf68d",
+        token1: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      },
+      "USDC-STG": {
+        pool: "0xa34ec05da1e4287fa351c74469189345990a3f0c",
+        token0: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        token1: "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+      },
+      "TUSD-USDC": {
+        pool: "0x4AB66a7138F50Db9B7aDaF8CE8aFB3F638B22f7f",
+        token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        token1: "0x2e1ad108ff1d8c782fcbbb89aad783ac49586756",
+      },
+      "USDC-NCT": {
+        pool: "0xdb995f975f1bfc3b2157495c47e4efb31196b2ca",
+        token0: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        token1: "0xD838290e877E0188a4A44700463419ED96c16107",
+      },
       "USDC-USDT": {
         pool: "0x4b1f1e2435a9c96f7330faea190ef6a7c8d70001",
         token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
@@ -345,11 +390,6 @@ const contracts = {
         pool: "0x3B31Bb4b6bA4f67F4EF54e78bCb0AAa4f53DC7fF",
         token0: "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
         token1: "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
-      },
-      "TUSD-USDC": {
-        pool: "0x4AB66a7138F50Db9B7aDaF8CE8aFB3F638B22f7f",
-        token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-        token1: "0x2e1ad108ff1d8c782fcbbb89aad783ac49586756",
       },
       "USDT-TUSD": {
         pool: "0x3cd34C1C4363c331Ed44c8edD1c74f459fF7961D",
@@ -2381,11 +2421,6 @@ const contracts = {
         token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
         token1: "0xd664b8d8624750a4f945fe9efb1438e9e021cd56",
       },
-      "USDC-KLIMA": {
-        pool: "0x0d06a8519b064a503bd0085c13756c464746ab7f",
-        token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-        token1: "0xa76715f5da7974036f62b695cf3092224c3b30e9",
-      },
       "USDC-KRL": {
         pool: "0x2a51c9b1cca30fb0b570599dc170a2ebc269cc7d",
         token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
@@ -2550,11 +2585,6 @@ const contracts = {
         pool: "0x10d169ec74682070bac57dcb679db1f82dfc4a72",
         token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
         token1: "0x3053ad3b31600074e9a90440770f78d5e8fc5a54",
-      },
-      "USDC-WETH": {
-        pool: "0x28157e2f3f3fd8a64094d5de94e5cc5218f31cac",
-        token0: "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-        token1: "0x4c28f48448720e9000907bc2611f73022fdce1fa",
       },
       "USDC-WFIL": {
         pool: "0x230e57b69e3d45557e20a6238462564ebf4fe2a9",
