@@ -1,5 +1,6 @@
 {
-  "include": ["src/**/*.ts", "./typechain"],
+  "include": ["src/**/*.ts", "./test", "./typechain"],
+  "files": ["./hardhat.config.ts"],
   "compilerOptions": {
     "resolveJsonModule": true,
     "target": "es2018",
