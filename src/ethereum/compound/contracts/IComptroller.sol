@@ -136,4 +136,7 @@ interface IComptroller {
         address cTokenCollateral,
         uint256 repayAmount
     ) external view returns (uint256, uint256);
+
+    /*** The rate at which comp is distributed to the corresponding supply market (per block) ***/
+    function compSupplySpeeds(address cToken) external view returns (uint256);
 }
