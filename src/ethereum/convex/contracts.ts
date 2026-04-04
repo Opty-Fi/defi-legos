@@ -1,5 +1,9 @@
 import ConvexDepositAbi from "./abi/ConvexDeposit.json";
 import ConvexStakeAbi from "./abi/ConvexStake.json";
+import ConvexBoosterAbi from "./abi/ConvexBooster.json";
+import ConvexBaseRewardPoolAbi from "./abi/ConvexBaseRewardPool.json";
+import ConvexCvxLockerAbi from "./abi/ConvexCvxLocker.json";
+import ConvexCvxRewardPoolAbi from "./abi/ConvexCvxRewardPool.json";
 import ERC20DetailedAbi from "./abi/ERC20Detailed.json";
 import CurveStableSwapAbi from "./abi/CurveStableSwap.json";
 import CurveStableSwapAbi2 from "./abi/CurveStableSwap2.json";
@@ -8,14 +12,34 @@ import CurveStableSwapAbi4 from "./abi/CurveStableSwap4.json";
 import CurvePoolInfoAbi from "./abi/CurvePoolInfo.json";
 
 const contracts = {
+  // Legacy ABIs (kept for backward compatibility)
   ConvexDeposit: { abi: ConvexDepositAbi },
   ConvexStake: { abi: ConvexStakeAbi },
+
+  // Full Convex ABIs
+  ConvexBooster: { abi: ConvexBoosterAbi },
+  ConvexBaseRewardPool: { abi: ConvexBaseRewardPoolAbi },
+  ConvexCvxLocker: { abi: ConvexCvxLockerAbi },
+  ConvexCvxRewardPool: { abi: ConvexCvxRewardPoolAbi },
+
+  // Curve ABIs (used by Convex pools)
   ERC20Detailed: { abi: ERC20DetailedAbi },
   CurveStableSwap: { abi: CurveStableSwapAbi },
   CurveStableSwap2: { abi: CurveStableSwapAbi2 },
   CurveStableSwap3: { abi: CurveStableSwapAbi3 },
   CurveStableSwap4: { abi: CurveStableSwapAbi4 },
   CurvePoolInfo: { abi: CurvePoolInfoAbi },
+
+  // Convex core contract addresses
+  booster: "0xF403C135812408BFbE8713b5A23a04b3D48AAE31",
+  cvxToken: "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B",
+  cvxCrvToken: "0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7",
+  crvToken: "0xD533a949740bb3306d119CC777fa900bA034cd52",
+  cvxLocker: "0x72a19342e8F1838460eBFCCEf09F6585e32db86E",
+  cvxRewardPool: "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+  cvxCrvStaking: "0x3Fe65692bfCD0e6CF84Cb1E7d24108E434A7587e",
+  crvDepositor: "0x8014595F2AB54cD7c604B00E9fb932176fDc86Ae",
+
   pools: {
     compound: {
       pool: "0x32512Bee3848bfcBb7bEAf647aa697a100f3b706",
