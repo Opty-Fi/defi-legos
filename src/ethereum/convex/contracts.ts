@@ -1,4 +1,40 @@
-import ConvexDepositAbi from "./abi/ConvexDeposit.json";
+/**
+ * Convex Finance Solidity Interfaces and Pool Data
+ * Used for DeFi Adapters and opty-fi megagraph unit testing
+ */
+
+// Core Convex Contract Addresses (Ethereum Mainnet)
+export const CONVEX_BOOSTER = "0xF403C135812408BFbE8713b5A23a04b3D48AAE31";
+export const CONVEX_VOTER_PROXY = "0x989aEB4d175E16225E39E87d0D97A3360524AD80";
+export const CONVEX_CVX_TOKEN = "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B";
+export const CONVEX_CRV_TOKEN = "0xD533a949740bb3306d119CC777fa900bA034cd52";
+
+// Sample Pool Data following opty.fi type definitions
+export const CONVEX_POOLS = [
+  {
+    id: "1",
+    name: "stETH",
+    lpToken: "0x06325440D014e39736583c165C2963BA99fAf14E",
+    gauge: "0x182B723a58739a9c974cFDB385ceaDb237453c28",
+    rewardTokens: [CONVEX_CRV_TOKEN, CONVEX_CVX_TOKEN],
+    isMetaPool: false,
+  },
+  {
+    id: "2",
+    name: "FRAXBP",
+    lpToken: "0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC",
+    gauge: "0xCFc25170633581Bf896CB6CDeE170e3E3Aa59503",
+    rewardTokens: [CONVEX_CRV_TOKEN, CONVEX_CVX_TOKEN],
+    isMetaPool: true,
+  },
+] as const;
+
+// Minimal Solidly Interface ABI fragments for Adapter integration
+export const IConvexBooster_ABI = [
+  "function poolInfo(uint256) view returns (address lptoken, address token, address gauge, address crvRewards, address stash, bool shutdown)",
+  "function deposit(uint256 pid, uint256 amount, bool stake) external returns (bool)",
+  "function withdraw(uint256 pid, uint256 amount) external returns (bool)",
+];
 import ConvexStakeAbi from "./abi/ConvexStake.json";
 import ERC20DetailedAbi from "./abi/ERC20Detailed.json";
 import CurveStableSwapAbi from "./abi/CurveStableSwap.json";
