@@ -2,6 +2,7 @@ import { default as tokens } from "./tokens";
 import { default as aave } from "./aave";
 import { default as aavev2 } from "./aavev2";
 import { default as compound } from "./compound";
+import { default as convex } from "./convex";
 import { default as cream } from "./cream";
 import { default as curve } from "./curve";
 import { default as dforce } from "./dforce";
@@ -20,6 +21,7 @@ export const legos = {
   aave,
   aavev2,
   compound,
+  convex,
   cream,
   curve,
   dforce,
